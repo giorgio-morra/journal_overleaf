@@ -37,10 +37,10 @@
 \begin{document}
 \begin{center}
 {\LARGE\bfseries Trajectory Estimation for a Venus Aerobot Balloon\\[2pt] during Deep Space Network Occlusion}\\[8pt]
-{\large Giorgio Morra}\\[2pt]
+{\normalsize Giorgio Morra}\\[2pt]
 {\small Politecnico di Milano \quad $\cdot$ \quad Jet Propulsion Laboratory, Caltech \quad $\cdot$ \quad A.Y.~2025--26}\\[3pt]
-{\small Advisor: Prof.~Francesco Braghin (Politecnico di Milano)}\\[1pt]
-{\small Co-advisors: Dr.~Marco B.~Quadrelli, Dr.~Federico Rossi (Jet Propulsion Laboratory)}
+{\normalsize Advisor: Prof.~Francesco Braghin (Politecnico di Milano)}\\[1pt]
+{\normalsize Co-advisors: Dr.~Marco B.~Quadrelli, Dr.~Federico Rossi (Jet Propulsion Laboratory)}
 \end{center}
 \begin{abstract}\small\noindent
 At Venus, absolute position is normally recovered through radiometric tracking by the Deep Space Network (DSN). When a balloon drifts onto the far side of the planet, Venus occults the line of sight: a blackout of up to \SI{65}{h}, during which about \SI{14508}{km} are flown with no contact. This work estimates the trajectory of a Venus aerobot across the occlusion by fusing an IMU, a Sun sensor, a radar altimeter and a barometer. A Multiplicative Extended Kalman Filter tracks the attitude and a particle filter tracks the position, coupled in a cascade that re-injects every transferred uncertainty as an inflated measurement covariance. Monte Carlo campaigns of 100 runs give a position RMSE of \SI{26.7}{km}, never worse than \SI{34.3}{km}, within the \SI{50}{km} requirement. A single Sun channel raises convergence from about 60\% to 98--99\%, while the accuracy is set by the onboard atmospheric model rather than by the Sun sensor.
