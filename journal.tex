@@ -1,73 +1,62 @@
-\documentclass[11pt]{article}
-\usepackage[a4paper,margin=2.4cm]{geometry}
-\usepackage{mathptmx}
-\usepackage[T1]{fontenc}
+\documentclass[preprint,12pt,a4paper]{elsarticle}
+% Acta Astronautica (Elsevier) template, single column
+
 \usepackage{amsmath,amssymb}
-\usepackage{graphicx,booktabs,xcolor,microtype,siunitx,array}
-\usepackage[font=small,labelfont=bf,labelsep=period,justification=justified]{caption}
-\usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
+\usepackage{graphicx,booktabs,siunitx,array}
 \usepackage{float}
+\usepackage[hidelinks]{hyperref}
 \graphicspath{{figures/}}
 
-\definecolor{accent}{HTML}{8C1D18}
-\titleformat{\section}{\large\bfseries\color{accent}}{\thesection.}{0.5em}{\MakeUppercase}
-\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
-\titlespacing*{\section}{0pt}{1.1ex plus .3ex}{0.7ex}
-\titlespacing*{\subsection}{0pt}{0.9ex plus .2ex}{0.4ex}
-\setlength{\parindent}{1.2em}\linespread{1.05}
-\setlength{\parskip}{0pt}
-\setlist{nosep,leftmargin=1.3em}
-\captionsetup{skip=3pt}
-\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
-\setlength{\floatsep}{8pt plus 2pt minus 2pt}
-\setlength{\intextsep}{8pt plus 2pt minus 2pt}
-\renewcommand{\topfraction}{0.9}\renewcommand{\bottomfraction}{0.9}
-\renewcommand{\textfraction}{0.08}\renewcommand{\floatpagefraction}{0.6}
-\renewcommand{\dbltopfraction}{0.9}\renewcommand{\dblfloatpagefraction}{0.75}
-\pagestyle{fancy}\fancyhf{}
-\fancyhead[L]{\small\itshape Trajectory Estimation for a Venus Aerobot during DSN Occlusion}
-\fancyhead[R]{\small G.~Morra}
-\fancyfoot[C]{\small\thepage}
-\renewcommand{\headrulewidth}{0.3pt}
-\newcommand{\fw}{0.6\linewidth}
+\journal{Acta Astronautica}
+
+\newcommand{\Fig}[3]{\begin{figure}[H]\centering\includegraphics[width=#2\linewidth,height=0.32\textheight,keepaspectratio]{#1}\caption{#3}\end{figure}}
 
 \begin{document}
-\begin{center}
-{\LARGE\bfseries Trajectory Estimation for a Venus Aerobot Balloon\\[2pt] during Deep Space Network Occlusion}\\[8pt]
-{\normalsize Giorgio Morra}\\[2pt]
-{\small Politecnico di Milano \quad $\cdot$ \quad Jet Propulsion Laboratory, Caltech \quad $\cdot$ \quad A.Y.~2025--26}\\[3pt]
-{\normalsize Advisor: Prof.~Francesco Braghin (Politecnico di Milano)}\\[1pt]
-{\normalsize Co-advisors: Dr.~Marco B.~Quadrelli, Dr.~Federico Rossi (Jet Propulsion Laboratory)}
-\end{center}
-\begin{abstract}\small\noindent
+
+\begin{frontmatter}
+
+\title{Trajectory Estimation for a Venus Aerobot Balloon during Deep Space Network Occlusion}
+
+\author[polimi,jpl]{Giorgio Morra\corref{cor1}}
+\ead{giorgiomorra8@gmail.com}
+\author[polimi]{Francesco Braghin}
+\author[jpl]{Marco B. Quadrelli}
+\author[jpl]{Federico Rossi}
+
+\cortext[cor1]{Corresponding author}
+
+\affiliation[polimi]{organization={Department of Mechanical Engineering, Politecnico di Milano},
+            city={Milano},
+            country={Italy}}
+\affiliation[jpl]{organization={Jet Propulsion Laboratory, California Institute of Technology},
+            city={Pasadena},
+            state={CA},
+            country={USA}}
+
+\begin{abstract}
 At Venus, absolute position is normally recovered through radiometric tracking by the Deep Space Network (DSN). When a balloon drifts onto the far side of the planet, Venus occults the line of sight: a blackout of up to \SI{65}{h}, during which about \SI{14508}{km} are flown with no contact. This work estimates the trajectory of a Venus aerobot across the occlusion by fusing an IMU, a Sun sensor, a radar altimeter and a barometer. A Multiplicative Extended Kalman Filter tracks the attitude and a particle filter tracks the position, coupled in a cascade that re-injects every transferred uncertainty as an inflated measurement covariance. Monte Carlo campaigns of 100 runs give a position RMSE of \SI{26.7}{km}, never worse than \SI{34.3}{km}, within the \SI{50}{km} requirement. A single Sun channel raises convergence from about 60\% to 98--99\%, while the accuracy is set by the onboard atmospheric model rather than by the Sun sensor.
 \end{abstract}
-\vspace{4pt}\hrule\vspace{6pt}
-\renewcommand{\contentsname}{INDEX}
-\setcounter{tocdepth}{2}{\footnotesize\tableofcontents}
-\vspace{4pt}\hrule\vspace{6pt}
 
-\newcommand{\Fig}[3]{\begin{figure}[H]\centering\includegraphics[width=#2\linewidth,height=0.38\textheight,keepaspectratio]{#1}\caption{#3}\end{figure}}
+\begin{keyword}
+Venus aerobot \sep Autonomous navigation \sep Multiplicative extended Kalman filter \sep Particle filter \sep DSN blackout \sep Sensor fusion
+\end{keyword}
 
-\section{Introduction and State of the Art}
+\end{frontmatter}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\section{Introduction}
 \subsection{Venus and the Balloon Mission}
-\Fig{venus_photo_white.jpg}{0.40}{Venus seen by Mariner 10: a global, unbroken deck of sulfuric-acid clouds hides the surface from visible-wavelength instruments (NASA/JPL-Caltech).}
-\Fig{venus_profile.png}{0.91}{Temperature, pressure and zonal wind between 45 and 75 km (Venus Climate Database). At 50--60 km conditions approach Earth's, with a zonal wind of about 62 m/s.}
 \Fig{aerobot_concept.jpg}{0.40}{The two-part variable-altitude aerobot: helium pumped into the inner envelope makes the vehicle descend, venting it makes it rise (52--62 km). Adapted from Hall et al.}
 
 \subsection{The Localization Problem}
-\Fig{planetary_wave_geopotential.png}{0.91}{Planetary-scale Rossby--Kelvin wave: wavenumber-one geopotential anomaly sweeping around the planet with a 5.65-day period (Lai et al.).}
-\Fig{mesoscale_gravity_waves_clouds.png}{0.81}{Meso-scale gravity-wave packets in VIRTIS-M cloud imagery, with wavelengths of tens of km and not tied to any topography (Silva et al.).}
-\Fig{orographic_wave_crosssection.png}{0.61}{Orographic waves: longitude--altitude cross-sections of vertical wind, Scorer parameter and pressure perturbation, anchored to the topography (Lef\`evre et al.).}
 \Fig{groundtrack_dispersion.png}{0.72}{Nominal mean-field ground track vs. ten wind-perturbed realisations from the same initial state: the error grows at about 14 km/h, roughly 900 km at the end of the 65 h blackout.}
 
-\subsection{State of the Art}
+\section{State of the Art}
 \begin{table}[H]\centering\small
 \caption{Navigation architectures for a Venus balloon, compared with this work.}
-\begin{tabular}{@{}p{2.6cm}p{3.6cm}p{3.6cm}p{3.6cm}@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.6cm}*{3}{>{\raggedright\arraybackslash}p{3.1cm}}@{}}
 \toprule & Ploen et al. & Cottrill and Gu & This work\\\midrule
 Approach & Bias-compensated inertial navigation, rotated IMU & Inertial navigation, map matching and particle filter, 15 states, 5000 particles & Coupled MEKF and particle filter, 9-state attitude error and 6-state position, 1000 particles\\
 Measurements & IMU only, with orbiter updates & IMU, altimeter, barometer & IMU, altimeter, barometer, Sun sensor\\
@@ -78,35 +67,28 @@ Reported error & Not reported & 47.95 km position RMSE & 26.7 km position RMSE\\
 \end{table}
 
 \section{Dynamic Model and Sensor Simulation}
-\subsection{Reference Frames and Time Systems}
+\subsection{Reference Frames, Time Systems and Simulation Environment}
 \Fig{frames.png}{0.96}{Reference frames: (a) inertial VCI/J2000 and planet-fixed VCVF; (b) local ENU frame and body frame at the vehicle, tilted by $\delta$ from the local vertical.}
 \subsection{Balloon 6-DoF Dynamics}
-\Fig{trajectory_vcvf.png}{0.61}{Ground-truth trajectory over the 100 h reference run in VCVF coordinates (green: start, red: end).}
-\Fig{attitude_evolution.png}{0.96}{Truth attitude over five minutes. Left: roll and pitch (damped pendulum, within about $1^\circ$ of the vertical). Right: yaw, which has no restoring moment and drifts freely.}
-
-\subsection{Simulation Environment}
-\Fig{space_environment.png}{0.66}{Space environment at the start epoch from SPICE: positions of Sun, Earth and balloon relative to Venus, with J2000, IAU\_VENUS and ENU axes.}
 \subsection{Sun Sensor}
-\Fig{sun_vs_altitude.png}{0.96}{Solar disk seen from below the cloud deck at 70, 69.2 and 66 km: the direct beam is invisible at 66 km, so an optical Sun sensor is not feasible.}
-\Fig{microwave_weighting.png}{0.75}{Weighting functions of the Venus atmosphere between 1 and 85 GHz: below about 18 GHz the atmosphere above the balloon is transparent to the Sun, which motivates a microwave Sun sensor.}
 \subsection{Radar Altimeter}
-\Fig{topography_map.png}{0.96}{Magellan global topography used as the altimeter look-up table. Aphrodite Terra and Ishtar Terra make the altimeter informative; the plains are where it is weakest.}
 \Fig{altimeter_raytracing.png}{0.81}{Altimeter ray casting along the body $-Z$ axis against the reference ellipsoid; the terrain elevation at the hit point sets the slant range.}
-\subsection{Summary of the Measurement Set}
+\paragraph{Remark on the measurement set.} % formerly Sec. 2.5, now a remark
 
 \section{Estimation Architecture}
 \subsection{The Cascade Architecture}
-\Fig{architecture.png}{1.00}{Coupled estimation architecture: attitude MEKF (a) and position particle filter (b). Solid arrows are estimates, dashed red arrows are uncertainties.}
-
-
+\begin{figure}[H]\centering
+\includegraphics[width=1.0\linewidth,height=0.28\textheight,keepaspectratio]{architecture.png}\\[4pt]
+\includegraphics[width=0.56\linewidth,height=0.28\textheight,keepaspectratio]{pf_cycle.png}
+\caption{Estimation architecture. Top: coupled attitude MEKF (a) and position particle filter (b); solid arrows are estimates, dashed red arrows are uncertainties. Bottom: one cycle of the position particle filter (prediction, update with the robust Student-$t$ likelihood, resampling with roughening when $N_{eff}<0.5N$, position estimate).}
+\end{figure}
 \subsection{Attitude Estimation: the Multiplicative Extended Kalman Filter}
 \subsection{Position Estimation: the Particle Filter}
 \Fig{multimodality.png}{0.96}{Multimodal posterior represented by the particle swarm: competing location hypotheses coexist as clusters until the measurements single one out.}
-\Fig{pf_cycle.png}{0.56}{One cycle of the position particle filter: prediction, update with the robust Student-$t$ likelihood, resampling with roughening when $N_{eff}<0.5N$, position estimate.}
 \subsection{Uncertainty Exchange Between the Two Filters}
 \begin{table}[H]\centering\small
 \caption{Quantities exchanged between the two estimators at each epoch. Three of the five entries are uncertainties rather than values.}
-\begin{tabular}{@{}lll@{}}
+\begin{tabular}{@{}llp{8.5cm}@{}}
 \toprule Quantity & Direction & Purpose in the receiving filter\\\midrule
 $\bar q_k$ & MEKF $\to$ PF & tilts the altimeter slant range; builds the measured horizon frame\\
 $\bar b_{a,k}$ & MEKF $\to$ PF & de-biases the specific force before the vertical is reconstructed\\
@@ -115,23 +97,17 @@ $\hat p_k$ & PF $\to$ MEKF & builds the local-vertical and Sun references\\
 $\sigma_{p,k}$ & PF $\to$ MEKF & inflates the accelerometer and Sun measurement noise\\\bottomrule
 \end{tabular}
 \end{table}
-\subsection{The Longitude Problem and the Role of the Sun Sensor}
+\paragraph{Remark on the longitude problem and the role of the Sun sensor.} % formerly Sec. 3.5, now a remark
 \Fig{terrain_trapping.png}{1.00}{Terrain trapping with altimeter and barometer only: the estimate stays locked on one side of a massif (4 runs out of 10 diverge), motivating the Sun channel.}
-\subsection{Results of a Single Reference Run}
-\Fig{singlerun_gyro_bias.png}{0.81}{Single run: gyroscope bias, truth vs. MEKF estimate (left) and error against the declared $\pm3\sigma$ (right).}
-\Fig{singlerun_accel_bias.png}{0.81}{Single run: accelerometer bias, truth vs. MEKF estimate (left) and error against the declared $\pm3\sigma$ (right).}
-\Fig{singlerun_attitude_zoom.png}{0.81}{Single run: estimated vs. true roll, pitch and yaw over a 10 min window, with the MEKF $\pm3\sigma$ band.}
-\Fig{singlerun_position_estimation.png}{0.81}{Single run: particle-filter position mean vs. truth (latitude, longitude, altitude).}
-\Fig{singlerun_position_error.png}{0.81}{Single run: horizontal position error (RMSE 23.7 km, maximum about 80 km) and per-axis error against the declared $\pm3\sigma$.}
-\Fig{singlerun_particle_tracking.png}{1.00}{Particle swarm over the local topography at $t=57.5$ h, with true and estimated positions.}
-\Fig{singlerun_velocity_estimation.png}{0.81}{Single run: particle-filter velocity mean vs. truth in the local ENU frame.}
-\Fig{singlerun_neff.png}{0.91}{Effective sample size $N_{eff}/N$ over the run, with the resampling threshold.}
-\Fig{singlerun_innovations.png}{0.81}{Mean absolute residual over the swarm for the four particle-filter channels (barometer, altimeter, Sun azimuth, Sun elevation).}
-\Fig{singlerun_sensor_usage.png}{0.81}{Sensor usage over Sun-visible epochs: duty cycle, share of the particle filter's selection, and share over time.}
 
 \section{Simulations and Results}
 \subsection{Simulation Setup}
 \Fig{campaign_trajectories.png}{0.86}{Ground tracks of 10 Monte Carlo runs, launched at longitude $0^\circ$ with latitude uniform in $[-20^\circ,20^\circ]$.}
+\subsection{Reference Run} % formerly Sec. 3.6
+\Fig{singlerun_attitude_zoom.png}{0.81}{Single run: estimated vs. true roll, pitch and yaw over a 10 min window, with the MEKF $\pm3\sigma$ band.}
+\Fig{singlerun_position_estimation.png}{0.81}{Single run: particle-filter position mean vs. truth (latitude, longitude, altitude).}
+\Fig{singlerun_position_error.png}{0.81}{Single run: horizontal position error (RMSE 23.7 km, maximum about 80 km) and per-axis error against the declared $\pm3\sigma$.}
+\Fig{singlerun_particle_tracking.png}{1.00}{Particle swarm over the local topography at $t=57.5$ h, with true and estimated positions.}
 \subsection{Sensitivity to the Atmospheric Model}
 \Fig{atmos_sensitivity.png}{0.96}{Atmosphere campaign (100 runs): reading the database five Venusian hours out of phase costs 7.6 km of RMSE (26.7 to 34.3 km).}
 \begin{table}[H]\centering\small
@@ -157,5 +133,29 @@ $1\times10^{-1}$ deg & 25.7 & 95.3 & 1/100\\\bottomrule
 \section{Conclusions and Future Work}
 \subsection{Main Findings}
 \subsection{Limitations and Future Work}
+
+\clearpage
+\appendix
+\section{Additional Figures}
+\subsection{Background and Environment}
+\Fig{venus_photo_white.jpg}{0.40}{Venus seen by Mariner 10: a global, unbroken deck of sulfuric-acid clouds hides the surface from visible-wavelength instruments (NASA/JPL-Caltech).}
+\Fig{venus_profile.png}{0.91}{Temperature, pressure and zonal wind between 45 and 75 km (Venus Climate Database). At 50--60 km conditions approach Earth's, with a zonal wind of about 62 m/s.}
+\Fig{planetary_wave_geopotential.png}{0.91}{Planetary-scale Rossby--Kelvin wave: wavenumber-one geopotential anomaly sweeping around the planet with a 5.65-day period (Lai et al.).}
+\Fig{mesoscale_gravity_waves_clouds.png}{0.81}{Meso-scale gravity-wave packets in VIRTIS-M cloud imagery, with wavelengths of tens of km and not tied to any topography (Silva et al.).}
+\Fig{orographic_wave_crosssection.png}{0.61}{Orographic waves: longitude--altitude cross-sections of vertical wind, Scorer parameter and pressure perturbation, anchored to the topography (Lef\`evre et al.).}
+\Fig{trajectory_vcvf.png}{0.61}{Ground-truth trajectory over the 100 h reference run in VCVF coordinates (green: start, red: end).}
+\Fig{attitude_evolution.png}{0.96}{Truth attitude over five minutes. Left: roll and pitch (damped pendulum, within about $1^\circ$ of the vertical). Right: yaw, which has no restoring moment and drifts freely.}
+\Fig{space_environment.png}{0.66}{Space environment at the start epoch from SPICE: positions of Sun, Earth and balloon relative to Venus, with J2000, IAU\_VENUS and ENU axes.}
+\subsection{Sensors}
+\Fig{sun_vs_altitude.png}{0.96}{Solar disk seen from below the cloud deck at 70, 69.2 and 66 km: the direct beam is invisible at 66 km, so an optical Sun sensor is not feasible.}
+\Fig{microwave_weighting.png}{0.75}{Weighting functions of the Venus atmosphere between 1 and 85 GHz: below about 18 GHz the atmosphere above the balloon is transparent to the Sun, which motivates a microwave Sun sensor.} % TODO: source to be confirmed (Federico's question)
+\Fig{topography_map.png}{0.96}{Magellan global topography used as the altimeter look-up table. Aphrodite Terra and Ishtar Terra make the altimeter informative; the plains are where it is weakest.} % TODO: source to be confirmed (Federico's question)
+\subsection{Additional Reference-Run Results}
+\Fig{singlerun_gyro_bias.png}{0.81}{Single run: gyroscope bias, truth vs. MEKF estimate (left) and error against the declared $\pm3\sigma$ (right).}
+\Fig{singlerun_accel_bias.png}{0.81}{Single run: accelerometer bias, truth vs. MEKF estimate (left) and error against the declared $\pm3\sigma$ (right).}
+\Fig{singlerun_velocity_estimation.png}{0.81}{Single run: particle-filter velocity mean vs. truth in the local ENU frame.}
+\Fig{singlerun_neff.png}{0.91}{Effective sample size $N_{eff}/N$ over the run, with the resampling threshold.}
+\Fig{singlerun_innovations.png}{0.81}{Mean absolute residual over the swarm for the four particle-filter channels (barometer, altimeter, Sun azimuth, Sun elevation).}
+\Fig{singlerun_sensor_usage.png}{0.81}{Sensor usage over Sun-visible epochs: duty cycle, share of the particle filter's selection, and share over time.}
 
 \end{document}

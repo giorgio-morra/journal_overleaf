@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  12 OCT 2026 10:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  15 OCT 2026 16:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -7,159 +7,44 @@ entering extended mode
 (/Users/giorgiomorra/Desktop/journal_overleaf/journal.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
-(/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+(/usr/local/texlive/2026/texmf-dist/tex/latex/elsarticle/elsarticle.cls
+Document Class: elsarticle 2026/01/09, 3.5: Elsevier Ltd
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2026-01-19 L3 programming layer (loader) 
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count275
+)) (/usr/local/texlive/2026/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2025-10-09 L3 Experimental document command parser
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count276
 )
-\c@part=\count275
-\c@section=\count276
-\c@subsection=\count277
-\c@subsubsection=\count278
-\c@paragraph=\count279
-\c@subparagraph=\count280
-\c@figure=\count281
-\c@table=\count282
+\@bls=\dimen148
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2026/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count277
+\c@section=\count278
+\c@subsection=\count279
+\c@subsubsection=\count280
+\c@paragraph=\count281
+\c@subparagraph=\count282
+\c@figure=\count283
+\c@table=\count284
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
-\bibindent=\dimen148
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2026/03/07 v6.0 Page Geometry
+\bibindent=\dimen149
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
-) (/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/ifvtex.sty
-Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
-))
-\Gm@cnth=\count283
-\Gm@cntv=\count284
-\c@Gm@tempcnt=\count285
-\Gm@bindingoffset=\dimen149
-\Gm@wd@mp=\dimen150
-\Gm@odd@mp=\dimen151
-\Gm@even@mp=\dimen152
-\Gm@layoutwidth=\dimen153
-\Gm@layoutheight=\dimen154
-\Gm@layouthoffset=\dimen155
-\Gm@layoutvoffset=\dimen156
-\Gm@dimlist=\toks18
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/psnfss/mathptmx.sty
-Package: mathptmx 2020/03/25 PSNFSS-v9.3 Times w/ Math, improved (SPQR, WaS) 
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/ztmcm/m/n on input line 28.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/ztmcm/m/n on input line 28.
-LaTeX Font Info:    Redeclaring symbol font `letters' on input line 29.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/cmm/m/it --> OML/ztmcm/m/it on input line 29.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/cmm/b/it --> OML/ztmcm/m/it on input line 29.
-LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 30.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> OMS/ztmcm/m/n on input line 30.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> OMS/ztmcm/m/n on input line 30.
-LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 31.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
-\symbold=\mathgroup4
-\symitalic=\mathgroup5
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 35.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
-LaTeX Info: Redefining \hbar on input line 50.
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 116.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/psnfss/t1ptm.fd
-File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-)) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2025/07/09 v2.17z AMS math features
-\@mathmargin=\skip51
-
-For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2024/11/17 v2.01 AMS text
- (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks19
-\ex@=\dimen157
-)) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen158
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2022/04/08 v2.04 operator names
-)
-\inf@bad=\count286
-LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count287
-\leftroot@=\count288
-LaTeX Info: Redefining \overline on input line 398.
-LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count289
-\DOTSCASE@=\count290
-LaTeX Info: Redefining \ldots on input line 495.
-LaTeX Info: Redefining \dots on input line 498.
-LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box53
-\strutbox@=\box54
-LaTeX Info: Redefining \big on input line 721.
-LaTeX Info: Redefining \Big on input line 722.
-LaTeX Info: Redefining \bigg on input line 723.
-LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen159
-LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count291
-LaTeX Info: Redefining \bmod on input line 904.
-LaTeX Info: Redefining \pmod on input line 909.
-LaTeX Info: Redefining \smash on input line 939.
-LaTeX Info: Redefining \relbar on input line 969.
-LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count292
-\dotsspace@=\muskip17
-\c@parentequation=\count293
-\dspbrk@lvl=\count294
-\tag@help=\toks20
-\row@=\count295
-\column@=\count296
-\maxfields@=\count297
-\andhelp@=\toks21
-\eqnshift@=\dimen160
-\alignsep@=\dimen161
-\tagshift@=\dimen162
-\tagwidth@=\dimen163
-\totwidth@=\dimen164
-\lineht@=\dimen165
-\@envbody=\toks22
-\multlinegap=\skip52
-\multlinetaggap=\skip53
-\mathdisplay@stack=\toks23
-LaTeX Info: Redefining \[ on input line 2950.
-LaTeX Info: Redefining \] on input line 2951.
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup6
-\symAMSb=\mathgroup7
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
  (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
@@ -170,94 +55,155 @@ Package graphics Info: Driver file: pdftex.def on input line 106.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen166
-\Gin@req@width=\dimen167
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/booktabs/booktabs.sty
+\Gin@req@height=\dimen150
+\Gin@req@width=\dimen151
+)
+\c@tnote=\count285
+\c@fnote=\count286
+\c@cnote=\count287
+\c@ead=\count288
+\c@elsarticle@author=\count289
+\@eadauthor=\toks18
+\c@affn=\count290
+\absbox=\box53
+\elsarticlehighlightsbox=\box54
+\elsarticlegrabsbox=\box55
+\keybox=\box56
+\Columnwidth=\dimen152
+\space@left=\dimen153
+\els@boxa=\box57
+\els@boxb=\box58
+\leftMargin=\dimen154
+\@enLab=\toks19
+\@sep=\skip51
+\@@sep=\skip52
+ (./journal.spl) (/usr/local/texlive/2026/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip53
+\bibsep=\skip54
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count291
+)
+\splwrite=\write3
+\openout3 = `journal.spl'.
+
+\appnamewidth=\dimen155
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip55
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks20
+\ex@=\dimen156
+)) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen157
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count292
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count293
+\leftroot@=\count294
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count295
+\DOTSCASE@=\count296
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box59
+\strutbox@=\box60
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen158
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count297
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count298
+\dotsspace@=\muskip17
+\c@parentequation=\count299
+\dspbrk@lvl=\count300
+\tag@help=\toks21
+\row@=\count301
+\column@=\count302
+\maxfields@=\count303
+\andhelp@=\toks22
+\eqnshift@=\dimen159
+\alignsep@=\dimen160
+\tagshift@=\dimen161
+\tagwidth@=\dimen162
+\totwidth@=\dimen163
+\lineht@=\dimen164
+\@envbody=\toks23
+\multlinegap=\skip56
+\multlinetaggap=\skip57
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/local/texlive/2026/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen168
-\lightrulewidth=\dimen169
-\cmidrulewidth=\dimen170
-\belowrulesep=\dimen171
-\belowbottomsep=\dimen172
-\aboverulesep=\dimen173
-\abovetopsep=\dimen174
-\cmidrulesep=\dimen175
-\cmidrulekern=\dimen176
-\defaultaddspace=\dimen177
-\@cmidla=\count298
-\@cmidlb=\count299
-\@aboverulesep=\dimen178
-\@belowrulesep=\dimen179
-\@thisruleclass=\count300
-\@lastruleclass=\count301
-\@thisrulewidth=\dimen180
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
- (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: pdftex.def on input line 274.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
-Package xcolor Info: Model `RGB' extended on input line 1365.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype.sty
-Package: microtype 2026/03/01 v3.2d Micro-typographical refinements (RS)
- (/usr/local/texlive/2026/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count302
-)
-\MT@toks=\toks24
-\MT@tempbox=\box55
-\MT@count=\count303
-LaTeX Info: Redefining \noprotrusionifhmode on input line 1084.
-LaTeX Info: Redefining \leftprotrusion on input line 1085.
-\MT@prot@toks=\toks25
-LaTeX Info: Redefining \rightprotrusion on input line 1104.
-LaTeX Info: Redefining \textls on input line 1449.
-\MT@outer@kern=\dimen181
-LaTeX Info: Redefining \microtypecontext on input line 2053.
-LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
-\MT@listname@count=\count304
- (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype-pdftex.def
-File: microtype-pdftex.def 2026/03/01 v3.2d Definitions specific to pdftex (RS)
-LaTeX Info: Redefining \lsstyle on input line 944.
-LaTeX Info: Redefining \lslig on input line 944.
-\MT@outer@space=\skip54
-)
-Package microtype Info: Loading configuration file microtype.cfg.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2026/03/01 v3.2d microtype main configuration file (RS)
-)
-LaTeX Info: Redefining \microtypesetup on input line 3065.
+\heavyrulewidth=\dimen165
+\lightrulewidth=\dimen166
+\cmidrulewidth=\dimen167
+\belowrulesep=\dimen168
+\belowbottomsep=\dimen169
+\aboverulesep=\dimen170
+\abovetopsep=\dimen171
+\cmidrulesep=\dimen172
+\cmidrulekern=\dimen173
+\defaultaddspace=\dimen174
+\@cmidla=\count304
+\@cmidlb=\count305
+\@aboverulesep=\dimen175
+\@belowrulesep=\dimen176
+\@thisruleclass=\count306
+\@lastruleclass=\count307
+\@thisrulewidth=\dimen177
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
-\l__siunitx_number_uncert_offset_int=\count305
-\l__siunitx_number_exponent_fixed_int=\count306
-\l__siunitx_number_min_decimal_int=\count307
-\l__siunitx_number_min_integer_int=\count308
-\l__siunitx_number_round_precision_int=\count309
-\l__siunitx_number_lower_threshold_int=\count310
-\l__siunitx_number_upper_threshold_int=\count311
-\l__siunitx_number_group_first_int=\count312
-\l__siunitx_number_group_size_int=\count313
-\l__siunitx_number_group_minimum_int=\count314
-\l__siunitx_angle_tmp_dim=\dimen182
-\l__siunitx_angle_marker_box=\box56
-\l__siunitx_angle_unit_box=\box57
-\l__siunitx_compound_count_int=\count315
+\l__siunitx_number_uncert_offset_int=\count308
+\l__siunitx_number_exponent_fixed_int=\count309
+\l__siunitx_number_min_decimal_int=\count310
+\l__siunitx_number_min_integer_int=\count311
+\l__siunitx_number_round_precision_int=\count312
+\l__siunitx_number_lower_threshold_int=\count313
+\l__siunitx_number_upper_threshold_int=\count314
+\l__siunitx_number_group_first_int=\count315
+\l__siunitx_number_group_size_int=\count316
+\l__siunitx_number_group_minimum_int=\count317
+\l__siunitx_angle_tmp_dim=\dimen178
+\l__siunitx_angle_marker_box=\box61
+\l__siunitx_angle_unit_box=\box62
+\l__siunitx_compound_count_int=\count318
  (/usr/local/texlive/2026/texmf-dist/tex/latex/translations/translations.sty
 Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
@@ -265,63 +211,35 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 ))
-\l__siunitx_table_tmp_box=\box58
-\l__siunitx_table_tmp_dim=\dimen183
-\l__siunitx_table_column_width_dim=\dimen184
-\l__siunitx_table_integer_box=\box59
-\l__siunitx_table_decimal_box=\box60
-\l__siunitx_table_uncert_box=\box61
-\l__siunitx_table_before_box=\box62
-\l__siunitx_table_after_box=\box63
-\l__siunitx_table_before_dim=\dimen185
-\l__siunitx_table_carry_dim=\dimen186
-\l__siunitx_unit_tmp_int=\count316
-\l__siunitx_unit_position_int=\count317
-\l__siunitx_unit_total_int=\count318
+\l__siunitx_table_tmp_box=\box63
+\l__siunitx_table_tmp_dim=\dimen179
+\l__siunitx_table_column_width_dim=\dimen180
+\l__siunitx_table_integer_box=\box64
+\l__siunitx_table_decimal_box=\box65
+\l__siunitx_table_uncert_box=\box66
+\l__siunitx_table_before_box=\box67
+\l__siunitx_table_after_box=\box68
+\l__siunitx_table_before_dim=\dimen181
+\l__siunitx_table_carry_dim=\dimen182
+\l__siunitx_unit_tmp_int=\count319
+\l__siunitx_unit_position_int=\count320
+\l__siunitx_unit_total_int=\count321
  (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/array.sty
 Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
-\col@sep=\dimen187
-\ar@mcellbox=\box64
-\extrarowheight=\dimen188
-\NC@list=\toks26
-\extratabsurround=\skip55
-\backup@length=\skip56
-\ar@cellbox=\box65
-)) (/usr/local/texlive/2026/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (/usr/local/texlive/2026/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen189
-\captionmargin=\dimen190
-\caption@leftmargin=\dimen191
-\caption@rightmargin=\dimen192
-\caption@width=\dimen193
-\caption@indent=\dimen194
-\caption@parindent=\dimen195
-\caption@hangindent=\dimen196
-Package caption Info: Standard document class detected.
-)
-\c@caption@flags=\count319
-\c@continuedfloat=\count320
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/titlesec/titlesec.sty
-Package: titlesec 2025/01/04 v2.17 Sectioning titles
-\ttl@box=\box66
-\beforetitleunit=\skip57
-\aftertitleunit=\skip58
-\ttl@plus=\dimen197
-\ttl@minus=\dimen198
-\ttl@toksa=\toks27
-\titlewidth=\dimen199
-\titlewidthlast=\dimen256
-\titlewidthfirst=\dimen257
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/enumitem/enumitem.sty
-Package: enumitem 2025/02/06 v3.11 Customized lists
-\labelindent=\skip59
-\enit@outerparindent=\dimen258
-\enit@toks=\toks28
-\enit@inbox=\box67
-\enit@count@id=\count321
-\enitdp@description=\count322
+\col@sep=\dimen183
+\ar@mcellbox=\box69
+\extrarowheight=\dimen184
+\NC@list=\toks25
+\extratabsurround=\skip58
+\backup@length=\skip59
+\ar@cellbox=\box70
+)) (/usr/local/texlive/2026/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count322
+\float@exts=\toks26
+\float@box=\box71
+\@float@everytoks=\toks27
+\@floatcapt=\box72
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
  (/usr/local/texlive/2026/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
@@ -345,7 +263,7 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\@linkdim=\dimen259
+\@linkdim=\dimen185
 \Hy@linkcounter=\count324
 \Hy@pagecounter=\count325
  (/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/pd1enc.def
@@ -374,15 +292,15 @@ Package hyperref Info: Bookmarks ON on input line 4468.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4807.
-\XeTeXLinkMargin=\dimen260
+\XeTeXLinkMargin=\dimen186
  (/usr/local/texlive/2026/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count328
-\Field@Width=\dimen261
-\Fld@charsize=\dimen262
+\Field@Width=\dimen187
+\Fld@charsize=\dimen188
 Package hyperref Info: Hyper figures OFF on input line 6084.
 Package hyperref Info: Link nesting OFF on input line 6089.
 Package hyperref Info: Hyper index ON on input line 6092.
@@ -407,384 +325,293 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
 \Hy@SectionHShift=\skip60
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
-\f@nch@headwidth=\skip61
-\f@nch@offset@elh=\skip62
-\f@nch@offset@erh=\skip63
-\f@nch@offset@olh=\skip64
-\f@nch@offset@orh=\skip65
-\f@nch@offset@elf=\skip66
-\f@nch@offset@erf=\skip67
-\f@nch@offset@olf=\skip68
-\f@nch@offset@orf=\skip69
-\f@nch@height=\skip70
-\f@nch@footalignment=\skip71
-\f@nch@widthL=\skip72
-\f@nch@widthC=\skip73
-\f@nch@widthR=\skip74
-\@temptokenb=\toks29
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count334
-\float@exts=\toks30
-\float@box=\box68
-\@float@everytoks=\toks31
-\@floatcapt=\box69
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 37.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count335
-) (./journal.aux)
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 14.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (./journal.aux)
 \openout1 = `journal.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
-*geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
-* paper: a4paper
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(68.28644pt, 460.935pt, 68.28644pt)
-* v-part:(T,H,B)=(68.28644pt, 708.47397pt, 68.28644pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=460.935pt
-* \textheight=708.47397pt
-* \oddsidemargin=-3.98355pt
-* \evensidemargin=-3.98355pt
-* \topmargin=-40.98355pt
-* \headheight=12.0pt
-* \headsep=25.0pt
-* \topskip=11.0pt
-* \footskip=30.0pt
-* \marginparwidth=59.0pt
-* \marginparsep=10.0pt
-* \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-(/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+ (/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count336
-\scratchdimen=\dimen263
-\scratchbox=\box70
-\nofMPsegments=\count337
-\nofMParguments=\count338
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count339
-\MPscratchDim=\dimen264
-\MPnumerator=\count340
-\makeMPintoPDFobject=\count341
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count334
+\scratchdimen=\dimen189
+\scratchbox=\box73
+\nofMPsegments=\count335
+\nofMParguments=\count336
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count337
+\MPscratchDim=\dimen190
+\MPnumerator=\count338
+\makeMPintoPDFobject=\count339
+\everyMPtoPDFconversion=\toks29
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-))
-LaTeX Info: Redefining \microtypecontext on input line 37.
-Package microtype Info: Applying patch `item' on input line 37.
-Package microtype Info: Applying patch `toc' on input line 37.
-Package microtype Info: Applying patch `eqnum' on input line 37.
-Package microtype Info: Applying patch `footnote' on input line 37.
-Package microtype Info: Applying patch `verbatim' on input line 37.
-LaTeX Info: Redefining \microtypesetup on input line 37.
-Package microtype Info: Generating PDF output.
-Package microtype Info: Character protrusion enabled (level 2).
-Package microtype Info: Using default protrusion set `alltext'.
-Package microtype Info: Automatic font expansion enabled (level 2),
-(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
-Package microtype Info: Using default expansion set `alltext-nott'.
-Package microtype Info: Patching command `\showhyphens'.
-Package microtype Info: No adjustment of tracking.
-Package microtype Info: No adjustment of interword spacing.
-Package microtype Info: No adjustment of character kerning.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-ptm.cfg
-File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+)) (/usr/local/texlive/2026/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 37.
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: float package is loaded.
-Package caption Info: hyperref package is loaded.
-Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 37.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 14.
+Package hyperref Info: Link coloring OFF on input line 14.
  (./journal.out) (./journal.out)
-\@outlinefile=\write3
-\openout3 = `journal.out'.
+\@outlinefile=\write4
+\openout4 = `journal.out'.
 
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 41.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
-File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `ztmcm' (encoding: OT1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 41.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/psnfss/omlztmcm.fd
-File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 41.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/psnfss/omsztmcm.fd
-File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 41.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/psnfss/omxztmcm.fd
-File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 41.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/psnfss/ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-)
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 41.
- (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (./journal.toc
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
-)
-\tf@toc=\write4
-\openout4 = `journal.toc'.
 
-<figures/venus_photo_white.jpg, id=129, 1079.03125pt x 1098.1025pt>
-File: figures/venus_photo_white.jpg Graphic file (type jpg)
-<use figures/venus_photo_white.jpg>
-Package pdftex.def Info: figures/venus_photo_white.jpg  used on input line 57.
-(pdftex.def)             Requested size: 184.37137pt x 187.63002pt.
-<figures/venus_profile.png, id=130, 896.148pt x 325.215pt>
-File: figures/venus_profile.png Graphic file (type png)
-<use figures/venus_profile.png>
-Package pdftex.def Info: figures/venus_profile.png  used on input line 58.
-(pdftex.def)             Requested size: 419.453pt x 152.22084pt.
- [1{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc}
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 6.
 
-]
-<figures/aerobot_concept.jpg, id=142, 409.31682pt x 442.5738pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\cnotenum' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@corref' on input line 6.
+
+[1
+
+
+{/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}])
+\tf@toc=\write5
+\openout5 = `journal.toc'.
+
+<figures/aerobot_concept.jpg, id=156, 409.31682pt x 442.5738pt>
 File: figures/aerobot_concept.jpg Graphic file (type jpg)
 <use figures/aerobot_concept.jpg>
-Package pdftex.def Info: figures/aerobot_concept.jpg  used on input line 59.
-(pdftex.def)             Requested size: 184.37198pt x 199.3522pt.
-<figures/planetary_wave_geopotential.png, id=143, 761.84625pt x 360.34625pt>
-File: figures/planetary_wave_geopotential.png Graphic file (type png)
-<use figures/planetary_wave_geopotential.png>
-Package pdftex.def Info: figures/planetary_wave_geopotential.png  used on input line 62.
-(pdftex.def)             Requested size: 419.44685pt x 198.39449pt.
-<figures/mesoscale_gravity_waves_clouds.png, id=144, 1708.3825pt x 1027.84pt>
-File: figures/mesoscale_gravity_waves_clouds.png Graphic file (type png)
-<use figures/mesoscale_gravity_waves_clouds.png>
-Package pdftex.def Info: figures/mesoscale_gravity_waves_clouds.png  used on input line 63.
-(pdftex.def)             Requested size: 373.3428pt x 224.61987pt.
- [2 <./figures/venus_photo_white.jpg> <./figures/venus_profile.png> <./figures/aerobot_concept.jpg>]
-<figures/orographic_wave_crosssection.png, id=153, 2139.995pt x 2636.85126pt>
-File: figures/orographic_wave_crosssection.png Graphic file (type png)
-<use figures/orographic_wave_crosssection.png>
-Package pdftex.def Info: figures/orographic_wave_crosssection.png  used on input line 64.
-(pdftex.def)             Requested size: 218.48558pt x 269.21277pt.
-<figures/groundtrack_dispersion.png, id=154, 650.43pt x 505.89pt>
+Package pdftex.def Info: figures/aerobot_concept.jpg  used on input line 51.
+(pdftex.def)             Requested size: 155.99794pt x 168.67276pt.
+ [2]
+<figures/groundtrack_dispersion.png, id=161, 650.43pt x 505.89pt>
 File: figures/groundtrack_dispersion.png Graphic file (type png)
 <use figures/groundtrack_dispersion.png>
-Package pdftex.def Info: figures/groundtrack_dispersion.png  used on input line 65.
-(pdftex.def)             Requested size: 331.88362pt x 258.1317pt.
- [3 <./figures/planetary_wave_geopotential.png> <./figures/mesoscale_gravity_waves_clouds.png (PNG copy)>] [4 <./figures/orographic_wave_crosssection.png (PNG copy)> <./figures/groundtrack_dispersion.png>]
-<figures/frames.png, id=169, 422.0568pt x 190.7928pt>
+Package pdftex.def Info: figures/groundtrack_dispersion.png  used on input line 54.
+(pdftex.def)             Requested size: 243.5732pt x 189.44582pt.
+ [3 <./figures/aerobot_concept.jpg> <./figures/groundtrack_dispersion.png>]
+<figures/frames.png, id=170, 422.0568pt x 190.7928pt>
 File: figures/frames.png Graphic file (type png)
 <use figures/frames.png>
-Package pdftex.def Info: figures/frames.png  used on input line 82.
-(pdftex.def)             Requested size: 442.52226pt x 200.04428pt.
-<figures/trajectory_vcvf.png, id=170, 1258.7025pt x 1164.35pt>
-File: figures/trajectory_vcvf.png Graphic file (type png)
-<use figures/trajectory_vcvf.png>
-Package pdftex.def Info: figures/trajectory_vcvf.png  used on input line 84.
-(pdftex.def)             Requested size: 281.15997pt x 260.0842pt.
-<figures/attitude_evolution.png, id=171, 794.97pt x 260.172pt>
-File: figures/attitude_evolution.png Graphic file (type png)
-<use figures/attitude_evolution.png>
-Package pdftex.def Info: figures/attitude_evolution.png  used on input line 85.
-(pdftex.def)             Requested size: 442.5115pt x 144.82193pt.
- [5 <./figures/frames.png (PNG copy)>]
-<figures/space_environment.png, id=180, 1606.0pt x 1296.845pt>
-File: figures/space_environment.png Graphic file (type png)
-<use figures/space_environment.png>
-Package pdftex.def Info: figures/space_environment.png  used on input line 88.
-(pdftex.def)             Requested size: 304.21196pt x 245.65115pt.
- [6 <./figures/trajectory_vcvf.png> <./figures/attitude_evolution.png>]
-<figures/sun_vs_altitude.png, id=188, 1870.99pt x 634.37pt>
-File: figures/sun_vs_altitude.png Graphic file (type png)
-<use figures/sun_vs_altitude.png>
-Package pdftex.def Info: figures/sun_vs_altitude.png  used on input line 90.
-(pdftex.def)             Requested size: 442.48051pt x 150.02557pt.
-<figures/microwave_weighting.png, id=189, 1055.945pt x 758.835pt>
-File: figures/microwave_weighting.png Graphic file (type png)
-<use figures/microwave_weighting.png>
-Package pdftex.def Info: figures/microwave_weighting.png  used on input line 91.
-(pdftex.def)             Requested size: 345.69159pt x 248.42476pt.
- [7 <./figures/space_environment.png (PNG copy)> <./figures/sun_vs_altitude.png (PNG copy)>]
-<figures/topography_map.png, id=197, 1405.25pt x 702.625pt>
-File: figures/topography_map.png Graphic file (type png)
-<use figures/topography_map.png>
-Package pdftex.def Info: figures/topography_map.png  used on input line 93.
-(pdftex.def)             Requested size: 442.506pt x 221.25299pt.
-<figures/altimeter_raytracing.png, id=198, 489.83pt x 312.16624pt>
+Package pdftex.def Info: figures/frames.png  used on input line 71.
+(pdftex.def)             Requested size: 374.41862pt x 169.25772pt.
+<figures/altimeter_raytracing.png, id=171, 489.83pt x 312.16624pt>
 File: figures/altimeter_raytracing.png Graphic file (type png)
 <use figures/altimeter_raytracing.png>
-Package pdftex.def Info: figures/altimeter_raytracing.png  used on input line 94.
-(pdftex.def)             Requested size: 373.36589pt x 237.94424pt.
- [8 <./figures/microwave_weighting.png> <./figures/topography_map.png (PNG copy)>]
-<figures/architecture.png, id=205, 963.3591pt x 542.025pt>
+Package pdftex.def Info: figures/altimeter_raytracing.png  used on input line 75.
+(pdftex.def)             Requested size: 297.27112pt x 189.44942pt.
+ [4 <./figures/frames.png (PNG copy)>]
+<figures/architecture.png, id=181, 963.3591pt x 542.025pt>
 File: figures/architecture.png Graphic file (type png)
 <use figures/architecture.png>
-Package pdftex.def Info: figures/architecture.png  used on input line 99.
-(pdftex.def)             Requested size: 460.93716pt x 259.34198pt.
-<figures/multimodality.png, id=206, 737.75626pt x 324.21124pt>
-File: figures/multimodality.png Graphic file (type png)
-<use figures/multimodality.png>
-Package pdftex.def Info: figures/multimodality.png  used on input line 104.
-(pdftex.def)             Requested size: 442.49957pt x 194.45898pt.
-<figures/pf_cycle.png, id=207, 398.35223pt x 361.06091pt>
+Package pdftex.def Info: figures/architecture.png  used on input line 81.
+(pdftex.def)             Requested size: 294.61053pt x 165.75986pt.
+<figures/pf_cycle.png, id=182, 398.35223pt x 361.06091pt>
 File: figures/pf_cycle.png Graphic file (type png)
 <use figures/pf_cycle.png>
-Package pdftex.def Info: figures/pf_cycle.png  used on input line 105.
-(pdftex.def)             Requested size: 258.12354pt x 233.95958pt.
- [9 <./figures/altimeter_raytracing.png> <./figures/architecture.png>]
-<figures/terrain_trapping.png, id=216, 888.921pt x 256.5585pt>
+Package pdftex.def Info: figures/pf_cycle.png  used on input line 82.
+(pdftex.def)             Requested size: 182.88562pt x 165.76498pt.
+ [5 <./figures/altimeter_raytracing.png>]
+<figures/multimodality.png, id=191, 737.75626pt x 324.21124pt>
+File: figures/multimodality.png Graphic file (type png)
+<use figures/multimodality.png>
+Package pdftex.def Info: figures/multimodality.png  used on input line 87.
+(pdftex.def)             Requested size: 374.40453pt x 164.53423pt.
+ [6 <./figures/architecture.png> <./figures/pf_cycle.png (PNG copy)>]
+<figures/terrain_trapping.png, id=200, 888.921pt x 256.5585pt>
 File: figures/terrain_trapping.png Graphic file (type png)
 <use figures/terrain_trapping.png>
-Package pdftex.def Info: figures/terrain_trapping.png  used on input line 119.
-(pdftex.def)             Requested size: 460.93945pt x 133.03537pt.
- [10 <./figures/multimodality.png> <./figures/pf_cycle.png (PNG copy)>]
-<figures/singlerun_gyro_bias.png, id=225, 939.51pt x 650.43pt>
-File: figures/singlerun_gyro_bias.png Graphic file (type png)
-<use figures/singlerun_gyro_bias.png>
-Package pdftex.def Info: figures/singlerun_gyro_bias.png  used on input line 121.
-(pdftex.def)             Requested size: 373.34593pt x 258.47025pt.
-<figures/singlerun_accel_bias.png, id=226, 939.51pt x 650.43pt>
-File: figures/singlerun_accel_bias.png Graphic file (type png)
-<use figures/singlerun_accel_bias.png>
-Package pdftex.def Info: figures/singlerun_accel_bias.png  used on input line 122.
-(pdftex.def)             Requested size: 373.34593pt x 258.47025pt.
-<figures/singlerun_attitude_zoom.png, id=227, 794.97pt x 650.43pt>
-File: figures/singlerun_attitude_zoom.png Graphic file (type png)
-<use figures/singlerun_attitude_zoom.png>
-Package pdftex.def Info: figures/singlerun_attitude_zoom.png  used on input line 123.
-(pdftex.def)             Requested size: 329.05728pt x 269.22868pt.
- [11 <./figures/terrain_trapping.png> <./figures/singlerun_gyro_bias.png>]
-<figures/singlerun_position_estimation.png, id=236, 932.283pt x 711.8595pt>
-File: figures/singlerun_position_estimation.png Graphic file (type png)
-<use figures/singlerun_position_estimation.png>
-Package pdftex.def Info: figures/singlerun_position_estimation.png  used on input line 124.
-(pdftex.def)             Requested size: 352.59262pt x 269.22769pt.
-<figures/singlerun_position_error.png, id=237, 932.283pt x 924.3333pt>
-File: figures/singlerun_position_error.png Graphic file (type png)
-<use figures/singlerun_position_error.png>
-Package pdftex.def Info: figures/singlerun_position_error.png  used on input line 125.
-(pdftex.def)             Requested size: 271.53586pt x 269.22043pt.
- [12 <./figures/singlerun_accel_bias.png> <./figures/singlerun_attitude_zoom.png>]
-<figures/singlerun_particle_tracking.png, id=246, 1157.32375pt x 393.47pt>
-File: figures/singlerun_particle_tracking.png Graphic file (type png)
-<use figures/singlerun_particle_tracking.png>
-Package pdftex.def Info: figures/singlerun_particle_tracking.png  used on input line 126.
-(pdftex.def)             Requested size: 460.9258pt x 156.70677pt.
-<figures/singlerun_velocity_estimation.png, id=247, 932.283pt x 711.8595pt>
-File: figures/singlerun_velocity_estimation.png Graphic file (type png)
-<use figures/singlerun_velocity_estimation.png>
-Package pdftex.def Info: figures/singlerun_velocity_estimation.png  used on input line 127.
-(pdftex.def)             Requested size: 352.59262pt x 269.22769pt.
- [13 <./figures/singlerun_position_estimation.png> <./figures/singlerun_position_error.png>]
-<figures/singlerun_neff.png, id=257, 931.19894pt x 357.7365pt>
-File: figures/singlerun_neff.png Graphic file (type png)
-<use figures/singlerun_neff.png>
-Package pdftex.def Info: figures/singlerun_neff.png  used on input line 128.
-(pdftex.def)             Requested size: 419.44771pt x 161.13823pt.
-<figures/singlerun_innovations.png, id=258, 932.283pt x 853.5087pt>
-File: figures/singlerun_innovations.png Graphic file (type png)
-<use figures/singlerun_innovations.png>
-Package pdftex.def Info: figures/singlerun_innovations.png  used on input line 129.
-(pdftex.def)             Requested size: 294.06902pt x 269.22131pt.
-<figures/singlerun_sensor_usage.png, id=259, 931.92165pt x 902.29095pt>
-File: figures/singlerun_sensor_usage.png Graphic file (type png)
-<use figures/singlerun_sensor_usage.png>
-Package pdftex.def Info: figures/singlerun_sensor_usage.png  used on input line 130.
-(pdftex.def)             Requested size: 278.05711pt x 269.21622pt.
- [14 <./figures/singlerun_particle_tracking.png> <./figures/singlerun_velocity_estimation.png> <./figures/singlerun_neff.png>]
-<figures/campaign_trajectories.png, id=271, 578.16pt x 303.534pt>
+Package pdftex.def Info: figures/terrain_trapping.png  used on input line 101.
+(pdftex.def)             Requested size: 390.00066pt x 112.56116pt.
+ [7 <./figures/multimodality.png>]
+<figures/campaign_trajectories.png, id=210, 578.16pt x 303.534pt>
 File: figures/campaign_trajectories.png Graphic file (type png)
 <use figures/campaign_trajectories.png>
-Package pdftex.def Info: figures/campaign_trajectories.png  used on input line 134.
-(pdftex.def)             Requested size: 396.39891pt x 208.10942pt.
- [15 <./figures/singlerun_innovations.png> <./figures/singlerun_sensor_usage.png>]
-<figures/atmos_sensitivity.png, id=280, 758.835pt x 260.172pt>
+Package pdftex.def Info: figures/campaign_trajectories.png  used on input line 105.
+(pdftex.def)             Requested size: 335.39479pt x 176.08226pt.
+<figures/singlerun_attitude_zoom.png, id=211, 794.97pt x 650.43pt>
+File: figures/singlerun_attitude_zoom.png Graphic file (type png)
+<use figures/singlerun_attitude_zoom.png>
+Package pdftex.def Info: figures/singlerun_attitude_zoom.png  used on input line 107.
+(pdftex.def)             Requested size: 231.5422pt x 189.44362pt.
+<figures/singlerun_position_estimation.png, id=212, 932.283pt x 711.8595pt>
+File: figures/singlerun_position_estimation.png Graphic file (type png)
+<use figures/singlerun_position_estimation.png>
+Package pdftex.def Info: figures/singlerun_position_estimation.png  used on input line 108.
+(pdftex.def)             Requested size: 248.1065pt x 189.44566pt.
+ [8 <./figures/terrain_trapping.png> <./figures/campaign_trajectories.png>]
+<figures/singlerun_position_error.png, id=222, 932.283pt x 924.3333pt>
+File: figures/singlerun_position_error.png Graphic file (type png)
+<use figures/singlerun_position_error.png>
+Package pdftex.def Info: figures/singlerun_position_error.png  used on input line 109.
+(pdftex.def)             Requested size: 191.06235pt x 189.43314pt.
+<figures/singlerun_particle_tracking.png, id=223, 1157.32375pt x 393.47pt>
+File: figures/singlerun_particle_tracking.png Graphic file (type png)
+<use figures/singlerun_particle_tracking.png>
+Package pdftex.def Info: figures/singlerun_particle_tracking.png  used on input line 110.
+(pdftex.def)             Requested size: 389.98833pt x 132.58925pt.
+ [9 <./figures/singlerun_attitude_zoom.png> <./figures/singlerun_position_estimation.png>]
+<figures/atmos_sensitivity.png, id=232, 758.835pt x 260.172pt>
 File: figures/atmos_sensitivity.png Graphic file (type png)
 <use figures/atmos_sensitivity.png>
-Package pdftex.def Info: figures/atmos_sensitivity.png  used on input line 136.
-(pdftex.def)             Requested size: 442.50986pt x 151.71765pt.
-<figures/sun_sensitivity.png, id=281, 505.89pt x 177.0615pt>
+Package pdftex.def Info: figures/atmos_sensitivity.png  used on input line 112.
+(pdftex.def)             Requested size: 374.40292pt x 128.3667pt.
+ [10 <./figures/singlerun_position_error.png> <./figures/singlerun_particle_tracking.png>]
+<figures/sun_sensitivity.png, id=241, 505.89pt x 177.0615pt>
 File: figures/sun_sensitivity.png Graphic file (type png)
 <use figures/sun_sensitivity.png>
-Package pdftex.def Info: figures/sun_sensitivity.png  used on input line 146.
-(pdftex.def)             Requested size: 442.50598pt x 154.87706pt.
- [16 <./figures/campaign_trajectories.png> <./figures/atmos_sensitivity.png>] [17 <./figures/sun_sensitivity.png>] (./journal.aux)
+Package pdftex.def Info: figures/sun_sensitivity.png  used on input line 122.
+(pdftex.def)             Requested size: 374.40675pt x 131.04234pt.
+ [11 <./figures/atmos_sensitivity.png> <./figures/sun_sensitivity.png>] [12]
+<figures/venus_photo_white.jpg, id=257, 1079.03125pt x 1098.1025pt>
+File: figures/venus_photo_white.jpg Graphic file (type jpg)
+<use figures/venus_photo_white.jpg>
+Package pdftex.def Info: figures/venus_photo_white.jpg  used on input line 141.
+(pdftex.def)             Requested size: 155.98628pt x 158.74324pt.
+<figures/venus_profile.png, id=258, 896.148pt x 325.215pt>
+File: figures/venus_profile.png Graphic file (type png)
+<use figures/venus_profile.png>
+Package pdftex.def Info: figures/venus_profile.png  used on input line 142.
+(pdftex.def)             Requested size: 354.89758pt x 128.79347pt.
+<figures/planetary_wave_geopotential.png, id=259, 761.84625pt x 360.34625pt>
+File: figures/planetary_wave_geopotential.png Graphic file (type png)
+<use figures/planetary_wave_geopotential.png>
+Package pdftex.def Info: figures/planetary_wave_geopotential.png  used on input line 143.
+(pdftex.def)             Requested size: 354.89421pt x 167.86168pt.
+<figures/mesoscale_gravity_waves_clouds.png, id=260, 1708.3825pt x 1027.84pt>
+File: figures/mesoscale_gravity_waves_clouds.png Graphic file (type png)
+<use figures/mesoscale_gravity_waves_clouds.png>
+Package pdftex.def Info: figures/mesoscale_gravity_waves_clouds.png  used on input line 144.
+(pdftex.def)             Requested size: 314.87277pt x 189.44167pt.
+ [13
+
+ <./figures/venus_photo_white.jpg> <./figures/venus_profile.png>]
+<figures/orographic_wave_crosssection.png, id=269, 2139.995pt x 2636.85126pt>
+File: figures/orographic_wave_crosssection.png Graphic file (type png)
+<use figures/orographic_wave_crosssection.png>
+Package pdftex.def Info: figures/orographic_wave_crosssection.png  used on input line 145.
+(pdftex.def)             Requested size: 153.7334pt x 189.42665pt.
+<figures/trajectory_vcvf.png, id=270, 1258.7025pt x 1164.35pt>
+File: figures/trajectory_vcvf.png Graphic file (type png)
+<use figures/trajectory_vcvf.png>
+Package pdftex.def Info: figures/trajectory_vcvf.png  used on input line 146.
+(pdftex.def)             Requested size: 204.79602pt x 189.44447pt.
+ [14 <./figures/planetary_wave_geopotential.png> <./figures/mesoscale_gravity_waves_clouds.png (PNG copy)>]
+<figures/attitude_evolution.png, id=278, 794.97pt x 260.172pt>
+File: figures/attitude_evolution.png Graphic file (type png)
+<use figures/attitude_evolution.png>
+Package pdftex.def Info: figures/attitude_evolution.png  used on input line 147.
+(pdftex.def)             Requested size: 374.4123pt x 122.53491pt.
+<figures/space_environment.png, id=279, 1606.0pt x 1296.845pt>
+File: figures/space_environment.png Graphic file (type png)
+<use figures/space_environment.png>
+Package pdftex.def Info: figures/space_environment.png  used on input line 148.
+(pdftex.def)             Requested size: 234.59167pt x 189.43277pt.
+ [15 <./figures/orographic_wave_crosssection.png (PNG copy)> <./figures/trajectory_vcvf.png>]
+<figures/sun_vs_altitude.png, id=286, 1870.99pt x 634.37pt>
+File: figures/sun_vs_altitude.png Graphic file (type png)
+<use figures/sun_vs_altitude.png>
+Package pdftex.def Info: figures/sun_vs_altitude.png  used on input line 150.
+(pdftex.def)             Requested size: 374.39122pt x 126.9395pt.
+<figures/microwave_weighting.png, id=287, 460.72125pt x 325.215pt>
+File: figures/microwave_weighting.png Graphic file (type png)
+<use figures/microwave_weighting.png>
+Package pdftex.def Info: figures/microwave_weighting.png  used on input line 151.
+(pdftex.def)             Requested size: 268.3855pt x 189.44858pt.
+ [16 <./figures/attitude_evolution.png> <./figures/space_environment.png (PNG copy)>]
+<figures/topography_map.png, id=295, 1405.25pt x 702.625pt>
+File: figures/topography_map.png Graphic file (type png)
+<use figures/topography_map.png>
+Package pdftex.def Info: figures/topography_map.png  used on input line 152.
+(pdftex.def)             Requested size: 374.40506pt x 187.20253pt.
+ [17 <./figures/sun_vs_altitude.png (PNG copy)> <./figures/microwave_weighting.png>]
+<figures/singlerun_gyro_bias.png, id=303, 939.51pt x 650.43pt>
+File: figures/singlerun_gyro_bias.png Graphic file (type png)
+<use figures/singlerun_gyro_bias.png>
+Package pdftex.def Info: figures/singlerun_gyro_bias.png  used on input line 154.
+(pdftex.def)             Requested size: 273.6408pt x 189.44362pt.
+<figures/singlerun_accel_bias.png, id=304, 939.51pt x 650.43pt>
+File: figures/singlerun_accel_bias.png Graphic file (type png)
+<use figures/singlerun_accel_bias.png>
+Package pdftex.def Info: figures/singlerun_accel_bias.png  used on input line 155.
+(pdftex.def)             Requested size: 273.6408pt x 189.44362pt.
+<figures/singlerun_velocity_estimation.png, id=305, 932.283pt x 711.8595pt>
+File: figures/singlerun_velocity_estimation.png Graphic file (type png)
+<use figures/singlerun_velocity_estimation.png>
+Package pdftex.def Info: figures/singlerun_velocity_estimation.png  used on input line 156.
+(pdftex.def)             Requested size: 248.1065pt x 189.44566pt.
+ [18 <./figures/topography_map.png (PNG copy)> <./figures/singlerun_gyro_bias.png>]
+<figures/singlerun_neff.png, id=313, 931.19894pt x 357.7365pt>
+File: figures/singlerun_neff.png Graphic file (type png)
+<use figures/singlerun_neff.png>
+Package pdftex.def Info: figures/singlerun_neff.png  used on input line 157.
+(pdftex.def)             Requested size: 354.89653pt x 136.33975pt.
+<figures/singlerun_innovations.png, id=314, 932.283pt x 853.5087pt>
+File: figures/singlerun_innovations.png Graphic file (type png)
+<use figures/singlerun_innovations.png>
+Package pdftex.def Info: figures/singlerun_innovations.png  used on input line 158.
+(pdftex.def)             Requested size: 206.92375pt x 189.4395pt.
+ [19 <./figures/singlerun_accel_bias.png> <./figures/singlerun_velocity_estimation.png>]
+<figures/singlerun_sensor_usage.png, id=325, 931.92165pt x 902.29095pt>
+File: figures/singlerun_sensor_usage.png Graphic file (type png)
+<use figures/singlerun_sensor_usage.png>
+Package pdftex.def Info: figures/singlerun_sensor_usage.png  used on input line 159.
+(pdftex.def)             Requested size: 195.66666pt x 189.44539pt.
+ [20 <./figures/singlerun_neff.png> <./figures/singlerun_innovations.png>] [21 <./figures/singlerun_sensor_usage.png>] (./journal.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `journal.out' has not changed.
-(rerunfilecheck)             Checksum: 20FF89C8718FC32D77B42EFC02C5F8DE;5237.
+(rerunfilecheck)             Checksum: CB609CED355957E846AF6A25D101B54E;5033.
  ) 
 Here is how much of TeX's memory you used:
- 19816 strings out of 467525
- 377903 string characters out of 5418982
- 803787 words of memory out of 5000000
- 48221 multiletter control sequences out of 15000+600000
- 688184 words of font info for 244 fonts, out of 8000000 for 9000
+ 15191 strings out of 467525
+ 296607 string characters out of 5418982
+ 667474 words of memory out of 5000000
+ 43851 multiletter control sequences out of 15000+600000
+ 643355 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,100p,1049b,1073s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on journal.pdf (17 pages, 14452912 bytes).
+ 75i,11n,80p,1073b,1069s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti0700.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on journal.pdf (21 pages, 14556272 bytes).
 PDF statistics:
- 351 PDF objects out of 1000 (max. 8388607)
- 262 compressed objects within 3 object streams
- 79 named destinations out of 1000 (max. 500000)
- 68969 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 446 PDF objects out of 1000 (max. 8388607)
+ 325 compressed objects within 4 object streams
+ 89 named destinations out of 1000 (max. 500000)
+ 369 words of extra memory for PDF output out of 10000 (max. 10000000)
 
