@@ -2,72 +2,166 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\emailauthor{giorgiomorra8@gmail.com}{Giorgio Morra\corref {cor1}}
+\emailauthor{giorgiomorra18@outlook.com}{Giorgio Morra\corref {cor1}}
 \Newlabel{cor1}{1}
 \Newlabel{polimi}{a}
 \Newlabel{jpl}{b}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{3}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Venus and the Balloon Mission}{3}{subsection.1.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The two-part variable-altitude aerobot: helium pumped into the inner envelope makes the vehicle descend, venting it makes it rise (52--62 km). Adapted from Hall et al.}}{3}{figure.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}The Localization Problem}{3}{subsection.1.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Nominal mean-field ground track vs. ten wind-perturbed realisations from the same initial state: the error grows at about 14 km/h, roughly 900 km at the end of the 65 h blackout.}}{3}{figure.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}State of the Art}{4}{section.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Navigation architectures for a Venus balloon, compared with this work.}}{4}{table.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}Dynamic Model and Sensor Simulation}{4}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Reference Frames, Time Systems and Simulation Environment}{4}{subsection.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Reference frames: (a) inertial VCI/J2000 and planet-fixed VCVF; (b) local ENU frame and body frame at the vehicle, tilted by $\delta $ from the local vertical.}}{4}{figure.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Balloon 6-DoF Dynamics}{5}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Sun Sensor}{5}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Radar Altimeter}{5}{subsection.3.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Altimeter ray casting along the body $-Z$ axis against the reference ellipsoid; the terrain elevation at the hit point sets the slant range.}}{5}{figure.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Remark on the measurement set.}{5}{section*.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Estimation Architecture}{6}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}The Cascade Architecture}{6}{subsection.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Estimation architecture. Top: coupled attitude MEKF (a) and position particle filter (b); solid arrows are estimates, dashed red arrows are uncertainties. Bottom: one cycle of the position particle filter (prediction, update with the robust Student-$t$ likelihood, resampling with roughening when $N_{eff}<0.5N$, position estimate).}}{6}{figure.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Attitude Estimation: the Multiplicative Extended Kalman Filter}{7}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Position Estimation: the Particle Filter}{7}{subsection.4.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Multimodal posterior represented by the particle swarm: competing location hypotheses coexist as clusters until the measurements single one out.}}{7}{figure.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Uncertainty Exchange Between the Two Filters}{7}{subsection.4.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Quantities exchanged between the two estimators at each epoch. Three of the five entries are uncertainties rather than values.}}{7}{table.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Terrain trapping with altimeter and barometer only: the estimate stays locked on one side of a massif (4 runs out of 10 diverge), motivating the Sun channel.}}{8}{figure.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Remark on the longitude problem and the role of the Sun sensor.}{8}{figure.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Simulations and Results}{8}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Simulation Setup}{8}{subsection.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Ground tracks of 10 Monte Carlo runs, launched at longitude $0^\circ $ with latitude uniform in $[-20^\circ ,20^\circ ]$.}}{8}{figure.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Reference Run}{9}{subsection.5.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Single run: estimated vs. true roll, pitch and yaw over a 10 min window, with the MEKF $\pm 3\sigma $ band.}}{9}{figure.9}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Single run: particle-filter position mean vs. truth (latitude, longitude, altitude).}}{9}{figure.10}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Single run: horizontal position error (RMSE 23.7 km, maximum about 80 km) and per-axis error against the declared $\pm 3\sigma $.}}{10}{figure.11}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Particle swarm over the local topography at $t=57.5$ h, with true and estimated positions.}}{10}{figure.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Sensitivity to the Atmospheric Model}{11}{subsection.5.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Atmosphere campaign (100 runs): reading the database five Venusian hours out of phase costs 7.6 km of RMSE (26.7 to 34.3 km).}}{11}{figure.13}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Sensitivity to the fidelity of the filter's onboard atmosphere. One hundred runs per row, sunlit arc only, identical seeds and initial latitudes.}}{11}{table.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Sensitivity to the Sun Sensor Noise}{11}{subsection.5.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Sun-sensor campaign (100 runs per row): across three decades of noise the RMSE moves by only 1.7 km.}}{11}{figure.14}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Sensitivity to the Sun-sensor noise $\sigma _s$. One hundred runs per row, sunlit arc only, nominal atmosphere throughout.}}{12}{table.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusions and Future Work}{12}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Main Findings}{12}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Limitations and Future Work}{12}{subsection.6.2}\protected@file@percent }
+\citation{Way2016}
+\citation{SanchezLavega2017}
+\citation{Kane2014}
+\citation{Schaber1992}
+\citation{Herrick2023}
+\citation{Rossi2023}
+\citation{Lebonnois2023}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{2}{Introduction}{section.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Venus and the Balloon Mission}{2}{subsection.1.1}\protected@file@percent }
+\newlabel{sec:venus}{{1.1}{2}{Venus and the Balloon Mission}{subsection.1.1}{}}
+\citation{Sagdeev1986}
+\citation{Hall2021}
+\citation{Izraelevitz2025}
+\citation{SanchezLavega2008,SanchezLavega2017}
+\citation{Hall2021}
+\citation{Hall2021}
+\citation{Takagi2022,Lai2024,Yamamoto2023}
+\citation{Yamamoto2026}
+\citation{Silva2024}
+\citation{Lefevre2019,Hickey2022}
+\citation{Lebonnois2023}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The two-part variable-altitude aerobot: helium pumped into the inner envelope makes the vehicle descend, venting it makes it rise (52--62 km). Adapted from Hall et al.~\cite  {Hall2021}.}}{3}{figure.1}\protected@file@percent }
+\newlabel{fig:aerobot}{{1}{3}{The two-part variable-altitude aerobot: helium pumped into the inner envelope makes the vehicle descend, venting it makes it rise (52--62 km). Adapted from Hall et al.~\cite {Hall2021}}{figure.1}{}}
+\citation{Rossi2023}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}The Localization Problem}{4}{subsection.1.2}\protected@file@percent }
+\newlabel{sec:problem}{{1.2}{4}{The Localization Problem}{subsection.1.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Ground track on the mean-field atmosphere vs. ten realisations on the perturbed atmosphere with additional disturbances, from the same initial state: the error grows at about 14 km/h, roughly 900 km at the end of the 65 h blackout.}}{4}{figure.2}\protected@file@percent }
+\newlabel{fig:dispersion}{{2}{4}{Ground track on the mean-field atmosphere vs. ten realisations on the perturbed atmosphere with additional disturbances, from the same initial state: the error grows at about 14 km/h, roughly 900 km at the end of the 65 h blackout}{figure.2}{}}
+\citation{Ford1992}
+\citation{Lebonnois2023}
+\citation{Kalman1960,BarShalom2001}
+\citation{Gordon1993,Arulampalam2002}
+\citation{Gustafsson2002}
+\citation{Ploen2023}
+\citation{Cottrill2024}
+\citation{Ploen2023}
+\citation{Cottrill2024}
+\citation{Lefferts1982,Markley2003}
+\@writefile{toc}{\contentsline {section}{\numberline {2}State of the Art}{5}{section.2}\protected@file@percent }
+\newlabel{sec:sota}{{2}{5}{State of the Art}{section.2}{}}
+\citation{Acton1996}
+\citation{Markley2003}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Navigation architectures for a Venus balloon, compared with this work.}}{6}{table.1}\protected@file@percent }
+\newlabel{tab:sota}{{1}{6}{Navigation architectures for a Venus balloon, compared with this work}{table.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Dynamic Model and Sensor Simulation}{6}{section.3}\protected@file@percent }
+\newlabel{sec:model}{{3}{6}{Dynamic Model and Sensor Simulation}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Reference Frames, Time Systems and Simulation Environment}{6}{subsection.3.1}\protected@file@percent }
+\citation{Lebonnois2023}
+\citation{Hall2021}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Reference frames: (a) inertial VCI/J2000 and planet-fixed VCVF; (b) local ENU frame and body frame at the vehicle, tilted by $\delta $ from the local vertical.}}{7}{figure.3}\protected@file@percent }
+\newlabel{fig:frames}{{3}{7}{Reference frames: (a) inertial VCI/J2000 and planet-fixed VCVF; (b) local ENU frame and body frame at the vehicle, tilted by $\delta $ from the local vertical}{figure.3}{}}
+\citation{Ploen2023}
+\citation{Davis2024}
+\citation{Akins2017}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Scenario and initial conditions, common to all simulations.}}{8}{table.2}\protected@file@percent }
+\newlabel{tab:scenario}{{2}{8}{Scenario and initial conditions, common to all simulations}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Balloon 6-DoF Dynamics}{8}{subsection.3.2}\protected@file@percent }
+\newlabel{eq:dynamics}{{1}{8}{Balloon 6-DoF Dynamics}{equation.1}{}}
+\citation{Ford1992}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Sun Sensor}{9}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Radar Altimeter}{9}{subsection.3.4}\protected@file@percent }
+\citation{Ploen2023}
+\citation{Cottrill2024}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Altimeter ray casting along the body $-Z$ axis against the reference ellipsoid; the terrain elevation at the hit point sets the slant range.}}{10}{figure.4}\protected@file@percent }
+\newlabel{fig:altimeter}{{4}{10}{Altimeter ray casting along the body $-Z$ axis against the reference ellipsoid; the terrain elevation at the hit point sets the slant range}{figure.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{Remark on the measurement set}{10}{section*.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Onboard measurement set and error models.}}{10}{table.3}\protected@file@percent }
+\newlabel{tab:sensors}{{3}{10}{Onboard measurement set and error models}{table.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Estimation Architecture}{11}{section.4}\protected@file@percent }
+\newlabel{sec:estimation}{{4}{11}{Estimation Architecture}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}The Cascade Architecture}{11}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Estimation architecture. Top: coupled attitude MEKF (a) and position particle filter (b); solid arrows are estimates, dashed red arrows are uncertainties. Bottom: one cycle of the position particle filter (prediction, update with the robust Student-$t$ likelihood, resampling with roughening when $N_{eff}<0.5N$, position estimate).}}{11}{figure.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Attitude Estimation: the Multiplicative Extended Kalman Filter}{12}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Position Estimation: the Particle Filter}{12}{subsection.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Multimodal posterior represented by the particle swarm: competing location hypotheses coexist as clusters until the measurements single one out.}}{12}{figure.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Uncertainty Exchange Between the Two Filters}{12}{subsection.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Quantities exchanged between the two estimators at each epoch. Three of the five entries are uncertainties rather than values.}}{12}{table.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Terrain trapping with altimeter and barometer only: the estimate stays locked on one side of a massif (4 runs out of 10 diverge), motivating the Sun channel.}}{13}{figure.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Remark on the longitude problem and the role of the Sun sensor.}{13}{figure.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Simulations and Results}{13}{section.5}\protected@file@percent }
+\newlabel{sec:results}{{5}{13}{Simulations and Results}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Simulation Setup}{13}{subsection.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Ground tracks of 10 Monte Carlo runs, launched at longitude $0^\circ $ with latitude uniform in $[-20^\circ ,20^\circ ]$.}}{13}{figure.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Reference Run}{14}{subsection.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Single run: estimated vs. true roll, pitch and yaw over a 10 min window, with the MEKF $\pm 3\sigma $ band.}}{14}{figure.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Single run: particle-filter position mean vs. truth (latitude, longitude, altitude).}}{14}{figure.10}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Single run: horizontal position error (RMSE 23.7 km, maximum about 80 km) and per-axis error against the declared $\pm 3\sigma $.}}{15}{figure.11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Particle swarm over the local topography at $t=57.5$ h, with true and estimated positions.}}{15}{figure.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Sensitivity to the Atmospheric Model}{16}{subsection.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Atmosphere campaign (100 runs): reading the database five Venusian hours out of phase costs 7.6 km of RMSE (26.7 to 34.3 km).}}{16}{figure.13}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Sensitivity to the fidelity of the filter's onboard atmosphere. One hundred runs per row, sunlit arc only, identical seeds and initial latitudes.}}{16}{table.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Sensitivity to the Sun Sensor Noise}{16}{subsection.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Sun-sensor campaign (100 runs per row): across three decades of noise the RMSE moves by only 1.7 km.}}{16}{figure.14}\protected@file@percent }
+\bibstyle{elsarticle-num}
+\bibdata{references}
+\bibcite{Way2016}{{1}{}{{}}{{}}}
+\bibcite{SanchezLavega2017}{{2}{}{{}}{{}}}
+\bibcite{Kane2014}{{3}{}{{}}{{}}}
+\bibcite{Schaber1992}{{4}{}{{}}{{}}}
+\bibcite{Herrick2023}{{5}{}{{}}{{}}}
+\bibcite{Rossi2023}{{6}{}{{}}{{}}}
+\bibcite{Lebonnois2023}{{7}{}{{}}{{}}}
+\bibcite{Sagdeev1986}{{8}{}{{}}{{}}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Sensitivity to the Sun-sensor noise $\sigma _s$. One hundred runs per row, sunlit arc only, nominal atmosphere throughout.}}{17}{table.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusions and Future Work}{17}{section.6}\protected@file@percent }
+\newlabel{sec:conclusions}{{6}{17}{Conclusions and Future Work}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Main Findings}{17}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Limitations and Future Work}{17}{subsection.6.2}\protected@file@percent }
+\bibcite{Hall2021}{{9}{}{{}}{{}}}
+\bibcite{Izraelevitz2025}{{10}{}{{}}{{}}}
+\bibcite{SanchezLavega2008}{{11}{}{{}}{{}}}
+\bibcite{Takagi2022}{{12}{}{{}}{{}}}
+\bibcite{Lai2024}{{13}{}{{}}{{}}}
+\bibcite{Yamamoto2023}{{14}{}{{}}{{}}}
+\bibcite{Yamamoto2026}{{15}{}{{}}{{}}}
+\bibcite{Silva2024}{{16}{}{{}}{{}}}
+\bibcite{Lefevre2019}{{17}{}{{}}{{}}}
+\bibcite{Hickey2022}{{18}{}{{}}{{}}}
+\bibcite{Ford1992}{{19}{}{{}}{{}}}
+\bibcite{Kalman1960}{{20}{}{{}}{{}}}
+\bibcite{BarShalom2001}{{21}{}{{}}{{}}}
+\bibcite{Gordon1993}{{22}{}{{}}{{}}}
+\bibcite{Arulampalam2002}{{23}{}{{}}{{}}}
+\bibcite{Gustafsson2002}{{24}{}{{}}{{}}}
+\bibcite{Ploen2023}{{25}{}{{}}{{}}}
+\bibcite{Cottrill2024}{{26}{}{{}}{{}}}
+\bibcite{Lefferts1982}{{27}{}{{}}{{}}}
+\bibcite{Markley2003}{{28}{}{{}}{{}}}
+\bibcite{Acton1996}{{29}{}{{}}{{}}}
+\bibcite{Davis2024}{{30}{}{{}}{{}}}
+\bibcite{Akins2017}{{31}{}{{}}{{}}}
 \@writefile{toc}{\let\numberline\tmptocnumberline}
-\@writefile{toc}{\contentsline {section}{\numberline {Appendix~A}Additional Figures}{13}{appendix.A}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {Appendix~A.1}Background and Environment}{13}{subsection.A.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.15}{\ignorespaces Venus seen by Mariner 10: a global, unbroken deck of sulfuric-acid clouds hides the surface from visible-wavelength instruments (NASA/JPL-Caltech).}}{13}{figure.15}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.16}{\ignorespaces Temperature, pressure and zonal wind between 45 and 75 km (Venus Climate Database). At 50--60 km conditions approach Earth's, with a zonal wind of about 62 m/s.}}{13}{figure.16}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.17}{\ignorespaces Planetary-scale Rossby--Kelvin wave: wavenumber-one geopotential anomaly sweeping around the planet with a 5.65-day period (Lai et al.).}}{14}{figure.17}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.18}{\ignorespaces Meso-scale gravity-wave packets in VIRTIS-M cloud imagery, with wavelengths of tens of km and not tied to any topography (Silva et al.).}}{14}{figure.18}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.19}{\ignorespaces Orographic waves: longitude--altitude cross-sections of vertical wind, Scorer parameter and pressure perturbation, anchored to the topography (Lef\`evre et al.).}}{15}{figure.19}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.20}{\ignorespaces Ground-truth trajectory over the 100 h reference run in VCVF coordinates (green: start, red: end).}}{15}{figure.20}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.21}{\ignorespaces Truth attitude over five minutes. Left: roll and pitch (damped pendulum, within about $1^\circ $ of the vertical). Right: yaw, which has no restoring moment and drifts freely.}}{16}{figure.21}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.22}{\ignorespaces Space environment at the start epoch from SPICE: positions of Sun, Earth and balloon relative to Venus, with J2000, IAU\_VENUS and ENU axes.}}{16}{figure.22}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {Appendix~A.2}Sensors}{17}{subsection.A.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.23}{\ignorespaces Solar disk seen from below the cloud deck at 70, 69.2 and 66 km: the direct beam is invisible at 66 km, so an optical Sun sensor is not feasible.}}{17}{figure.23}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.24}{\ignorespaces Weighting functions of the Venus atmosphere between 1 and 85 GHz: below about 18 GHz the atmosphere above the balloon is transparent to the Sun, which motivates a microwave Sun sensor.}}{17}{figure.24}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.25}{\ignorespaces Magellan global topography used as the altimeter look-up table. Aphrodite Terra and Ishtar Terra make the altimeter informative; the plains are where it is weakest.}}{18}{figure.25}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {Appendix~A.3}Additional Reference-Run Results}{18}{subsection.A.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.26}{\ignorespaces Single run: gyroscope bias, truth vs. MEKF estimate (left) and error against the declared $\pm 3\sigma $ (right).}}{18}{figure.26}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.27}{\ignorespaces Single run: accelerometer bias, truth vs. MEKF estimate (left) and error against the declared $\pm 3\sigma $ (right).}}{19}{figure.27}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.28}{\ignorespaces Single run: particle-filter velocity mean vs. truth in the local ENU frame.}}{19}{figure.28}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.29}{\ignorespaces Effective sample size $N_{eff}/N$ over the run, with the resampling threshold.}}{20}{figure.29}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.30}{\ignorespaces Mean absolute residual over the swarm for the four particle-filter channels (barometer, altimeter, Sun azimuth, Sun elevation).}}{20}{figure.30}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.31}{\ignorespaces Sensor usage over Sun-visible epochs: duty cycle, share of the particle filter's selection, and share over time.}}{21}{figure.31}\protected@file@percent }
-\gdef \@abspage@last{21}
+\@writefile{toc}{\contentsline {section}{\numberline {Appendix~A}Additional Figures}{21}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {Appendix~A.1}Background and Environment}{21}{subsection.A.1}\protected@file@percent }
+\newlabel{app:background}{{Appendix~A.1}{21}{Background and Environment}{subsection.A.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.15}{\ignorespaces Venus seen by Mariner 10: a global, unbroken deck of sulfuric-acid clouds hides the surface from visible-wavelength instruments (NASA/JPL-Caltech).}}{21}{figure.15}\protected@file@percent }
+\newlabel{fig:venus_photo}{{A.15}{21}{Venus seen by Mariner 10: a global, unbroken deck of sulfuric-acid clouds hides the surface from visible-wavelength instruments (NASA/JPL-Caltech)}{figure.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.16}{\ignorespaces Temperature, pressure and zonal wind between 45 and 75 km (Venus Climate Database). At 50--60 km conditions approach Earth's, with a zonal wind of about 62 m/s.}}{21}{figure.16}\protected@file@percent }
+\newlabel{fig:venus_profile}{{A.16}{21}{Temperature, pressure and zonal wind between 45 and 75 km (Venus Climate Database). At 50--60 km conditions approach Earth's, with a zonal wind of about 62 m/s}{figure.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.17}{\ignorespaces Planetary-scale Rossby--Kelvin wave: wavenumber-one geopotential anomaly sweeping around the planet with a 5.65-day period (Lai et al.).}}{22}{figure.17}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.18}{\ignorespaces Meso-scale gravity-wave packets in VIRTIS-M cloud imagery, with wavelengths of tens of km and not tied to any topography (Silva et al.).}}{22}{figure.18}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.19}{\ignorespaces Orographic waves: longitude--altitude cross-sections of vertical wind, Scorer parameter and pressure perturbation, anchored to the topography (Lef\`evre et al.).}}{23}{figure.19}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.20}{\ignorespaces Ground-truth trajectory over the 100 h reference run in VCVF coordinates (green: start, red: end).}}{23}{figure.20}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.21}{\ignorespaces Truth attitude over five minutes. Left: roll and pitch (damped pendulum, within about $1^\circ $ of the vertical). Right: yaw, which has no restoring moment and drifts freely.}}{24}{figure.21}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.22}{\ignorespaces Space environment at the start epoch from SPICE: positions of Sun, Earth and balloon relative to Venus, with J2000, IAU\_VENUS and ENU axes.}}{24}{figure.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {Appendix~A.2}Sensors}{25}{subsection.A.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.23}{\ignorespaces Solar disk seen from below the cloud deck at 70, 69.2 and 66 km: the direct beam is invisible at 66 km, so an optical Sun sensor is not feasible.}}{25}{figure.23}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.24}{\ignorespaces Weighting functions of the Venus atmosphere between 1 and 85 GHz: below about 18 GHz the atmosphere above the balloon is transparent to the Sun, which motivates a microwave Sun sensor.}}{25}{figure.24}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.25}{\ignorespaces Magellan global topography used as the altimeter look-up table. Aphrodite Terra and Ishtar Terra make the altimeter informative; the plains are where it is weakest.}}{26}{figure.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {Appendix~A.3}Additional Reference-Run Results}{26}{subsection.A.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.26}{\ignorespaces Single run: gyroscope bias, truth vs. MEKF estimate (left) and error against the declared $\pm 3\sigma $ (right).}}{26}{figure.26}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.27}{\ignorespaces Single run: accelerometer bias, truth vs. MEKF estimate (left) and error against the declared $\pm 3\sigma $ (right).}}{27}{figure.27}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.28}{\ignorespaces Single run: particle-filter velocity mean vs. truth in the local ENU frame.}}{27}{figure.28}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.29}{\ignorespaces Effective sample size $N_{eff}/N$ over the run, with the resampling threshold.}}{28}{figure.29}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {A.30}{\ignorespaces Mean absolute residual over the swarm for the four particle-filter channels (barometer, altimeter, Sun azimuth, Sun elevation).}}{28}{figure.30}\protected@file@percent }
+\providecommand\NAT@force@numbers{}\NAT@force@numbers
+\@writefile{lof}{\contentsline {figure}{\numberline {A.31}{\ignorespaces Sensor usage over Sun-visible epochs: duty cycle, share of the particle filter's selection, and share over time.}}{29}{figure.31}\protected@file@percent }
+\gdef \@abspage@last{29}

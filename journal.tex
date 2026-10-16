@@ -4,6 +4,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx,booktabs,siunitx,array}
 \usepackage{float}
+\usepackage[section]{placeins}
 \usepackage[hidelinks]{hyperref}
 \graphicspath{{figures/}}
 
@@ -18,7 +19,7 @@
 \title{Trajectory Estimation for a Venus Aerobot Balloon during Deep Space Network Occlusion}
 
 \author[polimi,jpl]{Giorgio Morra\corref{cor1}}
-\ead{giorgiomorra8@gmail.com}
+\ead{giorgiomorra18@outlook.com}
 \author[polimi]{Francesco Braghin}
 \author[jpl]{Marco B. Quadrelli}
 \author[jpl]{Federico Rossi}
@@ -34,7 +35,7 @@
             country={USA}}
 
 \begin{abstract}
-At Venus, absolute position is normally recovered through radiometric tracking by the Deep Space Network (DSN). When a balloon drifts onto the far side of the planet, Venus occults the line of sight: a blackout of up to \SI{65}{h}, during which about \SI{14508}{km} are flown with no contact. This work estimates the trajectory of a Venus aerobot across the occlusion by fusing an IMU, a Sun sensor, a radar altimeter and a barometer. A Multiplicative Extended Kalman Filter tracks the attitude and a particle filter tracks the position, coupled in a cascade that re-injects every transferred uncertainty as an inflated measurement covariance. Monte Carlo campaigns of 100 runs give a position RMSE of \SI{26.7}{km}, never worse than \SI{34.3}{km}, within the \SI{50}{km} requirement. A single Sun channel raises convergence from about 60\% to 98--99\%, while the accuracy is set by the onboard atmospheric model rather than by the Sun sensor.
+At Venus, absolute position is normally recovered through radiometric tracking by the Deep Space Network. When a balloon drifts onto the far side of the planet, Venus occults the line of sight: a blackout of up to \SI{65}{h}, during which about \SI{14508}{km} are flown with no contact. This work estimates the trajectory of a Venus aerobot over the sunlit part of the occlusion, about \SI{46}{h} before the Sun sets, by fusing an IMU, a Sun sensor, a radar altimeter and a barometer. A Multiplicative Extended Kalman Filter tracks the attitude and a particle filter tracks the position, coupled in a cascade that re-injects every transferred uncertainty as an inflated measurement covariance. Over the sunlit arc, Monte Carlo campaigns of 100 runs give a position RMSE of \SI{26.7}{km}, never worse than \SI{34.3}{km}, within the \SI{50}{km} requirement. A single Sun channel on the position estimation raises convergence from about 60\% to 98--99\%, while the accuracy is set by the onboard atmospheric model rather than by the quality of the Sun sensor.
 \end{abstract}
 
 \begin{keyword}
@@ -46,36 +47,322 @@ Venus aerobot \sep Autonomous navigation \sep Multiplicative extended Kalman fil
 \setcounter{tocdepth}{2}
 \tableofcontents
 
-\section{Introduction}
-\subsection{Venus and the Balloon Mission}
-\Fig{aerobot_concept.jpg}{0.40}{The two-part variable-altitude aerobot: helium pumped into the inner envelope makes the vehicle descend, venting it makes it rise (52--62 km). Adapted from Hall et al.}
+\section{Introduction}\label{sec:intro}
+\subsection{Venus and the Balloon Mission}\label{sec:venus}
 
-\subsection{The Localization Problem}
-\Fig{groundtrack_dispersion.png}{0.72}{Nominal mean-field ground track vs. ten wind-perturbed realisations from the same initial state: the error grows at about 14 km/h, roughly 900 km at the end of the 65 h blackout.}
+Venus is often called Earth's sister planet: it formed from similar building blocks, at a
+similar distance from the Sun, and it is almost the same size and mass.
+Its evolution, however, diverged completely.
+A slowly rotating early Venus may have sustained temperate surface conditions, and
+possibly a surface ocean~\cite{Way2016}; at some point it lost its water and entered a
+runaway greenhouse state, and today its surface sits at roughly \SI{740}{K} under a
+pressure near \SI{92}{bar}~\cite{SanchezLavega2017}.
+How two such similar planets ended up so different is an open question of comparative
+planetology, all the more relevant since Venus-sized worlds are among the most common
+found by Kepler~\cite{Kane2014}.
 
-\section{State of the Art}
-\begin{table}[H]\centering\small
-\caption{Navigation architectures for a Venus balloon, compared with this work.}
+Volcanism is tied to the same questions.
+The surface is almost entirely volcanic plain, with remarkably few impact craters for a
+planet of its size and age~\cite{Schaber1992}, and whether its resurfacing was a single
+global pulse or is still ongoing today remains unresolved, although changes observed in
+repeated Magellan radar images point towards present-day activity~\cite{Herrick2023}.
+A concept developed at JPL proposes to study eruptions as they happen with
+altitude-controlled balloons carrying infrasound microbarometers that manoeuvre to within
+\SI{50}{km} of a detected event~\cite{Rossi2023}.
+Such observations cannot be made from orbit, because a  deck of
+sulfuric-acid clouds hides the surface from any instrument working at visible wavelengths.
+Inside the atmosphere, however, between \SI{50}{km} and \SI{60}{km} of altitude,
+temperature and pressure approach those at the Earth's surface, about \SI{303}{K} and
+\SI{0.52}{bar} near \SI{55}{km}~\cite{Lebonnois2023}, so that an aerial platform can
+operate there.
+
+In June 1985 the Soviet VEGA~1 and VEGA~2 missions released two helium balloons at about
+\SI{54}{km}, the first and to date only aerial vehicles to have operated at Venus.
+Tracked for about \SI{46}{h} by radio telescopes, they returned the first in-situ
+measurements of the cloud-layer winds~\cite{Sagdeev1986}, but with no altitude control
+they were pure passive tracers of the flow.
+The variable-altitude aerobot developed at JPL is a direct answer to that
+limitation~\cite{Hall2021}: helium is pumped between an outer zero-pressure and an inner
+super-pressure envelope (Fig.~\ref{fig:aerobot}) to control altitude between \SI{52}{km}
+and \SI{62}{km}, and prototypes have been flown on Earth~\cite{Izraelevitz2025}.
+The vehicle has no propulsion: it is carried around the planet by the super-rotating
+atmosphere, which at cloud level circulates in a few days against the 243-day rotation of
+the solid body~\cite{SanchezLavega2008,SanchezLavega2017}, and altitude is the only degree
+of freedom it actively controls.
+
+\Fig{aerobot_concept.jpg}{0.36}{The two-part variable-altitude aerobot: helium pumped into
+the inner envelope makes the vehicle descend, venting it makes it rise (52--62 km).
+Adapted from Hall et al.~\cite{Hall2021}.\label{fig:aerobot}}
+
+\subsection{The Localization Problem}\label{sec:problem}
+
+Every measurement acquired by the balloon is scientifically useful only if it can be
+attributed to a known position.
+Since the balloon has no propulsion, its trajectory is close to the time integral of the
+local wind, and if that wind were known there would be no estimation problem.
+The wind, however, is not deterministic at the scales and horizons that matter:
+superimposed on the mean circulation is a hierarchy of disturbances, from planetary-scale
+waves~\cite{Takagi2022,Lai2024,Yamamoto2023} and low-frequency variability of the
+jet~\cite{Yamamoto2026} to meso-scale gravity waves and convection~\cite{Silva2024} and
+orographic waves over the highlands~\cite{Lefevre2019,Hickey2022}.
+In Fig.~\ref{fig:dispersion}, ten trajectories are propagated from the same initial state on the perturbed version of
+the Venus Climate Database~\cite{Lebonnois2023} and compared with the trajectory propagated on the mean fields of the same
+database: their distance from this nominal prediction grows almost linearly, at about
+\SI{14}{km\,h^{-1}}.
+
+\Fig{groundtrack_dispersion.png}{0.62}{Ground track on the mean-field atmosphere vs. ten
+realisations on the perturbed atmosphere with additional disturbances, from the same
+initial state: the error grows at about 14 km/h,
+roughly 900 km at the end of the 65 h blackout.\label{fig:dispersion}}
+
+On the Earth-facing side of the planet the problem is solved by radiometric tracking from
+NASA's Deep Space Network (DSN), and this phase is not addressed here.
+On the far side, however, Venus occults the line of sight: the blackout lasts almost \SI{65}{h},
+about \SI{14508}{km} of ground track with no contact and no satellite navigation to fall
+back on.
+An open-loop extrapolation would end it with an error of order \SI{900}{km}, eighteen
+times the \SI{50}{km} required to close on a volcanic event~\cite{Rossi2023}, adopted here
+as the minimum requirement on the reconstructed position.
+
+The far-side window is not homogeneous: the Sun sets once, about \SI{46}{h} after the link is lost, and does not rise again before
+the DSN reappears.
+The window thus splits into a sunlit arc of about \SI{46}{h}, in which all four onboard
+sensors (inertial unit, Sun sensor, radar altimeter, barometer) are available, and a
+terminal eclipse of about \SI{19}{h}, in which the Sun sensor cannot be used.
+This paper addresses the sunlit arc, about \SI{46}{h} and \SI{10000}{km} without any
+absolute fix; all the accuracy figures of Section~\ref{sec:results} refer to it, and the
+eclipse is discussed in Section~\ref{sec:conclusions} as the open problem.
+
+\section{State of the Art}\label{sec:sota}
+
+During the blackout, position information comes from terrain- and map-referenced
+navigation: the altimeter and the barometer are matched against the known
+topography~\cite{Ford1992} and pressure field~\cite{Lebonnois2023}.
+Because distinct locations produce identical readings, the resulting likelihood is
+multi-modal, which a Kalman-type filter~\cite{Kalman1960,BarShalom2001} linearised about a
+single mean cannot represent.
+Particle filters~\cite{Gordon1993,Arulampalam2002} are the natural remedy, and their use
+for terrain navigation and map matching is well established~\cite{Gustafsson2002}.
+
+Two published architectures address the Venus balloon specifically (Table~\ref{tab:sota}).
+Ploen et al.~\cite{Ploen2023} analyse the covariance growth of a balloon navigating on an
+inertial unit alone, with periodic orbiter updates, and propose bias-compensation
+strategies including a mechanically rotated IMU, over a ten-minute horizon.
+Cottrill and Gu~\cite{Cottrill2024} correct the drift of an inertial navigation system by
+map matching altitude and pressure in a particle filter with fifteen states and 5000
+particles, and report a position RMSE of \SI{47.95}{km} over 120 Monte Carlo trials of one
+hour each.
+
+\begin{table}[tb]\centering\small
+\caption{Navigation architectures for a Venus balloon, compared with this
+work.}\label{tab:sota}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.6cm}*{3}{>{\raggedright\arraybackslash}p{3.1cm}}@{}}
-\toprule & Ploen et al. & Cottrill and Gu & This work\\\midrule
+\toprule & Ploen et al.~\cite{Ploen2023} & Cottrill and Gu~\cite{Cottrill2024} & This work\\\midrule
 Approach & Bias-compensated inertial navigation, rotated IMU & Inertial navigation, map matching and particle filter, 15 states, 5000 particles & Coupled MEKF and particle filter, 9-state attitude error and 6-state position, 1000 particles\\
 Measurements & IMU only, with orbiter updates & IMU, altimeter, barometer & IMU, altimeter, barometer, Sun sensor\\
 Maps & None & VCD, Magellan topography & VCD, Magellan topography\\
-Horizon & 10 min (covariance study) & 1 h, 120 Monte Carlo trials & 65 h of far-side autonomy, 100 Monte Carlo trials\\
-Reported error & Not reported & 47.95 km position RMSE & 26.7 km position RMSE\\\bottomrule
+Horizon & 10 min (covariance study) & 1 h, 120 Monte Carlo trials & 46 h sunlit arc of the 65 h far-side window, 100 Monte Carlo trials\\
+Reported error & Not reported & 47.95 km position RMSE & 26.7 km position RMSE (sunlit arc)\\\bottomrule
 \end{tabular}
 \end{table}
 
-\section{Dynamic Model and Sensor Simulation}
-\subsection{Reference Frames, Time Systems and Simulation Environment}
-\Fig{frames.png}{0.96}{Reference frames: (a) inertial VCI/J2000 and planet-fixed VCVF; (b) local ENU frame and body frame at the vehicle, tilted by $\delta$ from the local vertical.}
-\subsection{Balloon 6-DoF Dynamics}
-\subsection{Sun Sensor}
-\subsection{Radar Altimeter}
-\Fig{altimeter_raytracing.png}{0.81}{Altimeter ray casting along the body $-Z$ axis against the reference ellipsoid; the terrain elevation at the hit point sets the slant range.}
-\paragraph{Remark on the measurement set.} % formerly Sec. 2.5, now a remark
+The main limitation of both lies in the duration of the simulations.
+In one hour the balloon drifts by little more than \SI{200}{km}, whereas the sunlit arc
+considered here lasts about \SI{46}{h}, one to two orders of magnitude longer.
+Over such short horizons the errors that dominate a long autonomous flight (bias drift, the lock onto a false terrain match)
+have no time to develop, so neither study shows that its architecture can bridge the far
+side.
+This work further adds a Sun sensor, the only measurement of absolute longitude, without
+which four runs in ten diverge (Section~\ref{sec:estimation}), and estimates the attitude
+in a separate Multiplicative Extended Kalman Filter (MEKF)~\cite{Lefferts1982,Markley2003}
+coupled in cascade with the particle filter.
 
-\section{Estimation Architecture}
+\section{Dynamic Model and Sensor Simulation}\label{sec:model}
+\subsection{Reference Frames, Time Systems and Simulation Environment}
+
+All planetary geometry and ephemerides are obtained from NASA's NAIF SPICE
+toolkit~\cite{Acton1996}.
+Four reference frames are used (Fig.~\ref{fig:frames}):
+\begin{itemize}
+\item \textbf{Venus-centred inertial (VCI, J2000)}, non-rotating with respect to the stars,
+in which the positions of the Sun and of the Earth are computed.
+\item \textbf{Venus-centred, Venus-fixed (VCVF, IAU\_VENUS)}, corotating with the planet at
+$\boldsymbol{\omega}_p=[0,0,\Omega]^\top$, $\Omega=\SI{-2.99e-7}{rad\,s^{-1}}$
+(retrograde); the atmospheric database is read and the translational dynamics are written
+in this frame, and its rotation from J2000 is retrieved from SPICE.
+\item \textbf{East--North--Up (ENU)}, the local horizontal frame at the balloon, in which
+the winds are expressed.
+\item \textbf{Body frame (B)}, attached to the vehicle at its centre of mass, in which the
+inertial unit, the Sun sensor and the altimeter measure; its orientation with respect to
+VCVF is the unit quaternion $\mathbf{q}$, in scalar-last convention~\cite{Markley2003}, with
+direction-cosine matrix $\mathbf{R}=\mathbf{R}_{B\to VCVF}(\mathbf{q})$.
+\end{itemize}
+
+\Fig{frames.png}{0.96}{Reference frames. Left: inertial VCI/J2000 and planet-fixed VCVF.
+Right: local ENU frame and body frame at the vehicle, tilted by $\delta$ from the local
+vertical.\label{fig:frames}}
+
+Three time systems are used:
+\begin{itemize}
+\item \textbf{Coordinated Universal Time (UTC)}, in which the start epoch is defined;
+\item \textbf{Ephemeris Time (ET)}, the seconds passed since the J2000 epoch, used by SPICE;
+\item \textbf{Venus local solar time (LT)}, which indexes the Venus Climate
+Database~\cite{Lebonnois2023}; it is measured in Venus hours, each one twenty-fourth of
+the \SI{116.75}{h} solar day, and is shifted with the longitude of the vehicle.
+\end{itemize}
+
+Because the problem is defined by the loss of the DSN link, the scenario is placed in a
+configuration that a real mission would actually fly, close to an inferior conjunction,
+when Venus, the Sun and the Earth are nearly aligned and the Earth--Venus distance is at its
+minimum: the start epoch of Table~\ref{tab:scenario} falls about five weeks after the
+inferior conjunction of 10 August 2031.
+The balloon is released on the Earth-facing hemisphere, where the DSN is available, and the
+zonal wind carries it onto the far side, where the \SI{65}{h} autonomous window begins: the
+Sun stays visible for its first \SI{46}{h}, and neither the Earth nor the Sun is in view
+for the last \SI{19}{h}.
+The ground truth is propagated on the perturbed version of the Venus Climate Database, whereas the estimator only knows its mean fields, so
+that a persistent modelling error is present in every result.
+
+\begin{table}[tb]\centering\small
+\caption{Scenario and initial conditions, common to all simulations.}\label{tab:scenario}
+\begin{tabular}{@{}ll@{}}
+\toprule Quantity & Value\\\midrule
+Start epoch & 2031-09-13 10:00:00 UTC\\
+Duration / integration step & \SI{100}{h} / \SI{0.1}{s}\\
+Float altitude & $\approx$\SI{58}{km}\\
+Initial longitude & \SI{0}{\degree}\\
+Latitude band & \SI{-20}{\degree} to \SI{20}{\degree}\\\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Balloon 6-DoF Dynamics}
+
+The same model generates the ground truth and the measurements, with the parameters of the B2
+aerobot design~\cite{Hall2021}.
+For the translational motion the balloon is a point mass whose gas is in thermal and pressure
+equilibrium with the atmosphere, the envelope is a sphere, and the helium ratio between the
+two envelopes is held constant, so that altitude control is not commanded.
+The volume is $V=n_{ZP}RT/(P M_{He})+V_{SP}$, with $n_{ZP}$ the helium in the zero-pressure
+envelope and $V_{SP}$ the constant super-pressure volume, the reference area is
+$A_{ref}=\pi(3V/4\pi)^{2/3}$, and the total mass $m_{tot}=m_{dry}+\frac12\rho V$ includes the
+added mass of the displaced atmosphere.
+Gravity $\mathbf{F}_{grav}=-m_{dry}g_0\hat{\mathbf{r}}$, buoyancy
+$\mathbf{F}_{buoy}=\rho Vg_0\hat{\mathbf{r}}$ and drag
+$\mathbf{F}_{drag}=-\frac12\rho C_dA_{ref}\|\mathbf{v}_{rel}\|\mathbf{v}_{rel}$, with
+$\mathbf{v}_{rel}=\mathbf{v}-\mathbf{W}$ the velocity relative to the database wind, act on
+the vehicle, and since VCVF rotates the acceleration includes the centrifugal and Coriolis
+terms.
+
+For the rotational motion, envelope, tether and gondola form a single rigid body.
+The centres of buoyancy and pressure lie \SI{8}{m} above the centre of mass, so the external
+torque
+$\mathbf{T}_{ext}=\mathbf{r}_{CB}\times\mathbf{R}^\top\mathbf{F}_{buoy}
++\mathbf{r}_{CP}\times\mathbf{R}^\top\mathbf{F}_{drag}
+-\mathbf{C}_{damp}\boldsymbol{\omega}_B+\mathbf{T}_{dist}$
+contains a pendulum-like restoring moment about the local vertical, a linear damping, and a
+first-order Gauss--Markov disturbance
+$\dot{\mathbf{T}}_{dist}=\boldsymbol{\Pi}\mathbf{T}_{dist}+\boldsymbol{\eta}_T/\Delta t$
+that represents the aerodynamic disturbances on the envelope~\cite{Ploen2023}.
+Euler's equation uses the inertial angular velocity
+$\boldsymbol{\omega}_B^{VCI}=\boldsymbol{\omega}_B+\mathbf{R}^\top\boldsymbol{\omega}_p$.
+The state $\mathbf{X}=[\mathbf{r}^\top,\mathbf{v}^\top,\mathbf{q}^\top,
+\boldsymbol{\omega}_B^\top]^\top\in\mathbb{R}^{13}$ then evolves as
+\begin{equation}
+\left\{
+\begin{aligned}
+\dot{\mathbf{r}}&=\mathbf{v},\\
+\dot{\mathbf{v}}&=\frac{\mathbf{F}_{grav}+\mathbf{F}_{buoy}+\mathbf{F}_{drag}}{m_{tot}}
+-\boldsymbol{\omega}_p\times(\boldsymbol{\omega}_p\times\mathbf{r})
+-2\,\boldsymbol{\omega}_p\times\mathbf{v},\\
+\dot{\mathbf{q}}&=\tfrac12\,\boldsymbol{\Omega}(\boldsymbol{\omega}_B)\,\mathbf{q},
+\qquad
+\boldsymbol{\Omega}(\boldsymbol{\omega})=
+\begin{bmatrix}-[\boldsymbol{\omega}\times] & \boldsymbol{\omega}\\
+-\boldsymbol{\omega}^\top & 0\end{bmatrix},\\
+\dot{\boldsymbol{\omega}}_B&=\mathbf{J}_B^{-1}\left(\mathbf{T}_{ext}
+-\boldsymbol{\omega}_B^{VCI}\times\mathbf{J}_B\,\boldsymbol{\omega}_B^{VCI}\right).
+\end{aligned}
+\right.
+\label{eq:dynamics}
+\end{equation}
+The result is a damped physical pendulum: roll and pitch stay within about \SI{1}{\degree}
+of the local vertical, while yaw, with no restoring moment, evolves as a random walk.
+
+\subsection{Sun Sensor}
+
+The Sun sensor is the only absolute, sky-referenced measurement in the suite, and the only
+instrument whose realisability at Venus is genuinely open: no previous study has addressed the use of a Sun sensor on a Venus aerobot, so
+its feasibility was assessed first.
+An optical or near-infrared sensor was considered first and turned out not to be feasible.
+The sulfuric-acid cloud deck between \SI{50}{km} and \SI{70}{km} scatters in the Mie regime
+with an optical depth of order 25~\cite{Davis2024}; by the Beer--Lambert law,
+$I(h)/I_0=\exp(-\tau(h)/\cos\theta_z)$, and assuming $\tau$ grows linearly from 0 at
+\SI{70}{km} to 25 at \SI{50}{km}, the direct beam is already negligible at \SI{66}{km}, well
+above the float altitude.
+The measurement was therefore moved to the microwave band.
+From the atmospheric weighting functions of Akins et al.~\cite{Akins2017}, the usable band
+is between roughly \SI{1}{GHz} and \SI{18}{GHz}, where the absorption below the balloon
+screens the thermal emission of the hot surface while the atmosphere above it is
+transparent to the solar signal.
+The direction of the Sun can be recovered by interferometry between small patch antennas:
+for a baseline $b$ and wavelength $\lambda_{RF}$, a source at angle $\theta$ from the
+baseline normal produces a phase difference $\Delta\phi=2\pi b\sin\theta/\lambda_{RF}$, and
+a second, orthogonal baseline resolves the full direction.
+This work does not go into the detail of the hardware or of the antenna configuration: it
+only establishes that a Sun measurement is physically available at float altitude, while
+the accuracy such an instrument might deliver is covered by the sensitivity analysis of
+Section~\ref{sec:results}.
+
+In the simulator the Sun direction from SPICE is rotated into the body frame, $\mathbf{s}_B=\mathbf{R}^\top\mathbf{s}_{VCVF}$, and the sensor
+reports $az=\operatorname{atan2}(\hat s_y,\hat s_x)$ and $el=\arcsin(\hat s_z)$ of the unit
+vector $\hat{\mathbf{s}}$.
+The measurement makes the yaw observable and, being a function of absolute latitude and
+longitude, also feeds the position filter (Section~\ref{sec:estimation}).
+
+\subsection{Radar Altimeter}
+
+The altimeter ties the vehicle to the Magellan topography of Venus~\cite{Ford1992}: over
+highland massifs such as Aphrodite Terra the measurement is strongly informative on
+horizontal position, over the nearly flat plains only weakly.
+The instrument points along the body $-Z$ axis, and the measurement is simulated by ray
+casting (Fig.~\ref{fig:altimeter}): the ray
+$\mathbf{n}=\mathbf{R}\,[0,0,-1]^\top$ is intersected with the Venus reference ellipsoid
+through SPICE, the terrain elevation at the hit point is read from the topography map, and
+the slant range is the distance from the vehicle to that surface point.
+The measurement therefore accounts for the attitude of the balloon, since any tilt away from
+the local vertical lengthens the range and moves the footprint on the ground.
+
+\Fig{altimeter_raytracing.png}{0.81}{Altimeter ray casting along the body $-Z$ axis against the
+reference ellipsoid; the terrain elevation at the hit point sets the slant
+range.\label{fig:altimeter}}
+
+\paragraph{Remark on the measurement set}
+Table~\ref{tab:sensors} summarises the four onboard sensors and their error models.
+The inertial unit is a MEMS-grade unit of the class considered for Venus
+balloons~\cite{Ploen2023}, with the Case~3 specifications of Cottrill and
+Gu~\cite{Cottrill2024}: each axis of the accelerometer, which measures the specific force in
+body axes, and of the gyroscope carries a turn-on bias, a bias random walk and white noise.
+The other sensors are corrupted by additive zero-mean Gaussian noise; for the Sun sensor,
+whose hardware is not designed in detail, two values larger than the baseline are also
+tested, to verify that the approach does not depend on this optimistic figure.
+
+\begin{table}[H]\centering\footnotesize
+\caption{Onboard measurement set and error models.}\label{tab:sensors}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{6.3cm}>{\raggedright\arraybackslash}p{1.9cm}@{}}
+\toprule Sensor & Output & Error model & Constrains\\\midrule
+Gyroscope & body rate & turn-on bias \SI{0.15}{\degree\per\hour}, bias random walk
+\SI{0.015}{\degree\,h^{-1}\,s^{-0.5}}, angle random walk \SI{0.01}{\degree/\sqrt{h}} &
+attitude\\
+Accelerometer & specific force & turn-on bias \SI{300}{\micro g}, bias random walk
+\SI{30}{\micro g\,s^{-0.5}}, white noise \SI{0.02}{m\,s^{-1}/\sqrt{h}} & pitch, roll\\
+Sun sensor & azimuth, elevation & Gaussian, $\sigma_s=\SI{1e-4}{\degree}$ (baseline),
+\SI{1e-2}{\degree}, \SI{1e-1}{\degree} & yaw, tilt, position\\
+Altimeter & slant range & Gaussian, $\sigma_{alt}=\SI{5}{m}$ & horizontal position\\
+Barometer & pressure & Gaussian, $\sigma_{bar}=\SI{40}{Pa}$ & altitude\\\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Estimation Architecture}\label{sec:estimation}
 \subsection{The Cascade Architecture}
 \begin{figure}[H]\centering
 \includegraphics[width=1.0\linewidth,height=0.28\textheight,keepaspectratio]{architecture.png}\\[4pt]
@@ -100,7 +387,7 @@ $\sigma_{p,k}$ & PF $\to$ MEKF & inflates the accelerometer and Sun measurement 
 \paragraph{Remark on the longitude problem and the role of the Sun sensor.} % formerly Sec. 3.5, now a remark
 \Fig{terrain_trapping.png}{1.00}{Terrain trapping with altimeter and barometer only: the estimate stays locked on one side of a massif (4 runs out of 10 diverge), motivating the Sun channel.}
 
-\section{Simulations and Results}
+\section{Simulations and Results}\label{sec:results}
 \subsection{Simulation Setup}
 \Fig{campaign_trajectories.png}{0.86}{Ground tracks of 10 Monte Carlo runs, launched at longitude $0^\circ$ with latitude uniform in $[-20^\circ,20^\circ]$.}
 \subsection{Reference Run} % formerly Sec. 3.6
@@ -130,16 +417,19 @@ $1\times10^{-1}$ deg & 25.7 & 95.3 & 1/100\\\bottomrule
 \end{tabular}
 \end{table}
 
-\section{Conclusions and Future Work}
+\section{Conclusions and Future Work}\label{sec:conclusions}
 \subsection{Main Findings}
 \subsection{Limitations and Future Work}
+
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
 
 \clearpage
 \appendix
 \section{Additional Figures}
-\subsection{Background and Environment}
-\Fig{venus_photo_white.jpg}{0.40}{Venus seen by Mariner 10: a global, unbroken deck of sulfuric-acid clouds hides the surface from visible-wavelength instruments (NASA/JPL-Caltech).}
-\Fig{venus_profile.png}{0.91}{Temperature, pressure and zonal wind between 45 and 75 km (Venus Climate Database). At 50--60 km conditions approach Earth's, with a zonal wind of about 62 m/s.}
+\subsection{Background and Environment}\label{app:background}
+\Fig{venus_photo_white.jpg}{0.40}{Venus seen by Mariner 10: a global, unbroken deck of sulfuric-acid clouds hides the surface from visible-wavelength instruments (NASA/JPL-Caltech).\label{fig:venus_photo}}
+\Fig{venus_profile.png}{0.91}{Temperature, pressure and zonal wind between 45 and 75 km (Venus Climate Database). At 50--60 km conditions approach Earth's, with a zonal wind of about 62 m/s.\label{fig:venus_profile}}
 \Fig{planetary_wave_geopotential.png}{0.91}{Planetary-scale Rossby--Kelvin wave: wavenumber-one geopotential anomaly sweeping around the planet with a 5.65-day period (Lai et al.).}
 \Fig{mesoscale_gravity_waves_clouds.png}{0.81}{Meso-scale gravity-wave packets in VIRTIS-M cloud imagery, with wavelengths of tens of km and not tied to any topography (Silva et al.).}
 \Fig{orographic_wave_crosssection.png}{0.61}{Orographic waves: longitude--altitude cross-sections of vertical wind, Scorer parameter and pressure perturbation, anchored to the topography (Lef\`evre et al.).}

@@ -1,0 +1,126 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{Way2016}
+M.~J. Way, A.~D. Del~Genio, N.~Y. Kiang, L.~E. Sohl, D.~H. Grinspoon, I.~Aleinov, M.~Kelley, T.~Clune, Was {Venus} the first habitable world of our solar system?, Geophysical Research Letters 43~(16) (2016) 8376--8383.
+\newblock \href {https://doi.org/10.1002/2016GL069790} {\path{doi:10.1002/2016GL069790}}.
+
+\bibitem{SanchezLavega2017}
+A.~S\'anchez-Lavega, S.~Lebonnois, T.~Imamura, P.~L. Read, D.~Luz, The atmospheric dynamics of {Venus}, Space Science Reviews 212 (2017) 1541--1616.
+\newblock \href {https://doi.org/10.1007/s11214-017-0389-x} {\path{doi:10.1007/s11214-017-0389-x}}.
+
+\bibitem{Kane2014}
+S.~R. Kane, R.~K. Kopparapu, S.~D. Domagal-Goldman, On the frequency of potential {Venus} analogs from {Kepler} data, The Astrophysical Journal Letters 794~(1) (2014) L5.
+\newblock \href {https://doi.org/10.1088/2041-8205/794/1/L5} {\path{doi:10.1088/2041-8205/794/1/L5}}.
+
+\bibitem{Schaber1992}
+G.~G. Schaber, R.~G. Strom, H.~J. Moore, L.~A. Soderblom, R.~L. Kirk, D.~J. Chadwick, D.~D. Dawson, L.~R. Gaddis, J.~M. Boyce, J.~Russell, Geology and distribution of impact craters on {Venus}: What are they telling us?, Journal of Geophysical Research: Planets 97~(E8) (1992) 13257--13301.
+\newblock \href {https://doi.org/10.1029/92JE01246} {\path{doi:10.1029/92JE01246}}.
+
+\bibitem{Herrick2023}
+R.~R. Herrick, S.~Hensley, Surface changes observed on a {Venusian} volcano during the {Magellan} mission, Science 379~(6638) (2023) 1205--1208.
+\newblock \href {https://doi.org/10.1126/science.abm7735} {\path{doi:10.1126/science.abm7735}}.
+
+\bibitem{Rossi2023}
+F.~Rossi, M.~Saboia, S.~Krishnamoorthy, J.~Vander~Hook, Proximal exploration of {Venus} volcanism with teams of autonomous buoyancy-controlled balloons, arXiv preprint arXiv:2303.02104 (2023).
+
+\bibitem{Lebonnois2023}
+S.~Lebonnois, E.~Millour, F.~Forget, A.~Martinez, T.~Pierron, A.~Boissinot, {Venus Climate Database} v2.3 User Manual, Laboratoire de M\'et\'eorologie Dynamique (LMD), Paris / European Space Agency (2023).
+
+\bibitem{Sagdeev1986}
+R.~Sagdeev, V.~Linkin, J.~Blamont, R.~Preston, The {VEGA} {Venus} balloon experiment, Science 231~(4744) (1986) 1407--1408.
+\newblock \href {https://doi.org/10.1126/science.231.4744.1407} {\path{doi:10.1126/science.231.4744.1407}}.
+
+\bibitem{Hall2021}
+J.~L. Hall, M.~T. Pauken, A.~Schutte, S.~Krishnamoorthy, C.~Aiazzi, J.~S. Izraelevitz, T.~Lachenmeier, C.~Turner, Prototype development of a variable altitude {Venus} aerobot, in: AIAA AVIATION 2021 Forum, American Institute of Aeronautics and Astronautics, 2021, pp. AIAA 2021--2696.
+\newblock \href {https://doi.org/10.2514/6.2021-2696} {\path{doi:10.2514/6.2021-2696}}.
+
+\bibitem{Izraelevitz2025}
+J.~S. Izraelevitz, S.~Krishnamoorthy, A.~Goel, C.~Aiazzi, M.~Pauken, G.~Walsh, C.~Leake, C.~Lim, A.~Jain, L.~Dorsky, K.~H. Baines, J.~A. Cutts, J.~L. Hall, Flight demonstration and model validation of a prototype variable-altitude {Venus} aerobot, arXiv preprint arXiv:2411.06643 (2025).
+
+\bibitem{SanchezLavega2008}
+A.~S\'anchez-Lavega, R.~Hueso, G.~Piccioni, P.~Drossart, J.~Peralta, S.~P\'erez-Hoyos, C.~F. Wilson, F.~W. Taylor, K.~H. Baines, D.~Luz, S.~Erard, S.~Lebonnois, Variable winds on {Venus} mapped in three dimensions, Geophysical Research Letters 35~(13) (2008) L13204.
+\newblock \href {https://doi.org/10.1029/2008GL033817} {\path{doi:10.1029/2008GL033817}}.
+
+\bibitem{Takagi2022}
+M.~Takagi, et~al., A {GCM} study on the 4-day and 5-day waves in the {Venus} atmosphere, Journal of Geophysical Research: Planets 127 (2022) e2021JE007164.
+\newblock \href {https://doi.org/10.1029/2021JE007164} {\path{doi:10.1029/2021JE007164}}.
+
+\bibitem{Lai2024}
+D.~Lai, S.~Lebonnois, T.~Li, Planetary-scale wave activity in {Venus} cloud layer simulated by the {Venus PCM}, Journal of Geophysical Research: Planets 129 (2024) e2023JE008253.
+\newblock \href {https://doi.org/10.1029/2023JE008253} {\path{doi:10.1029/2023JE008253}}.
+
+\bibitem{Yamamoto2023}
+M.~Yamamoto, T.~Hirose, K.~Ikeda, M.~Takahashi, M.~Satoh, Short-period planetary-scale waves in a {Venus} general circulation model: Rotational and divergent component structures and energy conversions, Icarus 392 (2023) 115392.
+\newblock \href {https://doi.org/10.1016/j.icarus.2022.115392} {\path{doi:10.1016/j.icarus.2022.115392}}.
+
+\bibitem{Yamamoto2026}
+M.~Yamamoto, K.~Ikeda, M.~Takahashi, M.~Satoh, Zonal-flow variability associated with meridional circulation at the cloud top in a {Venus} atmospheric general circulation model, Icarus 445 (2026) 116860.
+\newblock \href {https://doi.org/10.1016/j.icarus.2025.116860} {\path{doi:10.1016/j.icarus.2025.116860}}.
+
+\bibitem{Silva2024}
+J.~E. Silva, J.~Peralta, A.~Cardes\'in-Moinelo, R.~Hueso, D.~Espadinha, Y.~J. Lee, Atmospheric gravity waves in {Venus} dayside clouds from {VIRTIS-M} images, Icarus 415 (2024) 116076.
+\newblock \href {https://doi.org/10.1016/j.icarus.2024.116076} {\path{doi:10.1016/j.icarus.2024.116076}}.
+
+\bibitem{Lefevre2019}
+M.~Lef\`evre, A.~Spiga, S.~Lebonnois, Mesoscale modeling of {Venus}' bow-shape waves, Icarus 335 (2019) 113376.
+\newblock \href {https://doi.org/10.1016/j.icarus.2019.07.010} {\path{doi:10.1016/j.icarus.2019.07.010}}.
+
+\bibitem{Hickey2022}
+M.~P. Hickey, T.~Navarro, G.~Schubert, R.~L. Walterscheid, {Venus} mountain waves in the upper atmosphere simulated by a time-invariant linear full-wave spectral model, Icarus 377 (2022) 114922.
+\newblock \href {https://doi.org/10.1016/j.icarus.2022.114922} {\path{doi:10.1016/j.icarus.2022.114922}}.
+
+\bibitem{Ford1992}
+P.~G. Ford, G.~H. Pettengill, {Venus} topography and kilometer-scale slopes, Journal of Geophysical Research: Planets 97~(E8) (1992) 13103--13114.
+\newblock \href {https://doi.org/10.1029/92JE01085} {\path{doi:10.1029/92JE01085}}.
+
+\bibitem{Kalman1960}
+R.~E. Kalman, A new approach to linear filtering and prediction problems, Journal of Basic Engineering 82~(1) (1960) 35--45.
+\newblock \href {https://doi.org/10.1115/1.3662552} {\path{doi:10.1115/1.3662552}}.
+
+\bibitem{BarShalom2001}
+Y.~Bar-Shalom, X.~R. Li, T.~Kirubarajan, Estimation with Applications to Tracking and Navigation: Theory, Algorithms and Software, Wiley-Interscience, 2001.
+
+\bibitem{Gordon1993}
+N.~J. Gordon, D.~J. Salmond, A.~F.~M. Smith, Novel approach to nonlinear/non-{Gaussian} {Bayesian} state estimation, IEE Proceedings F (Radar and Signal Processing) 140~(2) (1993) 107--113.
+\newblock \href {https://doi.org/10.1049/ip-f-2.1993.0015} {\path{doi:10.1049/ip-f-2.1993.0015}}.
+
+\bibitem{Arulampalam2002}
+M.~S. Arulampalam, S.~Maskell, N.~Gordon, T.~Clapp, A tutorial on particle filters for online nonlinear/non-{Gaussian} {Bayesian} tracking, IEEE Transactions on Signal Processing 50~(2) (2002) 174--188.
+\newblock \href {https://doi.org/10.1109/78.978374} {\path{doi:10.1109/78.978374}}.
+
+\bibitem{Gustafsson2002}
+F.~Gustafsson, F.~Gunnarsson, N.~Bergman, U.~Forssell, J.~Jansson, R.~Karlsson, P.-J. Nordlund, Particle filters for positioning, navigation, and tracking, IEEE Transactions on Signal Processing 50~(2) (2002) 425--437.
+\newblock \href {https://doi.org/10.1109/78.978396} {\path{doi:10.1109/78.978396}}.
+
+\bibitem{Ploen2023}
+S.~Ploen, J.~Aldrich, D.~Bayard, L.~Dorsky, A.~Katake, E.~Konefat, C.~C. Liebe, J.~Shields, Bias compensated inertial navigation for {Venus} balloon missions, in: IEEE Aerospace Conference, IEEE, 2023.
+
+\bibitem{Cottrill2024}
+H.~S. Cottrill, Y.~Gu, Enhanced {3D} localization on {Venus}: A map matching and particle filtering approach, in: AIAA SciTech 2024 Forum, American Institute of Aeronautics and Astronautics, 2024, pp. AIAA 2024--2270.
+\newblock \href {https://doi.org/10.2514/6.2024-2270} {\path{doi:10.2514/6.2024-2270}}.
+
+\bibitem{Lefferts1982}
+E.~J. Lefferts, F.~L. Markley, M.~D. Shuster, Kalman filtering for spacecraft attitude estimation, Journal of Guidance, Control, and Dynamics 5~(5) (1982) 417--429.
+\newblock \href {https://doi.org/10.2514/3.56190} {\path{doi:10.2514/3.56190}}.
+
+\bibitem{Markley2003}
+F.~L. Markley, Attitude error representations for {Kalman} filtering, Journal of Guidance, Control, and Dynamics 26~(2) (2003) 311--317.
+\newblock \href {https://doi.org/10.2514/2.5048} {\path{doi:10.2514/2.5048}}.
+
+\bibitem{Acton1996}
+C.~H. Acton, Ancillary data services of {NASA}'s {Navigation and Ancillary Information Facility}, Planetary and Space Science 44~(1) (1996) 65--70.
+\newblock \href {https://doi.org/10.1016/0032-0633(95)00107-7} {\path{doi:10.1016/0032-0633(95)00107-7}}.
+
+\bibitem{Davis2024}
+A.~B. Davis, K.~H. Baines, B.~M. Sutin, J.~A. Cutts, L.~I. Dorsky, P.~K. Byrne, Feasibility of high-spatial-resolution nighttime near-{IR} imaging of {Venus}' surface from a platform just below the clouds: A radiative transfer study accounting for the potential of haze, Planetary and Space Science 242 (2024) 105853.
+\newblock \href {https://doi.org/10.1016/j.pss.2024.105853} {\path{doi:10.1016/j.pss.2024.105853}}.
+
+\bibitem{Akins2017}
+A.~B. Akins, A.~Bellotti, P.~G. Steffes, Simulations of the atmospheric microwave and millimeter wave emission from {Venus} using a radiative transfer model based on laboratory measurements, in: Venus Modeling Workshop, 2017, abstract 8009.
+
+\end{thebibliography}
