@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex journal"] 1792233636.51993 "journal.aux" "journal.bbl" "journal" 1792233898.40804 0
+["bibtex journal"] 1792233636.51993 "journal.aux" "journal.bbl" "journal" 1792234486.60323 0
   "./references.bib" 1792143611.31416 14722 f8b01c207f17fca0e2755aa9dfe54dc4 ""
   "/usr/local/texlive/2026/texmf-dist/bibtex/bst/elsarticle/elsarticle-num.bst" 1767996394 29462 dde4ec39bf78fded04ea32048bba0a74 ""
-  "journal.aux" 1792233898.21341 21424 180143f5fa4f72a6acc9db5fffcf0a44 "pdflatex"
+  "journal.aux" 1792234486.40188 21424 180143f5fa4f72a6acc9db5fffcf0a44 "pdflatex"
   (generated)
   "journal.bbl"
   "journal.blg"
   (rewritten before read)
-["pdflatex"] 1792233892.49235 "/Users/giorgiomorra/Desktop/journal_overleaf/journal.tex" "journal.pdf" "journal" 1792233898.40816 0
-  "/Users/giorgiomorra/Desktop/journal_overleaf/journal.tex" 1792233892.29998 48176 a289442622f52a5c1b0497b16d9b1234 ""
+["pdflatex"] 1792234480.79987 "/Users/giorgiomorra/Desktop/journal_overleaf/journal.tex" "journal.pdf" "journal" 1792234486.60335 0
+  "/Users/giorgiomorra/Desktop/journal_overleaf/journal.tex" 1792234480.74727 48259 3ebc948da5ee94ace1beb988ed11ca6b ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -182,12 +182,12 @@
   "figures/trajectory_vcvf.png" 1791732694.82531 250201 cad20c622fb85721fdf15124bec197b8 ""
   "figures/venus_photo_white.jpg" 1791732694.8257 122324 e3de5866093b10eb622b1a92adf8259e ""
   "figures/venus_profile.png" 1791732694.82638 236571 7348bf3322d5ad8ece53329265d7c45d ""
-  "journal.aux" 1792233898.21341 21424 180143f5fa4f72a6acc9db5fffcf0a44 "pdflatex"
+  "journal.aux" 1792234486.40188 21424 180143f5fa4f72a6acc9db5fffcf0a44 "pdflatex"
   "journal.bbl" 1792233636.58376 10477 c160298068037943ef11fd9d2fba8b7f "bibtex journal"
-  "journal.out" 1792233898.21454 5033 cb609ced355957e846af6a25d101b54e "pdflatex"
-  "journal.spl" 1792233892.6063 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "journal.tex" 1792233892.29998 48176 a289442622f52a5c1b0497b16d9b1234 ""
-  "journal.toc" 1792233898.21475 3079 7ef1a821c5762b2ffd24cc743f8ca78a "pdflatex"
+  "journal.out" 1792234486.40295 5033 cb609ced355957e846af6a25d101b54e "pdflatex"
+  "journal.spl" 1792234480.9236 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "journal.tex" 1792234480.74727 48259 3ebc948da5ee94ace1beb988ed11ca6b ""
+  "journal.toc" 1792234486.40314 3079 7ef1a821c5762b2ffd24cc743f8ca78a "pdflatex"
   (generated)
   "journal.aux"
   "journal.log"

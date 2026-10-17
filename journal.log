@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  17 OCT 2026 12:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  17 OCT 2026 12:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -445,60 +445,60 @@ File: figures/architecture.png Graphic file (type png)
 Package pdftex.def Info: figures/architecture.png  used on input line 372.
 (pdftex.def)             Requested size: 294.61053pt x 165.75986pt.
  [10 <./figures/altimeter_raytracing.png>] [11 <./figures/architecture.png>]
-Overfull \hbox (0.33084pt too wide) in paragraph at lines 465--472
+Overfull \hbox (0.33084pt too wide) in paragraph at lines 465--473
 []\T1/cmr/m/n/12 The terrain-relative like-li-hood is multi-modal in hor-i-zon-tal po-si-tion, which
  []
 
 <figures/multimodality.png, id=334, 737.75626pt x 324.21124pt>
 File: figures/multimodality.png Graphic file (type png)
 <use figures/multimodality.png>
-Package pdftex.def Info: figures/multimodality.png  used on input line 475.
+Package pdftex.def Info: figures/multimodality.png  used on input line 476.
 (pdftex.def)             Requested size: 374.40453pt x 164.53423pt.
 [12] [13 <./figures/multimodality.png>]
-<figures/terrain_trapping.png, id=365, 888.921pt x 256.5585pt>
+<figures/terrain_trapping.png, id=364, 888.921pt x 256.5585pt>
 File: figures/terrain_trapping.png Graphic file (type png)
 <use figures/terrain_trapping.png>
-Package pdftex.def Info: figures/terrain_trapping.png  used on input line 553.
+Package pdftex.def Info: figures/terrain_trapping.png  used on input line 554.
 (pdftex.def)             Requested size: 390.00066pt x 112.56116pt.
  [14] [15 <./figures/terrain_trapping.png>]
-<figures/campaign_trajectories.png, id=395, 578.16pt x 303.534pt>
+<figures/campaign_trajectories.png, id=393, 578.16pt x 303.534pt>
 File: figures/campaign_trajectories.png Graphic file (type png)
 <use figures/campaign_trajectories.png>
-Package pdftex.def Info: figures/campaign_trajectories.png  used on input line 636.
+Package pdftex.def Info: figures/campaign_trajectories.png  used on input line 637.
 (pdftex.def)             Requested size: 335.39479pt x 176.08226pt.
  [16]
 <figures/singlerun_attitude_zoom.png, id=406, 794.97pt x 650.43pt>
 File: figures/singlerun_attitude_zoom.png Graphic file (type png)
 <use figures/singlerun_attitude_zoom.png>
-Package pdftex.def Info: figures/singlerun_attitude_zoom.png  used on input line 657.
+Package pdftex.def Info: figures/singlerun_attitude_zoom.png  used on input line 658.
 (pdftex.def)             Requested size: 231.5422pt x 189.44362pt.
  [17 <./figures/campaign_trajectories.png>]
 <figures/singlerun_position_estimation.png, id=415, 932.283pt x 711.8595pt>
 File: figures/singlerun_position_estimation.png Graphic file (type png)
 <use figures/singlerun_position_estimation.png>
-Package pdftex.def Info: figures/singlerun_position_estimation.png  used on input line 667.
+Package pdftex.def Info: figures/singlerun_position_estimation.png  used on input line 668.
 (pdftex.def)             Requested size: 248.1065pt x 189.44566pt.
 <figures/singlerun_position_error.png, id=416, 932.283pt x 924.3333pt>
 File: figures/singlerun_position_error.png Graphic file (type png)
 <use figures/singlerun_position_error.png>
-Package pdftex.def Info: figures/singlerun_position_error.png  used on input line 669.
+Package pdftex.def Info: figures/singlerun_position_error.png  used on input line 670.
 (pdftex.def)             Requested size: 191.06235pt x 189.43314pt.
 <figures/singlerun_particle_tracking.png, id=417, 1157.32375pt x 393.47pt>
 File: figures/singlerun_particle_tracking.png Graphic file (type png)
 <use figures/singlerun_particle_tracking.png>
-Package pdftex.def Info: figures/singlerun_particle_tracking.png  used on input line 671.
+Package pdftex.def Info: figures/singlerun_particle_tracking.png  used on input line 672.
 (pdftex.def)             Requested size: 389.98833pt x 132.58925pt.
  [18 <./figures/singlerun_attitude_zoom.png> <./figures/singlerun_position_estimation.png>]
 <figures/atmos_sensitivity.png, id=426, 758.835pt x 260.172pt>
 File: figures/atmos_sensitivity.png Graphic file (type png)
 <use figures/atmos_sensitivity.png>
-Package pdftex.def Info: figures/atmos_sensitivity.png  used on input line 683.
+Package pdftex.def Info: figures/atmos_sensitivity.png  used on input line 684.
 (pdftex.def)             Requested size: 374.40292pt x 128.3667pt.
  [19 <./figures/singlerun_position_error.png> <./figures/singlerun_particle_tracking.png>] [20 <./figures/atmos_sensitivity.png>]
 <figures/sun_sensitivity.png, id=446, 505.89pt x 177.0615pt>
 File: figures/sun_sensitivity.png Graphic file (type png)
 <use figures/sun_sensitivity.png>
-Package pdftex.def Info: figures/sun_sensitivity.png  used on input line 726.
+Package pdftex.def Info: figures/sun_sensitivity.png  used on input line 727.
 (pdftex.def)             Requested size: 374.40675pt x 131.04234pt.
  (./journal.bbl [21 <./figures/sun_sensitivity.png>]
 Underfull \hbox (badness 1874) in paragraph at lines 32--33
@@ -509,22 +509,22 @@ Underfull \hbox (badness 1874) in paragraph at lines 32--33
 <figures/venus_photo_white.jpg, id=513, 1079.03125pt x 1098.1025pt>
 File: figures/venus_photo_white.jpg Graphic file (type jpg)
 <use figures/venus_photo_white.jpg>
-Package pdftex.def Info: figures/venus_photo_white.jpg  used on input line 758.
+Package pdftex.def Info: figures/venus_photo_white.jpg  used on input line 759.
 (pdftex.def)             Requested size: 155.98628pt x 158.74324pt.
 <figures/venus_profile.png, id=514, 896.148pt x 325.215pt>
 File: figures/venus_profile.png Graphic file (type png)
 <use figures/venus_profile.png>
-Package pdftex.def Info: figures/venus_profile.png  used on input line 759.
+Package pdftex.def Info: figures/venus_profile.png  used on input line 760.
 (pdftex.def)             Requested size: 354.89758pt x 128.79347pt.
 <figures/planetary_wave_geopotential.png, id=515, 761.84625pt x 360.34625pt>
 File: figures/planetary_wave_geopotential.png Graphic file (type png)
 <use figures/planetary_wave_geopotential.png>
-Package pdftex.def Info: figures/planetary_wave_geopotential.png  used on input line 760.
+Package pdftex.def Info: figures/planetary_wave_geopotential.png  used on input line 761.
 (pdftex.def)             Requested size: 354.89421pt x 167.86168pt.
 <figures/mesoscale_gravity_waves_clouds.png, id=516, 1708.3825pt x 1027.84pt>
 File: figures/mesoscale_gravity_waves_clouds.png Graphic file (type png)
 <use figures/mesoscale_gravity_waves_clouds.png>
-Package pdftex.def Info: figures/mesoscale_gravity_waves_clouds.png  used on input line 761.
+Package pdftex.def Info: figures/mesoscale_gravity_waves_clouds.png  used on input line 762.
 (pdftex.def)             Requested size: 314.87277pt x 189.44167pt.
  [26
 
@@ -532,73 +532,73 @@ Package pdftex.def Info: figures/mesoscale_gravity_waves_clouds.png  used on inp
 <figures/orographic_wave_crosssection.png, id=524, 2139.995pt x 2636.85126pt>
 File: figures/orographic_wave_crosssection.png Graphic file (type png)
 <use figures/orographic_wave_crosssection.png>
-Package pdftex.def Info: figures/orographic_wave_crosssection.png  used on input line 762.
+Package pdftex.def Info: figures/orographic_wave_crosssection.png  used on input line 763.
 (pdftex.def)             Requested size: 153.7334pt x 189.42665pt.
 <figures/trajectory_vcvf.png, id=525, 1258.7025pt x 1164.35pt>
 File: figures/trajectory_vcvf.png Graphic file (type png)
 <use figures/trajectory_vcvf.png>
-Package pdftex.def Info: figures/trajectory_vcvf.png  used on input line 763.
+Package pdftex.def Info: figures/trajectory_vcvf.png  used on input line 764.
 (pdftex.def)             Requested size: 204.79602pt x 189.44447pt.
  [27 <./figures/planetary_wave_geopotential.png> <./figures/mesoscale_gravity_waves_clouds.png (PNG copy)>]
 <figures/attitude_evolution.png, id=534, 794.97pt x 260.172pt>
 File: figures/attitude_evolution.png Graphic file (type png)
 <use figures/attitude_evolution.png>
-Package pdftex.def Info: figures/attitude_evolution.png  used on input line 764.
+Package pdftex.def Info: figures/attitude_evolution.png  used on input line 765.
 (pdftex.def)             Requested size: 374.4123pt x 122.53491pt.
 <figures/space_environment.png, id=535, 1606.0pt x 1296.845pt>
 File: figures/space_environment.png Graphic file (type png)
 <use figures/space_environment.png>
-Package pdftex.def Info: figures/space_environment.png  used on input line 765.
+Package pdftex.def Info: figures/space_environment.png  used on input line 766.
 (pdftex.def)             Requested size: 234.59167pt x 189.43277pt.
  [28 <./figures/orographic_wave_crosssection.png (PNG copy)> <./figures/trajectory_vcvf.png>]
 <figures/sun_vs_altitude.png, id=542, 1870.99pt x 634.37pt>
 File: figures/sun_vs_altitude.png Graphic file (type png)
 <use figures/sun_vs_altitude.png>
-Package pdftex.def Info: figures/sun_vs_altitude.png  used on input line 767.
+Package pdftex.def Info: figures/sun_vs_altitude.png  used on input line 768.
 (pdftex.def)             Requested size: 374.39122pt x 126.9395pt.
 <figures/microwave_weighting.png, id=543, 460.72125pt x 325.215pt>
 File: figures/microwave_weighting.png Graphic file (type png)
 <use figures/microwave_weighting.png>
-Package pdftex.def Info: figures/microwave_weighting.png  used on input line 768.
+Package pdftex.def Info: figures/microwave_weighting.png  used on input line 769.
 (pdftex.def)             Requested size: 268.3855pt x 189.44858pt.
  [29 <./figures/attitude_evolution.png> <./figures/space_environment.png (PNG copy)>]
 <figures/topography_map.png, id=551, 1405.25pt x 702.625pt>
 File: figures/topography_map.png Graphic file (type png)
 <use figures/topography_map.png>
-Package pdftex.def Info: figures/topography_map.png  used on input line 769.
+Package pdftex.def Info: figures/topography_map.png  used on input line 770.
 (pdftex.def)             Requested size: 374.40506pt x 187.20253pt.
  [30 <./figures/sun_vs_altitude.png (PNG copy)> <./figures/microwave_weighting.png>]
 <figures/singlerun_gyro_bias.png, id=559, 939.51pt x 650.43pt>
 File: figures/singlerun_gyro_bias.png Graphic file (type png)
 <use figures/singlerun_gyro_bias.png>
-Package pdftex.def Info: figures/singlerun_gyro_bias.png  used on input line 771.
+Package pdftex.def Info: figures/singlerun_gyro_bias.png  used on input line 772.
 (pdftex.def)             Requested size: 273.6408pt x 189.44362pt.
 <figures/singlerun_accel_bias.png, id=560, 939.51pt x 650.43pt>
 File: figures/singlerun_accel_bias.png Graphic file (type png)
 <use figures/singlerun_accel_bias.png>
-Package pdftex.def Info: figures/singlerun_accel_bias.png  used on input line 772.
+Package pdftex.def Info: figures/singlerun_accel_bias.png  used on input line 773.
 (pdftex.def)             Requested size: 273.6408pt x 189.44362pt.
 <figures/singlerun_velocity_estimation.png, id=561, 932.283pt x 711.8595pt>
 File: figures/singlerun_velocity_estimation.png Graphic file (type png)
 <use figures/singlerun_velocity_estimation.png>
-Package pdftex.def Info: figures/singlerun_velocity_estimation.png  used on input line 773.
+Package pdftex.def Info: figures/singlerun_velocity_estimation.png  used on input line 774.
 (pdftex.def)             Requested size: 248.1065pt x 189.44566pt.
  [31 <./figures/topography_map.png (PNG copy)> <./figures/singlerun_gyro_bias.png>]
 <figures/singlerun_neff.png, id=570, 931.19894pt x 357.7365pt>
 File: figures/singlerun_neff.png Graphic file (type png)
 <use figures/singlerun_neff.png>
-Package pdftex.def Info: figures/singlerun_neff.png  used on input line 774.
+Package pdftex.def Info: figures/singlerun_neff.png  used on input line 775.
 (pdftex.def)             Requested size: 354.89653pt x 136.33975pt.
 <figures/singlerun_innovations.png, id=571, 932.283pt x 853.5087pt>
 File: figures/singlerun_innovations.png Graphic file (type png)
 <use figures/singlerun_innovations.png>
-Package pdftex.def Info: figures/singlerun_innovations.png  used on input line 775.
+Package pdftex.def Info: figures/singlerun_innovations.png  used on input line 776.
 (pdftex.def)             Requested size: 206.92375pt x 189.4395pt.
  [32 <./figures/singlerun_accel_bias.png> <./figures/singlerun_velocity_estimation.png>]
 <figures/singlerun_sensor_usage.png, id=580, 931.92165pt x 902.29095pt>
 File: figures/singlerun_sensor_usage.png Graphic file (type png)
 <use figures/singlerun_sensor_usage.png>
-Package pdftex.def Info: figures/singlerun_sensor_usage.png  used on input line 776.
+Package pdftex.def Info: figures/singlerun_sensor_usage.png  used on input line 777.
 (pdftex.def)             Requested size: 195.66666pt x 189.44539pt.
  [33 <./figures/singlerun_neff.png> <./figures/singlerun_innovations.png>] [34 <./figures/singlerun_sensor_usage.png>] (./journal.aux)
  ***********
@@ -617,7 +617,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  75i,18n,80p,1186b,1240s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti0700.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on journal.pdf (34 pages, 14604640 bytes).
+Output written on journal.pdf (34 pages, 14604729 bytes).
 PDF statistics:
  745 PDF objects out of 1000 (max. 8388607)
  595 compressed objects within 6 object streams

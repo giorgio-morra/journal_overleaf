@@ -466,8 +466,9 @@ The terrain-relative likelihood is multi-modal in horizontal position, which no 
 Gaussian can represent.
 The particle filter~\cite{Gordon1993,Arulampalam2002} represents the posterior by $N=1000$
 weighted samples, each a hypothesis on the translational state
-$\mathbf{X}^i=\{\mathbf{p}^i,\mathbf{v}^i\}$, $\mathbf{p}^i=[\varphi^i,\lambda^i,h^i]$, so that
-competing locations can coexist until the measurements single one out
+$\mathbf{X}^i=\{\mathbf{p}^i,\mathbf{v}^i\}$, $\mathbf{p}^i=[\varphi^i,\lambda^i,h^i]$.
+In this way, several possible positions of the balloon can be kept at the same time, until
+the measurements make one of them clearly more likely than the others
 (Fig.~\ref{fig:multimodality}).
 
 \Fig{multimodality.png}{0.96}{Multimodal posterior represented by the particle swarm: competing
