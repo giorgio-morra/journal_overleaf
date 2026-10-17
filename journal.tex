@@ -19,7 +19,7 @@
 \title{Trajectory Estimation for a Venus Aerobot Balloon during Deep Space Network Occlusion}
 
 \author[polimi,jpl]{Giorgio Morra\corref{cor1}}
-\ead{giorgiomorra18@outlook.com}
+\ead{giorgiomorra1@outlook.com}
 \author[polimi]{Francesco Braghin}
 \author[jpl]{Marco B. Quadrelli}
 \author[jpl]{Federico Rossi}
@@ -364,17 +364,204 @@ Barometer & pressure & Gaussian, $\sigma_{bar}=\SI{40}{Pa}$ & altitude\\\bottomr
 
 \section{Estimation Architecture}\label{sec:estimation}
 \subsection{The Cascade Architecture}
+
+Position is estimated by a particle filter and attitude by a Multiplicative Extended Kalman
+Filter (MEKF), coupled in cascade (Fig.~\ref{fig:architecture}).
+
 \begin{figure}[H]\centering
-\includegraphics[width=1.0\linewidth,height=0.28\textheight,keepaspectratio]{architecture.png}\\[4pt]
-\includegraphics[width=0.56\linewidth,height=0.28\textheight,keepaspectratio]{pf_cycle.png}
-\caption{Estimation architecture. Top: coupled attitude MEKF (a) and position particle filter (b); solid arrows are estimates, dashed red arrows are uncertainties. Bottom: one cycle of the position particle filter (prediction, update with the robust Student-$t$ likelihood, resampling with roughening when $N_{eff}<0.5N$, position estimate).}
+\includegraphics[width=1.0\linewidth,height=0.28\textheight,keepaspectratio]{architecture.png}
+\caption{Estimation architecture: the attitude MEKF (a), carrying a nine-state error and a
+single covariance, and the position particle filter (b), carrying 1000 particles over
+position and velocity. Solid arrows are estimates, dashed red arrows are
+uncertainties.\label{fig:architecture}}
 \end{figure}
+
+Within each epoch $k$:
+\begin{enumerate}
+\item the local vertical and the Sun direction are evaluated at the position estimate
+produced by the particle filter at epoch $k-1$;
+\item the MEKF runs its predict, correct and reset cycle on the gyroscope, the
+accelerometer and the Sun sensor;
+\item the quaternion, the accelerometer bias and the attitude uncertainty are handed to the
+particle filter;
+\item the particle filter propagates the swarm and re-weights it against the barometer, the
+altimeter and the Sun angles;
+\item the resulting position estimate and its spread are stored as the references of step 1
+at the next epoch.
+\end{enumerate}
+
 \subsection{Attitude Estimation: the Multiplicative Extended Kalman Filter}
+
+The MEKF~\cite{Lefferts1982} is the state-of-the-art variant of the Kalman filter for
+quaternion-based attitude estimation.
+It propagates with the exact nonlinear kinematics a nominal state
+$\bar{\mathbf{X}}=[\bar{\mathbf{q}}^\top,\bar{\mathbf{b}}_g^\top,\bar{\mathbf{b}}_a^\top]^\top$,
+the quaternion and the gyroscope and accelerometer biases, and estimates the Gaussian
+error state $\delta\mathbf{X}=[\delta\boldsymbol{\theta}^\top,\delta\mathbf{b}_g^\top,
+\delta\mathbf{b}_a^\top]^\top$ $\in\mathbb{R}^9$, with covariance $\mathbf{P}$, where
+$\mathbf{q}^{true}=\bar{\mathbf{q}}\otimes\mathbf{q}\{\delta\boldsymbol{\theta}\}$ and
+$\mathbf{q}\{\cdot\}$ maps a rotation vector to a unit quaternion~\cite{Markley2003}.
+
+\paragraph{Prediction}
+With the bias-corrected gyroscope rate $\boldsymbol{\omega}_k=\boldsymbol{\omega}_{m,k}
+-\bar{\mathbf{b}}_g$, the nominal quaternion is advanced as
+$\bar{\mathbf{q}}_k=\bar{\mathbf{q}}_{k-1}\otimes\mathbf{q}\{\boldsymbol{\omega}_k\Delta t\}$
+and the nominal biases are held constant.
+The error state evolves as $\dot{\delta\boldsymbol{\theta}}=-[\boldsymbol{\omega}\times]
+\delta\boldsymbol{\theta}-\delta\mathbf{b}_g-\mathbf{n}_g$, with the biases as random walks,
+so that
+\begin{equation}
+\mathbf{P}_k^-=\mathbf{F}\mathbf{P}_{k-1}\mathbf{F}^\top+\mathbf{Q},\qquad
+\mathbf{F}=\begin{bmatrix}\mathbf{I}_3-\Delta t[\boldsymbol{\omega}\times] &
+-\Delta t\,\mathbf{I}_3 & \mathbf{0}_3\\
+\mathbf{0}_3 & \mathbf{I}_3 & \mathbf{0}_3\\
+\mathbf{0}_3 & \mathbf{0}_3 & \mathbf{I}_3\end{bmatrix}.
+\end{equation}
+The process-noise covariance is obtained with the Van Loan construction~\cite{VanLoan1978},
+integrating the noise together with the dynamics over the step.
+Since the dynamics matrix of the attitude and gyro-bias pair is nilpotent, its transition
+matrix is exactly $\boldsymbol{\Phi}(\tau)=\mathbf{I}_6+\mathbf{A}\tau$, and integrating
+$\boldsymbol{\Phi}\,\mathrm{blkdiag}(\sigma_g^2\mathbf{I}_3,\sigma_{bg}^2\mathbf{I}_3)\,
+\boldsymbol{\Phi}^\top$ over $[0,\Delta t]$ gives
+\begin{equation}
+\mathbf{Q}=\begin{bmatrix}
+(\sigma_g^2\Delta t+\frac13\sigma_{bg}^2\Delta t^3)\,\mathbf{I}_3 &
+-\frac12\sigma_{bg}^2\Delta t^2\,\mathbf{I}_3 & \mathbf{0}_3\\
+-\frac12\sigma_{bg}^2\Delta t^2\,\mathbf{I}_3 & \sigma_{bg}^2\Delta t\,\mathbf{I}_3 &
+\mathbf{0}_3\\
+\mathbf{0}_3 & \mathbf{0}_3 & \sigma_{ba}^2\Delta t\,\mathbf{I}_3
+\end{bmatrix},
+\end{equation}
+with $\sigma_g$ the gyroscope white noise and $\sigma_{bg}$, $\sigma_{ba}$ the bias
+random-walk intensities of Table~\ref{tab:sensors}.
+
+\paragraph{Measurement models}
+The accelerometer measures gravity along the local up-versor $\hat{\mathbf{u}}(\mathbf{p})$, and
+the Sun sensor the Sun direction $\hat{\mathbf{s}}_{VCVF}(\mathbf{p})$, both resolved in body
+axes, $\hat{\mathbf{s}}_B=\mathbf{R}(\bar{\mathbf{q}})^\top\hat{\mathbf{s}}_{VCVF}(\mathbf{p})$:
+\begin{gather}
+\hat{\mathbf{z}}_a=\hat{\mathbf{g}}_B+\bar{\mathbf{b}}_a,\quad
+\hat{\mathbf{g}}_B=g_0\mathbf{R}(\bar{\mathbf{q}})^\top\hat{\mathbf{u}}(\mathbf{p}),\qquad
+\mathbf{H}_a=\begin{bmatrix}[\hat{\mathbf{g}}_B\times] & \mathbf{0}_3 & \mathbf{I}_3
+\end{bmatrix},\\
+\hat{\mathbf{z}}_s=\begin{bmatrix}\operatorname{atan2}(\hat s_{B,y},\hat s_{B,x})\\
+\arcsin\hat s_{B,z}\end{bmatrix},\qquad
+\mathbf{H}_s=\begin{bmatrix}\mathbf{J}_{ae}[\hat{\mathbf{s}}_B\times] &
+\mathbf{0}_{2\times3} & \mathbf{0}_{2\times3}\end{bmatrix},
+\end{gather}
+with $\mathbf{J}_{ae}=\partial(az,el)/\partial\hat{\mathbf{s}}_B$, whose azimuth row scales as
+$1/\cos(el)$, and noise covariances $\mathbf{R}_a=\mathrm{diag}(\sigma_w^2+\sigma_{k,i}^2)$,
+where $\sigma_{k,i}$ accounts for the kinematic acceleration of the swinging vehicle, and
+$\mathbf{R}_s=\sigma_s^2\mathbf{I}_2$.
+Each correction computes $\mathbf{K}=\mathbf{P}\mathbf{H}^\top(\mathbf{H}\mathbf{P}
+\mathbf{H}^\top+\mathbf{R})^{-1}$ and $\delta\hat{\mathbf{X}}=\mathbf{K}(\mathbf{z}-
+\hat{\mathbf{z}})$, folds the error into the nominal state,
+$\bar{\mathbf{q}}\leftarrow\bar{\mathbf{q}}\otimes\mathbf{q}\{\delta\hat{\boldsymbol{\theta}}\}$
+and $\bar{\mathbf{b}}_\bullet\leftarrow\bar{\mathbf{b}}_\bullet+\delta\hat{\mathbf{b}}_\bullet$,
+updates $\mathbf{P}$ in Joseph form, and resets the error state to zero.
+
 \subsection{Position Estimation: the Particle Filter}
-\Fig{multimodality.png}{0.96}{Multimodal posterior represented by the particle swarm: competing location hypotheses coexist as clusters until the measurements single one out.}
+
+The terrain-relative likelihood is multi-modal in horizontal position, which no single
+Gaussian can represent.
+The particle filter~\cite{Gordon1993,Arulampalam2002} represents the posterior by $N=1000$
+weighted samples, each a hypothesis on the translational state
+$\mathbf{X}^i=\{\mathbf{p}^i,\mathbf{v}^i\}$, $\mathbf{p}^i=[\varphi^i,\lambda^i,h^i]$, so that
+competing locations can coexist until the measurements single one out
+(Fig.~\ref{fig:multimodality}).
+
+\Fig{multimodality.png}{0.96}{Multimodal posterior represented by the particle swarm: competing
+location hypotheses coexist as clusters until the measurements single one
+out.\label{fig:multimodality}}
+
+\paragraph{Propagation}
+Each particle is propagated through the translational dynamics of Eq.~\eqref{eq:dynamics},
+pushed by the wind, with the atmosphere $(P^i,\rho^i,T^i,\mathbf{W}^i)$ read at its own
+position from the nominal, mean fields of the Venus Climate Database~\cite{Lebonnois2023}.
+Volume, reference area, mass and forces are evaluated per particle, and
+\begin{equation}
+\mathbf{a}^i=\frac{\mathbf{F}_{grav}^i+\mathbf{F}_{buoy}^i+\mathbf{F}_{drag}^i}{m_{tot}^i}
+-\boldsymbol{\omega}_p\times(\boldsymbol{\omega}_p\times\mathbf{r}^i)
+-2\,\boldsymbol{\omega}_p\times\mathbf{v}^i+\boldsymbol{\eta}_a^i
+\end{equation}
+is integrated with an Euler step, the process noise $\boldsymbol{\eta}_a^i$ keeping the swarm
+from collapsing onto a single trajectory.
+Every particle thus flies the nominal atmosphere while the truth flies the perturbed one, and
+this discrepancy is the dominant model error of the estimator.
+
+\paragraph{Measurement update}
+The barometer innovation is a direct map comparison, $\nu_{bar}^i=P_m-P_{LUT}(\mathbf{p}^i,t)$.
+The altimeter innovation stretches the vertical terrain clearance $\hat h_\perp^i$ of the map
+by the tilt of the body $-Z$ axis $\mathbf{n}=-\mathbf{R}(\bar{\mathbf{q}})\hat{\mathbf{z}}$,
+\begin{equation}
+\nu_{alt}^i=d_m-\frac{\hat h_\perp^i}{\cos\gamma^i},\qquad
+\cos\gamma^i=-\left[\mathbf{R}_{VCVF\to ENU}(\mathbf{p}^i)\,\mathbf{n}\right]_U.
+\end{equation}
+The Sun sensor is informative for position only in the local horizon frame.
+The measured Sun direction and the specific force, de-biased with the MEKF estimate, are
+rotated into VCVF with the shared attitude,
+\begin{equation}
+\hat{\mathbf{u}}_{meas}=\mathbf{R}(\bar{\mathbf{q}})\frac{\mathbf{z}_a-\bar{\mathbf{b}}_a}
+{\|\mathbf{z}_a-\bar{\mathbf{b}}_a\|},\qquad
+\hat{\mathbf{s}}_{meas}=\mathbf{R}(\bar{\mathbf{q}})
+\begin{bmatrix}\cos el\cos az\\ \cos el\sin az\\ \sin el\end{bmatrix},
+\end{equation}
+and the measured azimuth and elevation are taken in the ENU triad built on
+$\hat{\mathbf{u}}_{meas}$; the predicted angles of each particle follow from the ephemeris Sun
+position in that particle's own ENU frame, so that the innovations $\nu_{az}^i$,
+$\nu_{el}^i$ depend on its absolute latitude and longitude.
+
+\paragraph{Weighting and resampling}
+The active channels are combined into
+$D^i=\boldsymbol{\nu}^{i\top}\mathbf{R}^{-1}\boldsymbol{\nu}^i$, with
+$\mathbf{R}=\mathrm{diag}(\sigma_{bar}^2,\sigma_{alt}^2,\sigma_{az}^2,\sigma_{el}^2)$, and
+weighted by a heavy-tailed, tempered Student's-$t$ likelihood,
+\begin{equation}
+\log w_k^i=\log w_{k-1}^i-\beta\,\frac{\nu_t+m}{2}\log\left(1+\frac{D^i}{\nu_t}\right),
+\end{equation}
+with $\nu_t$ the degrees of freedom, $\beta$ the tempering exponent and $m$ the number of
+active channels.
+The heavy tail keeps an occasional anomalous match from killing a particle.
+The tempering $\beta<1$ makes each update only a small correction of the weights, so that
+a particle is judged on the accumulated evidence of many successive epochs rather than on a
+single one: the weights then reflect how well the particle matches the terrain profile
+travelled over a long stretch of trajectory, which carries much more topographic
+information than a point-by-point comparison.
+Since the residuals are correlated over hundreds of seconds while the update runs at
+\SI{10}{Hz}, an untempered likelihood would also treat correlated samples as independent and
+collapse the swarm within seconds.
+Degeneracy is measured by the effective sample size~\cite{Kong1994,Arulampalam2002},
+\begin{equation}
+N_{eff}=\frac{1}{\sum_{i=1}^N(w_k^i)^2},
+\end{equation}
+which equals $N$ for uniform weights and 1 when a single particle carries them all.
+When $N_{eff}<0.5N$ the swarm is regenerated by systematic resampling~\cite{Kitagawa1996},
+the weights are reset to $1/N$, and each position is roughened~\cite{Gordon1993} by a
+Gaussian displacement of \SI{0.05}{\degree} to counteract sample impoverishment.
+The estimate is a weighted mean over the particles within \SI{25}{km} of the most probable
+one, while its covariance $\boldsymbol{\Sigma}_p$ is computed over the whole swarm.
+
+\paragraph{Remark on the longitude problem and the role of the Sun sensor}
+With the barometer and the altimeter alone, the estimate can drift over flat terrain and
+become trapped in a local minimum of the topography (Fig.~\ref{fig:trapping}): four runs out
+of ten diverge in this way, through a longitude lock that is never corrected.
+The Sun channels, which have no local minima and depend on absolute longitude, are the only
+measurement able to detect and correct such a divergence.
+
+\Fig{terrain_trapping.png}{1.00}{Terrain trapping with altimeter and barometer only: the
+estimate stays locked on one side of a massif (4 runs out of 10 diverge), motivating the Sun
+channel.\label{fig:trapping}}
+
 \subsection{Uncertainty Exchange Between the Two Filters}
+
+In the cascade, point estimates and their uncertainties cross the interface
+(Table~\ref{tab:exchange}).
+The uncertainty of each transferred quantity is added to the receiving filter's
+measurement noise, recomputed at every epoch.
+
 \begin{table}[H]\centering\small
-\caption{Quantities exchanged between the two estimators at each epoch. Three of the five entries are uncertainties rather than values.}
+\caption{Quantities exchanged between the two estimators at each epoch. Three of the five
+entries are uncertainties rather than values.}\label{tab:exchange}
 \begin{tabular}{@{}llp{8.5cm}@{}}
 \toprule Quantity & Direction & Purpose in the receiving filter\\\midrule
 $\bar q_k$ & MEKF $\to$ PF & tilts the altimeter slant range; builds the measured horizon frame\\
@@ -384,31 +571,148 @@ $\hat p_k$ & PF $\to$ MEKF & builds the local-vertical and Sun references\\
 $\sigma_{p,k}$ & PF $\to$ MEKF & inflates the accelerometer and Sun measurement noise\\\bottomrule
 \end{tabular}
 \end{table}
-\paragraph{Remark on the longitude problem and the role of the Sun sensor.} % formerly Sec. 3.5, now a remark
-\Fig{terrain_trapping.png}{1.00}{Terrain trapping with altimeter and barometer only: the estimate stays locked on one side of a massif (4 runs out of 10 diverge), motivating the Sun channel.}
+
+\paragraph{Attitude uncertainty into the particle filter}
+For particle $i$, the attitude covariance $\mathbf{P}_{\theta\theta}$ is projected on its own
+local vertical $\hat{\mathbf{u}}_B^{(i)}=\mathbf{R}(\bar{\mathbf{q}})^\top
+\hat{\mathbf{u}}(\mathbf{p}^i)$ to give the yaw uncertainty, the rest of the trace being
+attributed to the two tilt axes together with the accelerometer noise.
+Since a tilt moves the elevation one-for-one and the azimuth by $1/\cos(el)$, while a yaw
+moves only the azimuth, the Sun channels use
+\begin{gather}
+\sigma_{el}=\sqrt{\sigma_s^2+v_{tilt}},\qquad
+\sigma_{az}=\sqrt{\sigma_s^2+\sigma_\psi^2+\frac{v_{tilt}}{\cos^2el}},\\
+\sigma_\psi^2=\hat{\mathbf{u}}_B^{(i)\top}\mathbf{P}_{\theta\theta}\hat{\mathbf{u}}_B^{(i)},\quad
+v_{tilt}=\frac{\mathrm{tr}\,\mathbf{P}_{\theta\theta}-\sigma_\psi^2}{2}
++\frac{\sigma_w^2}{g_0^2}.
+\end{gather}
+
+\paragraph{Position uncertainty into the MEKF}
+The swarm covariance is converted into the horizontal arc length
+$\sigma_p^2=(r\sigma_\varphi)^2+(r\cos\varphi\,\sigma_\lambda)^2$, with
+$r=R_V+h\approx\SI{6107}{km}$.
+For the Sun sensor it produces a parallax $\sigma_{par}=(180/\pi)\,\sigma_p/d_\odot$ degrees,
+with $d_\odot\approx\SI{1.08e8}{km}$; for the accelerometer it tilts the local vertical by
+$\sigma_u=\sigma_p/(\sqrt2\,r)$ per horizontal axis.
+The two covariances become
+\begin{align}
+\mathbf{R}_s&=\mathrm{diag}\left(\sigma_s^2+\frac{\sigma_{par}^2}{\cos^2el},\
+\sigma_s^2+\sigma_{par}^2\right),\\
+\mathbf{R}_a&=\mathrm{diag}(\sigma_w^2+\sigma_{k,i}^2)+(g_0\sigma_u)^2
+\left(\mathbf{I}_3-\hat{\mathbf{g}}\hat{\mathbf{g}}^\top\right),
+\end{align}
+the tilt term being injected in rank-two form so that the radial channel, which carries the
+accelerometer-bias information, is untouched.
+The local vertical is $r/d_\odot\approx1.8\times10^4$ times more sensitive to a position error
+than the Sun direction, and the position error is correlated in time: the MEKF therefore
+corrects with the Sun sensor every \SI{10}{s} and with the accelerometer only every
+\SI{1000}{s}.
 
 \section{Simulations and Results}\label{sec:results}
 \subsection{Simulation Setup}
-\Fig{campaign_trajectories.png}{0.86}{Ground tracks of 10 Monte Carlo runs, launched at longitude $0^\circ$ with latitude uniform in $[-20^\circ,20^\circ]$.}
-\subsection{Reference Run} % formerly Sec. 3.6
-\Fig{singlerun_attitude_zoom.png}{0.81}{Single run: estimated vs. true roll, pitch and yaw over a 10 min window, with the MEKF $\pm3\sigma$ band.}
-\Fig{singlerun_position_estimation.png}{0.81}{Single run: particle-filter position mean vs. truth (latitude, longitude, altitude).}
-\Fig{singlerun_position_error.png}{0.81}{Single run: horizontal position error (RMSE 23.7 km, maximum about 80 km) and per-axis error against the declared $\pm3\sigma$.}
-\Fig{singlerun_particle_tracking.png}{1.00}{Particle swarm over the local topography at $t=57.5$ h, with true and estimated positions.}
-\subsection{Sensitivity to the Atmospheric Model}
-\Fig{atmos_sensitivity.png}{0.96}{Atmosphere campaign (100 runs): reading the database five Venusian hours out of phase costs 7.6 km of RMSE (26.7 to 34.3 km).}
+
+After a reference run (Section~\ref{sec:refrun}), the estimator is therefore assessed through
+Monte Carlo campaigns, organised as a sensitivity analysis on the two main assumptions: the knowledge of the atmosphere (Section~\ref{sec:sens_atm}) and the
+accuracy of the Sun sensor (Section~\ref{sec:sens_sun}).
+
+Each configuration is simulated over one hundred independent runs.
+Each run starts at the epoch of Table~\ref{tab:scenario}, with the balloon at \SI{58}{km} of
+altitude and \SI{0}{\degree} of longitude, a latitude drawn uniformly between
+\SI{-20}{\degree} and \SI{20}{\degree}, and its own atmospheric-perturbation and sensor-noise
+seeds (Fig.~\ref{fig:campaign}).
+Each run simulates \SI{100}{h} of flight at $\Delta t=\SI{0.1}{s}$, within which the
+far-side window lasts about \SI{65}{h}, the Sun setting about \SI{46}{h} after the link is
+lost.
+The estimator is the full architecture of Section~\ref{sec:estimation}, with $N=1000$
+particles and the cadences of Section~\ref{sec:estimation}.
+The initial attitude of the MEKF is computed with the TRIAD method~\cite{Black1964} from
+the first Sun-sensor and accelerometer readings.
+The MEKF is started \SI{2}{h} before the blackout, while the position is still known, so that
+its initial transient has settled when the particle filter takes over; the particles are
+initialised about the last known state with $\sigma_\varphi=\sigma_\lambda=\SI{0.1}{\degree}$,
+$\sigma_h=\SI{50}{m}$ and $\sigma_v=\SI{1}{m\,s^{-1}}$.
+
+\Fig{campaign_trajectories.png}{0.86}{Ground tracks of 10 Monte Carlo runs, launched at
+longitude $0^\circ$ with latitude uniform in $[-20^\circ,20^\circ]$.\label{fig:campaign}}
+
+Every run is scored over the sunlit arc only, on three statistics:
+\begin{itemize}
+\item \textbf{Lost runs}, whose position error crosses a \SI{500}{km} threshold before sunset
+and does not recover, counted out of one hundred;
+\item \textbf{RMSE}, the position root-mean-square error over the sunlit arc, averaged over
+the runs that are not lost;
+\item \textbf{$3\sigma$ coverage}, the fraction of sunlit epochs at which the true position
+error lies within the filter's own $3\sigma$ bound, averaged over the runs that are not lost.
+\end{itemize}
+
+\subsection{Reference Run}\label{sec:refrun} % formerly Sec. 3.6
+
+Before the campaigns, the coupled estimator is tested on a single reference run.
+Figure~\ref{fig:ref_att} zooms into a ten-minute window late in the sunlit arc: roll and pitch
+oscillate by a few tenths of a degree as the balloon swings, and the MEKF follows that
+oscillation with the true value inside its declared $3\sigma$ band; yaw, driven by the much
+larger and slower rotation of the heading, is reproduced with no visible lag.
+
+\Fig{singlerun_attitude_zoom.png}{0.81}{Single run: estimated vs. true roll, pitch and yaw over
+a 10 min window, with the MEKF $\pm3\sigma$ band.\label{fig:ref_att}}
+
+The particle-filter mean follows the true latitude and longitude closely, and the altitude
+estimate follows the oscillations of the balloon around its float level
+(Fig.~\ref{fig:ref_pos}).
+Figure~\ref{fig:ref_err} quantifies the resulting accuracy: a horizontal RMSE of
+\SI{23.7}{km}, with a worst-case excursion of about \SI{80}{km}, and an error that stays
+within the filter's own $3\sigma$ bound.
+
+\Fig{singlerun_position_estimation.png}{0.81}{Single run: particle-filter position mean vs.
+truth (latitude, longitude, altitude).\label{fig:ref_pos}}
+\Fig{singlerun_position_error.png}{0.81}{Single run: horizontal position error (RMSE 23.7 km,
+maximum about 80 km) and per-axis error against the declared $\pm3\sigma$.\label{fig:ref_err}}
+\Fig{singlerun_particle_tracking.png}{1.00}{Particle swarm over the local topography at $t=57.5$
+h, with true and estimated positions.\label{fig:ref_swarm}}
+
+\subsection{Sensitivity to the Atmospheric Model}\label{sec:sens_atm}
+
+Every result of this work already includes a persistent modelling error, since the particles
+fly the mean fields of the Venus Climate Database while the truth flies its perturbed version.
+This campaign degrades the onboard atmosphere further, by reading the same database five
+Venus hours out of phase.
+Since the database is indexed by local solar time, this corrupts the filter's knowledge of
+the diurnal cycle of the atmosphere.
+
+\Fig{atmos_sensitivity.png}{0.96}{Atmosphere campaign (100 runs): reading the database five
+Venusian hours out of phase costs 7.6 km of RMSE (26.7 to 34.3 km).\label{fig:sens_atm}}
+
 \begin{table}[H]\centering\small
-\caption{Sensitivity to the fidelity of the filter's onboard atmosphere. One hundred runs per row, sunlit arc only, identical seeds and initial latitudes.}
+\caption{Sensitivity to the fidelity of the filter's onboard atmosphere. One hundred runs per
+row, sunlit arc only, identical seeds and initial latitudes.}\label{tab:sens_atm}
 \begin{tabular}{@{}lccc@{}}
 \toprule Atmosphere the filter propagates on & RMSE [km] & $3\sigma$ coverage [\%] & Lost\\\midrule
 Nominal database & 26.7 & 88.4 & 1/100\\
 Database lagged 5 Venus h & 34.3 & 75.1 & 2/100\\\bottomrule
 \end{tabular}
 \end{table}
-\subsection{Sensitivity to the Sun Sensor Noise}
-\Fig{sun_sensitivity.png}{0.96}{Sun-sensor campaign (100 runs per row): across three decades of noise the RMSE moves by only 1.7 km.}
+
+The estimator is sensitive to the knowledge of the atmosphere (Table~\ref{tab:sens_atm},
+Fig.~\ref{fig:sens_atm}): the lagged database worsens the RMSE by \SI{7.6}{km} and lowers
+the $3\sigma$ coverage by thirteen percentage points, since the particles are propagated on
+a wind that departs further from the real one.
+The RMSE nonetheless remains within the \SI{50}{km} requirement.
+The number of lost runs, one or two out of one hundred, against four out of ten in the
+configuration without the Sun channels in the position update
+(Section~\ref{sec:estimation}), reflects the importance of the double use of the Sun sensor,
+in both the attitude and the position filter.
+A way to reduce the gap between the modelled and the real atmosphere is proposed in
+Section~\ref{sec:conclusions}.
+
+\subsection{Sensitivity to the Sun Sensor Noise}\label{sec:sens_sun}
+
+The Sun sensor has not been designed in detail, and the baseline
+$\sigma_s=\SI{1e-4}{\degree}$ may not be achievable through the cloud deck.
+This campaign repeats the protocol over three decades of $\sigma_s$ with the nominal atmosphere model.
+
 \begin{table}[H]\centering\small
-\caption{Sensitivity to the Sun-sensor noise $\sigma_s$. One hundred runs per row, sunlit arc only, nominal atmosphere throughout.}
+\caption{Sensitivity to the Sun-sensor noise $\sigma_s$. One hundred runs per row, sunlit arc
+only, nominal atmosphere throughout.}\label{tab:sens_sun}
 \begin{tabular}{@{}lccc@{}}
 \toprule $\sigma_s$ & RMSE [km] & $3\sigma$ coverage [\%] & Lost\\\midrule
 $1\times10^{-4}$ deg & 26.7 & 88.4 & 1/100\\
@@ -416,6 +720,29 @@ $1\times10^{-2}$ deg & 27.4 & 91.8 & 2/100\\
 $1\times10^{-1}$ deg & 25.7 & 95.3 & 1/100\\\bottomrule
 \end{tabular}
 \end{table}
+
+
+\Fig{sun_sensitivity.png}{0.96}{Sun-sensor campaign (100 runs per row): across three decades of
+noise the RMSE moves by only 1.7 km.\label{fig:sens_sun}}
+
+Across three decades of sensor noise the results do not change (Table~\ref{tab:sens_sun},
+Fig.~\ref{fig:sens_sun}): the RMSE stays between \SI{25.7}{km} and \SI{27.4}{km}, a spread
+of \SI{1.7}{km} that is not even monotonic in $\sigma_s$, and the number of lost runs stays
+at one or two out of a hundred.
+The estimate is always carried mainly by the altimeter and
+the barometer, which constrain the position at a much finer horizontal scale than the Sun
+direction: a difference of a fraction of a degree in Sun azimuth or elevation corresponds to
+hundreds of kilometres between two particles.
+The Sun channels are used only to detect and correct a divergence, when the estimate is
+locked in a local topographic minimum.
+For this reason the RMSE stays at the level set by the terrain-relative channels, of a few
+tens of kilometres, and does not deteriorate with a worse Sun sensor.
+
+The $3\sigma$ coverage, instead, increases with $\sigma_s$.
+This is not a real improvement in the consistency of the filter: a larger sensor noise
+makes the measurement covariance $\mathbf{R}$ of the particle filter larger, so the weights
+discriminate less between particles and the swarm stays more dispersed, which inflates the
+covariance it reports.
 
 \section{Conclusions and Future Work}\label{sec:conclusions}
 \subsection{Main Findings}

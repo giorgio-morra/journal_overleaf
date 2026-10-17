@@ -5,45 +5,45 @@ The style file: elsarticle-num.bst
 Database file #1: references.bib
 Warning--empty pages in Ploen2023
 Warning--empty pages in Akins2017
-You've used 31 entries,
+You've used 35 entries,
             2952 wiz_defined-function locations,
-            909 strings with 12069 characters,
-and the built_in function-call counts, 11224 in all, are:
-= -- 1062
-> -- 469
+            944 strings with 12774 characters,
+and the built_in function-call counts, 12465 in all, are:
+= -- 1199
+> -- 491
 < -- 2
-+ -- 177
-- -- 146
-* -- 942
-:= -- 1546
-add.period$ -- 56
-call.type$ -- 31
-change.case$ -- 32
++ -- 187
+- -- 152
+* -- 1050
+:= -- 1707
+add.period$ -- 64
+call.type$ -- 35
+change.case$ -- 36
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 303
-empty$ -- 1147
-format.name$ -- 174
-if$ -- 2796
+cite$ -- 37
+duplicate$ -- 332
+empty$ -- 1286
+format.name$ -- 181
+if$ -- 3112
 int.to.chr$ -- 0
-int.to.str$ -- 31
-missing$ -- 29
-newline$ -- 126
-num.names$ -- 31
-pop$ -- 172
+int.to.str$ -- 35
+missing$ -- 33
+newline$ -- 142
+num.names$ -- 35
+pop$ -- 185
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 676
+skip$ -- 756
 stack$ -- 0
-substring$ -- 707
-swap$ -- 118
+substring$ -- 804
+swap$ -- 130
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 73
-width$ -- 33
-write$ -- 307
+while$ -- 85
+width$ -- 37
+write$ -- 347
 (There were 2 warnings)
