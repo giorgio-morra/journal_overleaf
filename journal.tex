@@ -44,8 +44,6 @@ Venus aerobot \sep Autonomous navigation \sep Multiplicative extended Kalman fil
 
 \end{frontmatter}
 
-\setcounter{tocdepth}{2}
-\tableofcontents
 
 \section{Introduction}\label{sec:intro}
 \subsection{Venus and the Balloon Mission}\label{sec:venus}
@@ -90,7 +88,7 @@ atmosphere, which at cloud level circulates in a few days against the 243-day ro
 the solid body~\cite{SanchezLavega2008,SanchezLavega2017}, and altitude is the only degree
 of freedom it actively controls.
 
-\Fig{aerobot_concept.jpg}{0.36}{The two-part variable-altitude aerobot: helium pumped into
+\Fig{aerobot_concept.jpg}{1}{The two-part variable-altitude aerobot: helium pumped into
 the inner envelope makes the vehicle descend, venting it makes it rise (52--62 km).
 Adapted from Hall et al.~\cite{Hall2021}.\label{fig:aerobot}}
 
@@ -746,34 +744,52 @@ discriminate less between particles and the swarm stays more dispersed, which in
 covariance it reports.
 
 \section{Conclusions and Future Work}\label{sec:conclusions}
+
+This work estimated the trajectory of a Venus aerobot across the sunlit arc of the far-side
+DSN occultation with an MEKF and a particle filter coupled in cascade, validated on a
+simulated truth that flies a different atmosphere from the estimator.
+
 \subsection{Main Findings}
+
+\begin{enumerate}
+\item \textbf{The Sun channel prevents divergence.}
+With the barometer and the altimeter alone four runs in ten lock onto a false terrain match
+in longitude; adding the Sun channels, resolved in the local horizon frame, raises the
+convergence rate from about 60\% to 98--99\% in every campaign.
+\item \textbf{The estimator meets the requirement.}
+The position RMSE over the sunlit arc is \SI{26.7}{km}, never worse than \SI{34.3}{km}, within
+the \SI{50}{km} requirement: about a quarter of one per cent of the \SI{10000}{km} flown,
+and half the \SI{47.95}{km} of Cottrill and Gu~\cite{Cottrill2024} over a horizon more than
+forty times longer.
+\item \textbf{Uncertainty must cross the interface.}
+A cascade that hands over bare estimates makes the receiving filter overconfident;
+re-injecting the transferred covariance into the measurement noise at every epoch avoids it.
+\item \textbf{The accuracy is set by the atmosphere, not by the Sun sensor.}
+A lagged onboard atmosphere costs \SI{7.6}{km} of RMSE, whereas three decades of Sun-sensor
+noise move it by \SI{1.7}{km}: the \SI{1e-4}{\degree} baseline is not a requirement.
+\end{enumerate}
+
 \subsection{Limitations and Future Work}
 
+\paragraph{The eclipse}
+In the last \SI{19}{h} only the barometer and the altimeter remain: longitude becomes
+unobservable and a false terrain lock is never corrected, so divergences rise sharply.
+A smoother that also exploits the DSN fix at the end of the blackout, or a second absolute
+reference available after sunset, would address it.
+
+\paragraph{The velocity and the wind model}
+No sensor measures velocity, and each particle moves with the nominal wind, so a wind error
+appears as a position bias.
+A slowly varying wind-bias state in each particle, informed by the position innovations,
+would let the swarm learn the offset between the modelled and the real wind, reducing the
+dependence on the onboard atmosphere found in Section~\ref{sec:sens_atm}.
+
+Finally, the estimator should be tested in a higher-fidelity environment and against data
+from flight-representative aerobot tests~\cite{Hall2021,Izraelevitz2025}.
+
+{\footnotesize
 \bibliographystyle{elsarticle-num}
 \bibliography{references}
-
-\clearpage
-\appendix
-\section{Additional Figures}
-\subsection{Background and Environment}\label{app:background}
-\Fig{venus_photo_white.jpg}{0.40}{Venus seen by Mariner 10: a global, unbroken deck of sulfuric-acid clouds hides the surface from visible-wavelength instruments (NASA/JPL-Caltech).\label{fig:venus_photo}}
-\Fig{venus_profile.png}{0.91}{Temperature, pressure and zonal wind between 45 and 75 km (Venus Climate Database). At 50--60 km conditions approach Earth's, with a zonal wind of about 62 m/s.\label{fig:venus_profile}}
-\Fig{planetary_wave_geopotential.png}{0.91}{Planetary-scale Rossby--Kelvin wave: wavenumber-one geopotential anomaly sweeping around the planet with a 5.65-day period (Lai et al.).}
-\Fig{mesoscale_gravity_waves_clouds.png}{0.81}{Meso-scale gravity-wave packets in VIRTIS-M cloud imagery, with wavelengths of tens of km and not tied to any topography (Silva et al.).}
-\Fig{orographic_wave_crosssection.png}{0.61}{Orographic waves: longitude--altitude cross-sections of vertical wind, Scorer parameter and pressure perturbation, anchored to the topography (Lef\`evre et al.).}
-\Fig{trajectory_vcvf.png}{0.61}{Ground-truth trajectory over the 100 h reference run in VCVF coordinates (green: start, red: end).}
-\Fig{attitude_evolution.png}{0.96}{Truth attitude over five minutes. Left: roll and pitch (damped pendulum, within about $1^\circ$ of the vertical). Right: yaw, which has no restoring moment and drifts freely.}
-\Fig{space_environment.png}{0.66}{Space environment at the start epoch from SPICE: positions of Sun, Earth and balloon relative to Venus, with J2000, IAU\_VENUS and ENU axes.}
-\subsection{Sensors}
-\Fig{sun_vs_altitude.png}{0.96}{Solar disk seen from below the cloud deck at 70, 69.2 and 66 km: the direct beam is invisible at 66 km, so an optical Sun sensor is not feasible.}
-\Fig{microwave_weighting.png}{0.75}{Weighting functions of the Venus atmosphere between 1 and 85 GHz: below about 18 GHz the atmosphere above the balloon is transparent to the Sun, which motivates a microwave Sun sensor.} % TODO: source to be confirmed (Federico's question)
-\Fig{topography_map.png}{0.96}{Magellan global topography used as the altimeter look-up table. Aphrodite Terra and Ishtar Terra make the altimeter informative; the plains are where it is weakest.} % TODO: source to be confirmed (Federico's question)
-\subsection{Additional Reference-Run Results}
-\Fig{singlerun_gyro_bias.png}{0.81}{Single run: gyroscope bias, truth vs. MEKF estimate (left) and error against the declared $\pm3\sigma$ (right).}
-\Fig{singlerun_accel_bias.png}{0.81}{Single run: accelerometer bias, truth vs. MEKF estimate (left) and error against the declared $\pm3\sigma$ (right).}
-\Fig{singlerun_velocity_estimation.png}{0.81}{Single run: particle-filter velocity mean vs. truth in the local ENU frame.}
-\Fig{singlerun_neff.png}{0.91}{Effective sample size $N_{eff}/N$ over the run, with the resampling threshold.}
-\Fig{singlerun_innovations.png}{0.81}{Mean absolute residual over the swarm for the four particle-filter channels (barometer, altimeter, Sun azimuth, Sun elevation).}
-\Fig{singlerun_sensor_usage.png}{0.81}{Sensor usage over Sun-visible epochs: duty cycle, share of the particle filter's selection, and share over time.}
+}
 
 \end{document}
