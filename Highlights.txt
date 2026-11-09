@@ -1,0 +1,7 @@
+Highlights
+
+- Trajectory estimation of a Venus aerobot during a 65 h Deep Space Network blackout
+- An attitude MEKF and a position particle filter are coupled in cascade
+- Uncertainties exchanged between the filters are re-injected as measurement noise
+- A microwave Sun sensor resolves the longitude ambiguity of terrain navigation
+- Mean position RMSE of 26.7 km over 46 h of sunlit autonomous flight

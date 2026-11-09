@@ -36,7 +36,7 @@
             country={USA}}
 
 \begin{abstract}
-At Venus, absolute position is normally recovered through radiometric tracking by the Deep Space Network. When a balloon drifts onto the far side of the planet, Venus occults the line of sight: a blackout of up to \SI{65}{h}, during which about \SI{14508}{km} are flown with no contact. This work estimates the trajectory of a Venus aerobot over the sunlit part of the occlusion, about \SI{46}{h} before the Sun sets, by fusing an IMU, a Sun sensor, a radar altimeter and a barometer. A Multiplicative Extended Kalman Filter tracks the attitude and a particle filter tracks the position, coupled in a cascade that re-injects every transferred uncertainty as an inflated measurement covariance. Over the sunlit arc, Monte Carlo campaigns of 100 runs give a position RMSE of \SI{26.7}{km}, never worse than \SI{34.3}{km}, within the \SI{50}{km} requirement. A single Sun channel on the position estimation raises convergence from about 60\% to 98--99\%, while the accuracy is set by the onboard atmospheric model rather than by the quality of the Sun sensor.
+At Venus, absolute position is normally recovered through radiometric tracking by the Deep Space Network. When a balloon drifts onto the far side of the planet, Venus occults the line of sight: a blackout of up to \SI{65}{h}, during which about \SI{14508}{km} are flown with no contact. This work estimates the trajectory of a Venus aerobot over the sunlit part of the occlusion, about \SI{46}{h} before the Sun sets, by fusing an IMU, a Sun sensor, a radar altimeter and a barometer. A Multiplicative Extended Kalman Filter tracks the attitude and a particle filter tracks the position, coupled in a cascade that re-injects every transferred uncertainty as an inflated measurement covariance. Over the sunlit arc, Monte Carlo campaigns of 100 runs give a mean position RMSE of \SI{26.7}{km}, rising to \SI{34.3}{km} with a degraded onboard atmosphere, below the \SI{50}{km} requirement. Adding the Sun channels to the position update reduces the lost runs from four in ten, in a preliminary campaign without them, to one or two in one hundred, while the accuracy is set by the onboard atmospheric model rather than by the quality of the Sun sensor.
 \end{abstract}
 
 \begin{keyword}
@@ -57,8 +57,8 @@ possibly a surface ocean~\cite{Way2016}; at some point it lost its water and ent
 runaway greenhouse state, and today its surface sits at roughly \SI{740}{K} under a
 pressure near \SI{92}{bar}~\cite{SanchezLavega2017}.
 How two such similar planets ended up so different is an open question of comparative
-planetology, all the more relevant since Venus-sized worlds are among the most common
-found by Kepler~\cite{Kane2014}.
+planetology, all the more relevant since Kepler data suggest that Venus analogues are common around
+other stars~\cite{Kane2014}.
 
 Volcanism is tied to the same questions.
 The surface is almost entirely volcanic plain, with remarkably few impact craters for a
@@ -68,7 +68,7 @@ repeated Magellan radar images point towards present-day activity~\cite{Herrick2
 A concept developed at JPL proposes to study eruptions as they happen with
 altitude-controlled balloons carrying infrasound microbarometers that manoeuvre to within
 \SI{50}{km} of a detected event~\cite{Rossi2023}.
-Such observations cannot be made from orbit, because a  deck of
+Such observations cannot be made from orbit, because a global deck of
 sulfuric-acid clouds hides the surface from any instrument working at visible wavelengths.
 Inside the atmosphere, however, between \SI{50}{km} and \SI{60}{km} of altitude,
 temperature and pressure approach those at the Earth's surface, about \SI{303}{K} and
@@ -82,16 +82,12 @@ measurements of the cloud-layer winds~\cite{Sagdeev1986}, but with no altitude c
 they were pure passive tracers of the flow.
 The variable-altitude aerobot developed at JPL is a direct answer to that
 limitation~\cite{Hall2021}: helium is pumped between an outer zero-pressure and an inner
-super-pressure envelope (Fig.~\ref{fig:aerobot}) to control altitude between \SI{52}{km}
+super-pressure envelope to control altitude between \SI{52}{km}
 and \SI{62}{km}, and prototypes have been flown on Earth~\cite{Izraelevitz2025}.
 The vehicle has no propulsion: it is carried around the planet by the super-rotating
 atmosphere, which at cloud level circulates in a few days against the 243-day rotation of
 the solid body~\cite{SanchezLavega2008,SanchezLavega2017}, and altitude is the only degree
 of freedom it actively controls.
-
-\Fig{aerobot_concept.jpg}{1}{The two-part variable-altitude aerobot: helium pumped into
-the inner envelope makes the vehicle descend, venting it makes it rise (52--62 km).
-Adapted from Hall et al.~\cite{Hall2021}.\label{fig:aerobot}}
 
 \subsection{The Localization Problem}\label{sec:problem}
 
@@ -109,7 +105,7 @@ the Venus Climate Database~\cite{Lebonnois2023} and compared with the trajectory
 database: their distance from this nominal prediction grows almost linearly, at about
 \SI{14}{km\,h^{-1}}.
 
-\Fig{groundtrack_dispersion.png}{0.62}{Ground track on the mean-field atmosphere vs. ten
+\Fig{groundtrack_dispersion.png}{0.55}{Ground track on the mean-field atmosphere vs. ten
 realisations on the perturbed atmosphere with additional disturbances, from the same
 initial state: the error grows at about 14 km/h,
 roughly 900 km at the end of the 65 h blackout.\label{fig:dispersion}}
@@ -121,7 +117,8 @@ about \SI{14508}{km} of ground track with no contact and no satellite navigation
 back on.
 An open-loop extrapolation would end it with an error of order \SI{900}{km}, eighteen
 times the \SI{50}{km} required to close on a volcanic event~\cite{Rossi2023}, adopted here
-as the minimum requirement on the reconstructed position.
+as the minimum requirement on the reconstructed position and assessed, in this work, on the
+root-mean-square position error.
 
 The far-side window is not homogeneous: the Sun sets once, about \SI{46}{h} after the link is lost, and does not rise again before
 the DSN reappears.
@@ -152,9 +149,10 @@ map matching altitude and pressure in a particle filter with fifteen states and 
 particles, and report a position RMSE of \SI{47.95}{km} over 120 Monte Carlo trials of one
 hour each.
 
-\begin{table}[tb]\centering\small
+\begin{table}[H]\centering\footnotesize
 \caption{Navigation architectures for a Venus balloon, compared with this
 work.}\label{tab:sota}
+\renewcommand{\arraystretch}{1.3}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.6cm}*{3}{>{\raggedright\arraybackslash}p{3.1cm}}@{}}
 \toprule & Ploen et al.~\cite{Ploen2023} & Cottrill and Gu~\cite{Cottrill2024} & This work\\\midrule
 Approach & Bias-compensated inertial navigation, rotated IMU & Inertial navigation, map matching and particle filter, 15 states, 5000 particles & Coupled MEKF and particle filter, 9-state attitude error and 6-state position, 1000 particles\\
@@ -215,14 +213,21 @@ configuration that a real mission would actually fly, close to an inferior conju
 when Venus, the Sun and the Earth are nearly aligned and the Earth--Venus distance is at its
 minimum: the start epoch of Table~\ref{tab:scenario} falls about five weeks after the
 inferior conjunction of 10 August 2031.
+Near inferior conjunction the hemisphere facing the Earth is the night side, so the far
+side, where the blackout occurs, is largely sunlit; near superior conjunction the situation
+is reversed, and the Sun sensor would be unavailable for most of the occultation.
+The results of this work therefore apply to the part of the synodic period in which the far
+side is illuminated.
 The balloon is released on the Earth-facing hemisphere, where the DSN is available, and the
 zonal wind carries it onto the far side, where the \SI{65}{h} autonomous window begins: the
 Sun stays visible for its first \SI{46}{h}, and neither the Earth nor the Sun is in view
 for the last \SI{19}{h}.
-The ground truth is propagated on the perturbed version of the Venus Climate Database, whereas the estimator only knows its mean fields, so
+The ground truth is propagated on the Venus Climate Database with its stochastic
+gravity-wave perturbation model enabled~\cite{Lebonnois2023}, whereas the estimator only
+knows its mean fields, so
 that a persistent modelling error is present in every result.
 
-\begin{table}[tb]\centering\small
+\begin{table}[H]\centering\small
 \caption{Scenario and initial conditions, common to all simulations.}\label{tab:scenario}
 \begin{tabular}{@{}ll@{}}
 \toprule Quantity & Value\\\midrule
@@ -290,7 +295,8 @@ of the local vertical, while yaw, with no restoring moment, evolves as a random 
 \subsection{Sun Sensor}
 
 The Sun sensor is the only absolute, sky-referenced measurement in the suite, and the only
-instrument whose realisability at Venus is genuinely open: no previous study has addressed the use of a Sun sensor on a Venus aerobot, so
+instrument whose realisability at Venus is genuinely open: to the best of the authors'
+knowledge, no previous study has addressed the use of a Sun sensor on a Venus aerobot, so
 its feasibility was assessed first.
 An optical or near-infrared sensor was considered first and turned out not to be feasible.
 The sulfuric-acid cloud deck between \SI{50}{km} and \SI{70}{km} scatters in the Mie regime
@@ -552,7 +558,7 @@ measurement able to detect and correct such a divergence.
 estimate stays locked on one side of a massif (4 runs out of 10 diverge), motivating the Sun
 channel.\label{fig:trapping}}
 
-\subsection{Uncertainty Exchange Between the Two Filters}
+\subsection{Uncertainty Exchange Between the Two Filters}\label{sec:exchange}
 
 In the cascade, point estimates and their uncertainties cross the interface
 (Table~\ref{tab:exchange}).
@@ -640,7 +646,8 @@ Every run is scored over the sunlit arc only, on three statistics:
 \item \textbf{Lost runs}, whose position error crosses a \SI{500}{km} threshold before sunset
 and does not recover, counted out of one hundred;
 \item \textbf{RMSE}, the position root-mean-square error over the sunlit arc, averaged over
-the runs that are not lost;
+the runs that are not lost, so that it describes the converged estimator while divergences
+are counted separately;
 \item \textbf{$3\sigma$ coverage}, the fraction of sunlit epochs at which the true position
 error lies within the filter's own $3\sigma$ bound, averaged over the runs that are not lost.
 \end{itemize}
@@ -662,6 +669,10 @@ estimate follows the oscillations of the balloon around its float level
 Figure~\ref{fig:ref_err} quantifies the resulting accuracy: a horizontal RMSE of
 \SI{23.7}{km}, with a worst-case excursion of about \SI{80}{km}, and an error that stays
 within the filter's own $3\sigma$ bound.
+The \SI{80}{km} peak shows that the \SI{50}{km} requirement, met in the RMSE sense, can be
+exceeded momentarily.
+No sensor observes the velocity directly, so the velocity of each particle stays close to
+the model wind, and a wind error appears as a position error.
 
 \Fig{singlerun_position_estimation.png}{0.81}{Single run: particle-filter position mean vs.
 truth (latitude, longitude, altitude).\label{fig:ref_pos}}
@@ -696,9 +707,12 @@ The estimator is sensitive to the knowledge of the atmosphere (Table~\ref{tab:se
 Fig.~\ref{fig:sens_atm}): the lagged database worsens the RMSE by \SI{7.6}{km} and lowers
 the $3\sigma$ coverage by thirteen percentage points, since the particles are propagated on
 a wind that departs further from the real one.
+Even with the nominal atmosphere the coverage, 88.4\%, is below the 99.7\% expected of a
+consistent Gaussian bound: the process noise does not fully represent the wind-model error,
+and the filter is moderately overconfident.
 The RMSE nonetheless remains within the \SI{50}{km} requirement.
-The number of lost runs, one or two out of one hundred, against four out of ten in the
-configuration without the Sun channels in the position update
+The number of lost runs, one or two out of one hundred, against four out of ten in a
+preliminary ten-run campaign without the Sun channels in the position update
 (Section~\ref{sec:estimation}), reflects the importance of the double use of the Sun sensor,
 in both the attitude and the position filter.
 A way to reduce the gap between the modelled and the real atmosphere is proposed in
@@ -737,6 +751,8 @@ The Sun channels are used only to detect and correct a divergence, when the esti
 locked in a local topographic minimum.
 For this reason the RMSE stays at the level set by the terrain-relative channels, of a few
 tens of kilometres, and does not deteriorate with a worse Sun sensor.
+The tested range stops at \SI{0.1}{\degree}: coarser accuracies, more representative of a
+small antenna array, remain to be assessed.
 
 The $3\sigma$ coverage, instead, increases with $\sigma_s$.
 This is not a real improvement in the consistency of the filter: a larger sensor noise
@@ -754,20 +770,21 @@ simulated truth that flies a different atmosphere from the estimator.
 
 \begin{enumerate}
 \item \textbf{The Sun channel prevents divergence.}
-With the barometer and the altimeter alone four runs in ten lock onto a false terrain match
-in longitude; adding the Sun channels, resolved in the local horizon frame, raises the
-convergence rate from about 60\% to 98--99\% in every campaign.
+With the barometer and the altimeter alone, four runs in ten of a preliminary campaign lock
+onto a false terrain match in longitude; with the Sun channels, resolved in the local horizon
+frame, one or two runs in one hundred are lost in every campaign.
 \item \textbf{The estimator meets the requirement.}
-The position RMSE over the sunlit arc is \SI{26.7}{km}, never worse than \SI{34.3}{km}, within
-the \SI{50}{km} requirement: about a quarter of one per cent of the \SI{10000}{km} flown,
-and half the \SI{47.95}{km} of Cottrill and Gu~\cite{Cottrill2024} over a horizon more than
-forty times longer.
+The mean position RMSE over the sunlit arc is \SI{26.7}{km}, and \SI{34.3}{km} with a lagged
+onboard atmosphere, below the \SI{50}{km} requirement: about a quarter of one per cent of the
+\SI{10000}{km} flown, over a horizon more than forty times longer than previous
+studies~\cite{Ploen2023,Cottrill2024}.
 \item \textbf{Uncertainty must cross the interface.}
 A cascade that hands over bare estimates makes the receiving filter overconfident;
 re-injecting the transferred covariance into the measurement noise at every epoch avoids it.
 \item \textbf{The accuracy is set by the atmosphere, not by the Sun sensor.}
 A lagged onboard atmosphere costs \SI{7.6}{km} of RMSE, whereas three decades of Sun-sensor
-noise move it by \SI{1.7}{km}: the \SI{1e-4}{\degree} baseline is not a requirement.
+noise move it by \SI{1.7}{km}: within the tested range, the \SI{1e-4}{\degree} baseline is
+not a requirement.
 \end{enumerate}
 
 \subsection{Limitations and Future Work}
@@ -785,8 +802,23 @@ A slowly varying wind-bias state in each particle, informed by the position inno
 would let the swarm learn the offset between the modelled and the real wind, reducing the
 dependence on the onboard atmosphere found in Section~\ref{sec:sens_atm}.
 
+\paragraph{Model fidelity}
+The truth and the filter share the same topography and pressure maps, the altimeter is
+modelled as a single ray rather than a finite footprint, and the refraction of the solar
+direction is not included: map errors, footprint averaging and refraction should be added to
+the truth model, and the Sun-sensor analysis extended beyond \SI{0.1}{\degree}.
+The results also hold only for the part of the synodic period in which the far side is
+sunlit, and the computational cost of the particle filter on a flight computer remains to be
+assessed.
 Finally, the estimator should be tested in a higher-fidelity environment and against data
 from flight-representative aerobot tests~\cite{Hall2021,Izraelevitz2025}.
+
+\section*{Acknowledgements}
+This research was carried out at the Jet Propulsion Laboratory, California Institute of Technology, under a contract with the National Aeronautics and Space Administration, as part of the JPL Visiting Student Research Program internship of Mr. Morra under the mentorship of Dr. Quadrelli, Dr. Altenbuchner and Dr. Rossi.
+
+\section*{Declaration of competing interest}
+The authors declare that they have no known competing financial interests or personal
+relationships that could have appeared to influence the work reported in this paper.
 
 {\footnotesize
 \bibliographystyle{elsarticle-num}
